@@ -1,0 +1,8 @@
+C:\Users\albad\Downloads\SwimmingApi (1)\SwimmingApi\obj\Debug\net8.0\SwimmingApi.csproj.AssemblyReference.cache
+C:\Users\albad\Downloads\SwimmingApi (1)\SwimmingApi\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\albad\Downloads\SwimmingApi (1)\SwimmingApi\obj\Debug\net8.0\SwimmingApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\albad\Downloads\SwimmingApi (1)\SwimmingApi\obj\Debug\net8.0\SwimmingApi.AssemblyInfoInputs.cache
+C:\Users\albad\Downloads\SwimmingApi (1)\SwimmingApi\obj\Debug\net8.0\SwimmingApi.AssemblyInfo.cs
+C:\Users\albad\Downloads\SwimmingApi (1)\SwimmingApi\obj\Debug\net8.0\SwimmingApi.csproj.CoreCompileInputs.cache
+C:\Users\albad\Downloads\SwimmingApi (1)\SwimmingApi\obj\Debug\net8.0\SwimmingApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\albad\Downloads\SwimmingApi (1)\SwimmingApi\obj\Debug\net8.0\SwimmingApi.MvcApplicationPartsAssemblyInfo.cache
