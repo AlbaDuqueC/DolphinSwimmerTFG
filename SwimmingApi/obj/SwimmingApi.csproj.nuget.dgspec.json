@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\albad\\Downloads\\SwimmingApi (1)\\SwimmingApi\\SwimmingApi.csproj": {}
+    "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\SwimmingApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\albad\\Downloads\\SwimmingApi (1)\\SwimmingApi\\SwimmingApi.csproj": {
+    "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\SwimmingApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\albad\\Downloads\\SwimmingApi (1)\\SwimmingApi\\SwimmingApi.csproj",
+        "projectUniqueName": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\SwimmingApi.csproj",
         "projectName": "SwimmingApi",
-        "projectPath": "C:\\Users\\albad\\Downloads\\SwimmingApi (1)\\SwimmingApi\\SwimmingApi.csproj",
+        "projectPath": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\SwimmingApi.csproj",
         "packagesPath": "C:\\Users\\albad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\albad\\Downloads\\SwimmingApi (1)\\SwimmingApi\\obj\\",
+        "outputPath": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

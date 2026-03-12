@@ -6,6 +6,7 @@ namespace SwimmingApi.Api.Controller;
 
 /// <summary>
 /// Controlador para operaciones sobre Equipos.
+/// Solo conoce la capa Application.
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
@@ -35,7 +36,7 @@ public class EquipoController : ControllerBase
     public async Task<IActionResult> ObtenerPorId(int id)
     {
         var equipo = await _useCase.ObtenerPorIdAsync(id);
-        var resultado = equipo != null
+        IActionResult resultado = equipo != null
             ? Ok(ApiResponse<EquipoResponseDto>.Ok(equipo))
             : NotFound(ApiResponse<EquipoResponseDto>.Error($"Equipo con ID {id} no encontrado."));
         return resultado;
@@ -53,7 +54,7 @@ public class EquipoController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Actualiza el nombre de un equipo.</summary>
+    /// <summary>Actualiza el nombre de un equipo existente.</summary>
     [HttpPut("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<EquipoResponseDto>), 200)]
     [ProducesResponseType(404)]
@@ -64,7 +65,7 @@ public class EquipoController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Elimina lógicamente un equipo.</summary>
+    /// <summary>Elimina lógicamente un equipo (no se borra de la base de datos).</summary>
     [HttpDelete("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<bool>), 200)]
     [ProducesResponseType(404)]

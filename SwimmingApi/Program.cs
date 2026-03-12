@@ -88,13 +88,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// ─── Migraciones automáticas al arrancar ──────────────────────────────────────
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    db.Database.Migrate();
-}
-
 // ─── Middleware ───────────────────────────────────────────────────────────────
 app.UseExceptionHandler();
 app.UseCors("AllowAll");

@@ -6,6 +6,8 @@ namespace SwimmingApi.Api.Controller;
 
 /// <summary>
 /// Controlador para operaciones sobre MarcasDeTiempo.
+/// Una marca puede ser registrada por el propio nadador o por un entrenador.
+/// Solo conoce la capa Application.
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
@@ -18,7 +20,7 @@ public class MarcaDeTiempoController : ControllerBase
         _useCase = useCase;
     }
 
-    /// <summary>Obtiene todas las marcas de tiempo de un NadadorEquipo.</summary>
+    /// <summary>Obtiene todas las marcas de tiempo de un NadadorEquipo concreto.</summary>
     [HttpGet("nadadorequipo/{idNadadorEquipo:int}")]
     [ProducesResponseType(typeof(ApiResponse<IEnumerable<MarcaDeTiempoResponseDto>>), 200)]
     public async Task<IActionResult> ObtenerPorNadadorEquipo(int idNadadorEquipo)
@@ -35,13 +37,16 @@ public class MarcaDeTiempoController : ControllerBase
     public async Task<IActionResult> ObtenerPorId(int id)
     {
         var marca = await _useCase.ObtenerPorIdAsync(id);
-        var resultado = marca != null
+        IActionResult resultado = marca != null
             ? Ok(ApiResponse<MarcaDeTiempoResponseDto>.Ok(marca))
             : NotFound(ApiResponse<MarcaDeTiempoResponseDto>.Error($"MarcaDeTiempo con ID {id} no encontrada."));
         return resultado;
     }
 
-    /// <summary>Registra una nueva marca de tiempo.</summary>
+    /// <summary>
+    /// Registra una nueva marca de tiempo para un NadadorEquipo.
+    /// Si IdNadador es nulo significa que la registró el entrenador.
+    /// </summary>
     [HttpPost]
     [ProducesResponseType(typeof(ApiResponse<MarcaDeTiempoResponseDto>), 201)]
     [ProducesResponseType(400)]
@@ -53,7 +58,7 @@ public class MarcaDeTiempoController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Actualiza una marca de tiempo existente.</summary>
+    /// <summary>Actualiza el tiempo o descripción de una marca existente.</summary>
     [HttpPut("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<MarcaDeTiempoResponseDto>), 200)]
     [ProducesResponseType(404)]
@@ -64,7 +69,7 @@ public class MarcaDeTiempoController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Elimina lógicamente una marca de tiempo.</summary>
+    /// <summary>Elimina lógicamente una marca de tiempo (no se borra de la base de datos).</summary>
     [HttpDelete("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<bool>), 200)]
     [ProducesResponseType(404)]

@@ -4,10 +4,6 @@ using SwimmingApi.Application.Interfaces.UseCase;
 
 namespace SwimmingApi.Api.Controller;
 
-/// <summary>
-/// Controlador para operaciones sobre Nadadores.
-/// Solo conoce la capa Application.
-/// </summary>
 [ApiController]
 [Route("api/[controller]")]
 public class NadadorController : ControllerBase
@@ -19,9 +15,7 @@ public class NadadorController : ControllerBase
         _useCase = useCase;
     }
 
-    /// <summary>Obtiene todos los nadadores activos.</summary>
     [HttpGet]
-    [ProducesResponseType(typeof(ApiResponse<IEnumerable<NadadorResponseDto>>), 200)]
     public async Task<IActionResult> ObtenerTodos()
     {
         var nadadores = await _useCase.ObtenerTodosAsync();
@@ -29,23 +23,17 @@ public class NadadorController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Obtiene un nadador por su ID.</summary>
     [HttpGet("{id:int}")]
-    [ProducesResponseType(typeof(ApiResponse<NadadorResponseDto>), 200)]
-    [ProducesResponseType(404)]
     public async Task<IActionResult> ObtenerPorId(int id)
     {
         var nadador = await _useCase.ObtenerPorIdAsync(id);
-        var resultado = nadador != null
+        IActionResult resultado = nadador != null
             ? Ok(ApiResponse<NadadorResponseDto>.Ok(nadador))
             : NotFound(ApiResponse<NadadorResponseDto>.Error($"Nadador con ID {id} no encontrado."));
         return resultado;
     }
 
-    /// <summary>Crea un nuevo nadador.</summary>
     [HttpPost]
-    [ProducesResponseType(typeof(ApiResponse<NadadorResponseDto>), 201)]
-    [ProducesResponseType(400)]
     public async Task<IActionResult> Crear([FromBody] NadadorRequestDto dto)
     {
         var nadador = await _useCase.CrearAsync(dto);
@@ -54,10 +42,7 @@ public class NadadorController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Actualiza los datos de un nadador.</summary>
     [HttpPut("{id:int}")]
-    [ProducesResponseType(typeof(ApiResponse<NadadorResponseDto>), 200)]
-    [ProducesResponseType(404)]
     public async Task<IActionResult> Actualizar(int id, [FromBody] NadadorRequestDto dto)
     {
         var nadador = await _useCase.ActualizarAsync(id, dto);
@@ -65,10 +50,7 @@ public class NadadorController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Elimina lógicamente un nadador (no se borra de la base de datos).</summary>
     [HttpDelete("{id:int}")]
-    [ProducesResponseType(typeof(ApiResponse<bool>), 200)]
-    [ProducesResponseType(404)]
     public async Task<IActionResult> Eliminar(int id)
     {
         var eliminado = await _useCase.EliminarAsync(id);

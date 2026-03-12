@@ -6,6 +6,7 @@ namespace SwimmingApi.Api.Controller;
 
 /// <summary>
 /// Controlador para operaciones sobre Entrenadores.
+/// Solo conoce la capa Application.
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
@@ -35,7 +36,7 @@ public class EntrenadorController : ControllerBase
     public async Task<IActionResult> ObtenerPorId(int id)
     {
         var entrenador = await _useCase.ObtenerPorIdAsync(id);
-        var resultado = entrenador != null
+        IActionResult resultado = entrenador != null
             ? Ok(ApiResponse<EntrenadorResponseDto>.Ok(entrenador))
             : NotFound(ApiResponse<EntrenadorResponseDto>.Error($"Entrenador con ID {id} no encontrado."));
         return resultado;
@@ -53,7 +54,7 @@ public class EntrenadorController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Actualiza los datos de un entrenador.</summary>
+    /// <summary>Actualiza los datos de un entrenador existente.</summary>
     [HttpPut("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<EntrenadorResponseDto>), 200)]
     [ProducesResponseType(404)]
@@ -64,7 +65,7 @@ public class EntrenadorController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Elimina lógicamente un entrenador.</summary>
+    /// <summary>Elimina lógicamente un entrenador (no se borra de la base de datos).</summary>
     [HttpDelete("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<bool>), 200)]
     [ProducesResponseType(404)]

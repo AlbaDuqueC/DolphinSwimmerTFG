@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SwimmingApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a1fd7c85bbcb9640cb7f32824f59e001479ec7b0")]
 [assembly: System.Reflection.AssemblyProductAttribute("SwimmingApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SwimmingApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

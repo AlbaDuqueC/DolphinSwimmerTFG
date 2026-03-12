@@ -1,0 +1,982 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SwimmingApi</name>
+    </assembly>
+    <members>
+        <member name="T:SwimmingApi.Api.ApiResponse`1">
+            <summary>
+            Envoltorio estándar para todas las respuestas de la API.
+            Garantiza un formato consistente en cada endpoint.
+            </summary>
+        </member>
+        <member name="P:SwimmingApi.Api.ApiResponse`1.Exito">
+            <summary>Indica si la operación fue exitosa.</summary>
+        </member>
+        <member name="P:SwimmingApi.Api.ApiResponse`1.Mensaje">
+            <summary>Mensaje descriptivo del resultado.</summary>
+        </member>
+        <member name="P:SwimmingApi.Api.ApiResponse`1.Datos">
+            <summary>Datos devueltos por la operación. Puede ser nulo en errores.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.ApiResponse`1.Ok(`0,System.String)">
+            <summary>Crea una respuesta exitosa con datos.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.ApiResponse`1.Error(System.String)">
+            <summary>Crea una respuesta de error sin datos.</summary>
+        </member>
+        <member name="T:SwimmingApi.Api.Controller.EntrenadorController">
+            <summary>
+            Controlador para operaciones sobre Entrenadores.
+            Solo conoce la capa Application.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.EntrenadorController.ObtenerTodos">
+            <summary>Obtiene todos los entrenadores activos.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.EntrenadorController.ObtenerPorId(System.Int32)">
+            <summary>Obtiene un entrenador por su ID.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.EntrenadorController.Crear(SwimmingApi.Application.Dtos.Entrenador.EntrenadorRequestDto)">
+            <summary>Crea un nuevo entrenador.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.EntrenadorController.Actualizar(System.Int32,SwimmingApi.Application.Dtos.Entrenador.EntrenadorRequestDto)">
+            <summary>Actualiza los datos de un entrenador existente.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.EntrenadorController.Eliminar(System.Int32)">
+            <summary>Elimina lógicamente un entrenador (no se borra de la base de datos).</summary>
+        </member>
+        <member name="T:SwimmingApi.Api.Controller.EquipoController">
+            <summary>
+            Controlador para operaciones sobre Equipos.
+            Solo conoce la capa Application.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.EquipoController.ObtenerTodos">
+            <summary>Obtiene todos los equipos activos.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.EquipoController.ObtenerPorId(System.Int32)">
+            <summary>Obtiene un equipo por su ID.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.EquipoController.Crear(SwimmingApi.Application.Dtos.Equipo.EquipoRequestDto)">
+            <summary>Crea un nuevo equipo.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.EquipoController.Actualizar(System.Int32,SwimmingApi.Application.Dtos.Equipo.EquipoRequestDto)">
+            <summary>Actualiza el nombre de un equipo existente.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.EquipoController.Eliminar(System.Int32)">
+            <summary>Elimina lógicamente un equipo (no se borra de la base de datos).</summary>
+        </member>
+        <member name="T:SwimmingApi.Api.Controller.MarcaDeTiempoController">
+            <summary>
+            Controlador para operaciones sobre MarcasDeTiempo.
+            Una marca puede ser registrada por el propio nadador o por un entrenador.
+            Solo conoce la capa Application.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.MarcaDeTiempoController.ObtenerPorNadadorEquipo(System.Int32)">
+            <summary>Obtiene todas las marcas de tiempo de un NadadorEquipo concreto.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.MarcaDeTiempoController.ObtenerPorId(System.Int32)">
+            <summary>Obtiene una marca de tiempo por su ID.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.MarcaDeTiempoController.Crear(SwimmingApi.Application.Dtos.MarcaDeTiempo.MarcaDeTiempoRequestDto)">
+            <summary>
+            Registra una nueva marca de tiempo para un NadadorEquipo.
+            Si IdNadador es nulo significa que la registró el entrenador.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.MarcaDeTiempoController.Actualizar(System.Int32,SwimmingApi.Application.Dtos.MarcaDeTiempo.MarcaDeTiempoRequestDto)">
+            <summary>Actualiza el tiempo o descripción de una marca existente.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.MarcaDeTiempoController.Eliminar(System.Int32)">
+            <summary>Elimina lógicamente una marca de tiempo (no se borra de la base de datos).</summary>
+        </member>
+        <member name="T:SwimmingApi.Api.Controller.NadadorEquipoController">
+            <summary>
+            Controlador para operaciones sobre NadadorEquipo.
+            Gestiona los registros de nadadores dentro de un equipo.
+            Solo conoce la capa Application.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.NadadorEquipoController.ObtenerPorEquipo(System.Int32)">
+            <summary>Obtiene todos los nadadores registrados en un equipo concreto.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.NadadorEquipoController.ObtenerPorId(System.Int32)">
+            <summary>Obtiene un NadadorEquipo por su ID.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.NadadorEquipoController.ObtenerPorCodigo(System.Int32)">
+            <summary>
+            Obtiene un NadadorEquipo por su código único.
+            Sirve para que un nadador se conecte a su registro del equipo.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.NadadorEquipoController.Crear(SwimmingApi.Application.Dtos.NadadorEquipo.NadadorEquipoRequestDto)">
+            <summary>
+            Crea un nuevo NadadorEquipo dentro de un equipo.
+            Solo lo puede hacer un entrenador. Genera un código único automáticamente.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.NadadorEquipoController.Actualizar(System.Int32,SwimmingApi.Application.Dtos.NadadorEquipo.NadadorEquipoRequestDto)">
+            <summary>Actualiza los datos de un NadadorEquipo existente.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.NadadorEquipoController.Eliminar(System.Int32)">
+            <summary>Elimina lógicamente un NadadorEquipo (no se borra de la base de datos).</summary>
+        </member>
+        <member name="T:SwimmingApi.Api.Controller.RutinaController">
+            <summary>
+            Controlador para operaciones sobre Rutinas.
+            Las rutinas pueden pertenecer a un nadador o a un entrenador para su equipo.
+            Solo conoce la capa Application.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.RutinaController.ObtenerPorUsuario(System.Int32)">
+            <summary>Obtiene todas las rutinas de un usuario concreto.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.RutinaController.ObtenerPorId(System.Int32)">
+            <summary>Obtiene una rutina por su ID.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.RutinaController.Crear(SwimmingApi.Application.Dtos.Rutina.RutinaRequestDto)">
+            <summary>Crea una nueva rutina para un usuario.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.RutinaController.Actualizar(System.Int32,SwimmingApi.Application.Dtos.Rutina.RutinaRequestDto)">
+            <summary>Actualiza el contenido o fecha de una rutina existente.</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.RutinaController.Eliminar(System.Int32)">
+            <summary>Elimina lógicamente una rutina (no se borra de la base de datos).</summary>
+        </member>
+        <member name="T:SwimmingApi.Api.GlobalExceptionHandler">
+            <summary>
+            Manejador global de excepciones no controladas.
+            Intercepta los errores y devuelve una respuesta JSON estandarizada.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Api.GlobalExceptionHandler.TryHandleAsync(Microsoft.AspNetCore.Http.HttpContext,System.Exception,System.Threading.CancellationToken)">
+            <summary>
+            Captura la excepción, la registra y devuelve una respuesta de error al cliente.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Api.Validaciones.EntrenadorValidator">
+            <summary>
+            Validador del DTO de Entrenador.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Api.Validaciones.EquipoValidator">
+            <summary>
+            Validador del DTO de Equipo.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Api.Validaciones.MarcaDeTiempoValidator">
+            <summary>
+            Validador del DTO de MarcaDeTiempo.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Api.Validaciones.NadadorEquipoValidator">
+            <summary>
+            Validador del DTO de NadadorEquipo.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Api.Validaciones.NadadorValidator">
+            <summary>
+            Validador de los datos del DTO de Nadador.
+            Controla que los campos sean correctos antes de llegar al UseCase.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Api.Validaciones.RutinaValidator">
+            <summary>
+            Validador del DTO de Rutina.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Dtos.Entrenador.EntrenadorRequestDto">
+            <summary>
+            DTO para crear o actualizar un entrenador.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Dtos.Entrenador.EntrenadorResponseDto">
+            <summary>
+            DTO de respuesta con los datos de un entrenador.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Dtos.Equipo.EquipoRequestDto">
+            <summary>
+            DTO para crear o actualizar un equipo.
+            </summary>
+        </member>
+        <member name="P:SwimmingApi.Application.Dtos.Equipo.EquipoRequestDto.Nombre">
+            <summary>Nombre del equipo.</summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Dtos.Equipo.EquipoResponseDto">
+            <summary>
+            DTO de respuesta con los datos de un equipo.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Dtos.MarcaDeTiempo.MarcaDeTiempoRequestDto">
+            <summary>
+            DTO para registrar una marca de tiempo.
+            </summary>
+        </member>
+        <member name="P:SwimmingApi.Application.Dtos.MarcaDeTiempo.MarcaDeTiempoRequestDto.Tiempo">
+            <summary>Tiempo registrado en formato "hh:mm:ss.fff".</summary>
+        </member>
+        <member name="P:SwimmingApi.Application.Dtos.MarcaDeTiempo.MarcaDeTiempoRequestDto.Descripcion">
+            <summary>Descripción de la prueba (ej: "100m libre").</summary>
+        </member>
+        <member name="P:SwimmingApi.Application.Dtos.MarcaDeTiempo.MarcaDeTiempoRequestDto.IdNadadorEquipo">
+            <summary>ID del NadadorEquipo al que se asigna la marca.</summary>
+        </member>
+        <member name="P:SwimmingApi.Application.Dtos.MarcaDeTiempo.MarcaDeTiempoRequestDto.IdNadador">
+            <summary>ID del nadador que registra. Nulo si lo registra el entrenador.</summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Dtos.MarcaDeTiempo.MarcaDeTiempoResponseDto">
+            <summary>
+            DTO de respuesta con los datos de una marca de tiempo.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Dtos.NadadorEquipo.NadadorEquipoRequestDto">
+            <summary>
+            DTO para crear o actualizar un NadadorEquipo.
+            </summary>
+        </member>
+        <member name="P:SwimmingApi.Application.Dtos.NadadorEquipo.NadadorEquipoRequestDto.Nombre">
+            <summary>Nombre del nadador en el equipo.</summary>
+        </member>
+        <member name="P:SwimmingApi.Application.Dtos.NadadorEquipo.NadadorEquipoRequestDto.Apellidos">
+            <summary>Apellidos del nadador en el equipo.</summary>
+        </member>
+        <member name="P:SwimmingApi.Application.Dtos.NadadorEquipo.NadadorEquipoRequestDto.IdEquipo">
+            <summary>ID del equipo al que pertenece. Obligatorio.</summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Dtos.NadadorEquipo.NadadorEquipoResponseDto">
+            <summary>
+            DTO de respuesta con los datos de un NadadorEquipo.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Dtos.Nadador.NadadorRequestDto">
+            <summary>
+            DTO para crear o actualizar un nadador.
+            </summary>
+        </member>
+        <member name="P:SwimmingApi.Application.Dtos.Nadador.NadadorRequestDto.Nombre">
+            <summary>Nombre del nadador.</summary>
+        </member>
+        <member name="P:SwimmingApi.Application.Dtos.Nadador.NadadorRequestDto.Apellidos">
+            <summary>Apellidos del nadador.</summary>
+        </member>
+        <member name="P:SwimmingApi.Application.Dtos.Nadador.NadadorRequestDto.Email">
+            <summary>Email del nadador.</summary>
+        </member>
+        <member name="P:SwimmingApi.Application.Dtos.Nadador.NadadorRequestDto.Password">
+            <summary>Contraseña en texto plano (se encriptará antes de guardar).</summary>
+        </member>
+        <member name="P:SwimmingApi.Application.Dtos.Nadador.NadadorRequestDto.IdEquipo">
+            <summary>ID del equipo al que se une. Opcional.</summary>
+        </member>
+        <member name="P:SwimmingApi.Application.Dtos.Nadador.NadadorRequestDto.CodigoNadadorEquipo">
+            <summary>Código de NadadorEquipo para vincular su perfil. Opcional.</summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Dtos.Nadador.NadadorResponseDto">
+            <summary>
+            DTO de respuesta con los datos de un nadador.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Dtos.Rutina.RutinaRequestDto">
+            <summary>
+            DTO para crear o actualizar una rutina.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Dtos.Rutina.RutinaResponseDto">
+            <summary>
+            DTO de respuesta con los datos de una rutina.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Interfaces.Repository.IEntrenadorRepository">
+            <summary>
+            Contrato para las operaciones de base de datos de Entrenador.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Interfaces.Repository.IEquipoRepository">
+            <summary>
+            Contrato para las operaciones de base de datos de Equipo.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Interfaces.Repository.IMarcaRepository">
+            <summary>
+            Contrato para las operaciones de base de datos de MarcaDeTiempo.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Interfaces.Repository.INadadorEquipoRepository">
+            <summary>
+            Contrato para las operaciones de base de datos de NadadorEquipo.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Interfaces.Repository.INadadorRepository">
+            <summary>
+            Contrato para las operaciones de base de datos de Nadador.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Interfaces.Repository.IRutinaRepository">
+            <summary>
+            Contrato para las operaciones de base de datos de Rutina.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Interfaces.UseCase.IEntrenadorUseCase">
+            <summary>
+            Contrato para los casos de uso de Entrenador.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Interfaces.UseCase.IEquipoUseCase">
+            <summary>
+            Contrato para los casos de uso de Equipo.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Interfaces.UseCase.IMarcaDeTiempoUseCase">
+            <summary>
+            Contrato para los casos de uso de MarcaDeTiempo.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Interfaces.UseCase.INadadorEquipoUseCase">
+            <summary>
+            Contrato para los casos de uso de NadadorEquipo.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Interfaces.UseCase.INadadorUseCase">
+            <summary>
+            Contrato para los casos de uso de Nadador.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.Interfaces.UseCase.IRutinaUseCase">
+            <summary>
+            Contrato para los casos de uso de Rutina.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Application.UseCase.EntrenadorUseCase">
+            <summary>
+            Casos de uso para la entidad Entrenador.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.EntrenadorUseCase.ObtenerPorIdAsync(System.Int32)">
+            <summary>Obtiene un entrenador por su ID. Primero comprueba la caché.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.EntrenadorUseCase.ObtenerTodosAsync">
+            <summary>Obtiene todos los entrenadores activos.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.EntrenadorUseCase.CrearAsync(SwimmingApi.Application.Dtos.Entrenador.EntrenadorRequestDto)">
+            <summary>Crea un nuevo entrenador validando el email y encriptando la contraseña.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.EntrenadorUseCase.ActualizarAsync(System.Int32,SwimmingApi.Application.Dtos.Entrenador.EntrenadorRequestDto)">
+            <summary>Actualiza los datos de un entrenador existente.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.EntrenadorUseCase.EliminarAsync(System.Int32)">
+            <summary>Elimina lógicamente un entrenador por su ID.</summary>
+        </member>
+        <member name="T:SwimmingApi.Application.UseCase.EquipoUseCase">
+            <summary>
+            Casos de uso para la entidad Equipo.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.EquipoUseCase.ObtenerPorIdAsync(System.Int32)">
+            <summary>Obtiene un equipo por su ID.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.EquipoUseCase.ObtenerTodosAsync">
+            <summary>Obtiene todos los equipos activos.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.EquipoUseCase.CrearAsync(SwimmingApi.Application.Dtos.Equipo.EquipoRequestDto)">
+            <summary>Crea un nuevo equipo.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.EquipoUseCase.ActualizarAsync(System.Int32,SwimmingApi.Application.Dtos.Equipo.EquipoRequestDto)">
+            <summary>Actualiza el nombre de un equipo existente.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.EquipoUseCase.EliminarAsync(System.Int32)">
+            <summary>Elimina lógicamente un equipo por su ID.</summary>
+        </member>
+        <member name="T:SwimmingApi.Application.UseCase.MarcaDeTiempoUseCase">
+            <summary>
+            Casos de uso para la entidad MarcaDeTiempo.
+            Permite registrar una marca uno mismo o a través del entrenador.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.MarcaDeTiempoUseCase.ObtenerPorIdAsync(System.Int32)">
+            <summary>Obtiene una marca de tiempo por su ID.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.MarcaDeTiempoUseCase.ObtenerPorNadadorEquipoAsync(System.Int32)">
+            <summary>Obtiene todas las marcas de tiempo de un NadadorEquipo.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.MarcaDeTiempoUseCase.CrearAsync(SwimmingApi.Application.Dtos.MarcaDeTiempo.MarcaDeTiempoRequestDto)">
+            <summary>
+            Registra una nueva marca de tiempo para un NadadorEquipo.
+            Puede ser registrada por el nadador o por el entrenador.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.MarcaDeTiempoUseCase.ActualizarAsync(System.Int32,SwimmingApi.Application.Dtos.MarcaDeTiempo.MarcaDeTiempoRequestDto)">
+            <summary>Actualiza una marca de tiempo existente.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.MarcaDeTiempoUseCase.EliminarAsync(System.Int32)">
+            <summary>Elimina lógicamente una marca de tiempo.</summary>
+        </member>
+        <member name="T:SwimmingApi.Application.UseCase.NadadorEquipoUseCase">
+            <summary>
+            Casos de uso para NadadorEquipo.
+            Gestiona el registro de nadadores dentro de un equipo y genera su código único.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.NadadorEquipoUseCase.ObtenerPorIdAsync(System.Int32)">
+            <summary>Obtiene un NadadorEquipo por su ID.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.NadadorEquipoUseCase.ObtenerPorCodigoAsync(System.Int32)">
+            <summary>Obtiene un NadadorEquipo por su código de conexión.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.NadadorEquipoUseCase.ObtenerPorEquipoAsync(System.Int32)">
+            <summary>Obtiene todos los NadadoresEquipo de un equipo concreto.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.NadadorEquipoUseCase.CrearAsync(SwimmingApi.Application.Dtos.NadadorEquipo.NadadorEquipoRequestDto)">
+            <summary>
+            Crea un nuevo NadadorEquipo con un código único generado automáticamente.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.NadadorEquipoUseCase.ActualizarAsync(System.Int32,SwimmingApi.Application.Dtos.NadadorEquipo.NadadorEquipoRequestDto)">
+            <summary>Actualiza los datos de un NadadorEquipo.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.NadadorEquipoUseCase.EliminarAsync(System.Int32)">
+            <summary>Elimina lógicamente un NadadorEquipo.</summary>
+        </member>
+        <member name="T:SwimmingApi.Application.UseCase.NadadorUseCase">
+            <summary>
+            Casos de uso para la entidad Nadador.
+            Aquí se define la lógica de negocio paso a paso con rollback en caso de error.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.NadadorUseCase.ObtenerPorIdAsync(System.Int32)">
+            <summary>Obtiene un nadador por su ID. Primero busca en caché.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.NadadorUseCase.ObtenerTodosAsync">
+            <summary>Obtiene la lista completa de nadadores activos.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.NadadorUseCase.CrearAsync(SwimmingApi.Application.Dtos.Nadador.NadadorRequestDto)">
+            <summary>
+            Crea un nuevo nadador.
+            Valida el email, encripta la contraseña y limpia la caché de la lista.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.NadadorUseCase.ActualizarAsync(System.Int32,SwimmingApi.Application.Dtos.Nadador.NadadorRequestDto)">
+            <summary>
+            Actualiza los datos de un nadador existente.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.NadadorUseCase.EliminarAsync(System.Int32)">
+            <summary>Elimina lógicamente un nadador por su ID.</summary>
+        </member>
+        <member name="T:SwimmingApi.Application.UseCase.RutinaUseCase">
+            <summary>
+            Casos de uso para la entidad Rutina.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.RutinaUseCase.ObtenerPorIdAsync(System.Int32)">
+            <summary>Obtiene una rutina por su ID.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.RutinaUseCase.ObtenerPorUsuarioAsync(System.Int32)">
+            <summary>Obtiene todas las rutinas de un usuario concreto.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.RutinaUseCase.CrearAsync(SwimmingApi.Application.Dtos.Rutina.RutinaRequestDto)">
+            <summary>Crea una nueva rutina para un usuario.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.RutinaUseCase.ActualizarAsync(System.Int32,SwimmingApi.Application.Dtos.Rutina.RutinaRequestDto)">
+            <summary>Actualiza una rutina existente.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.RutinaUseCase.EliminarAsync(System.Int32)">
+            <summary>Elimina lógicamente una rutina.</summary>
+        </member>
+        <member name="T:SwimmingApi.Domain.Entities.EntityBase">
+            <summary>
+            Entidad base de la que heredan todas las entidades del sistema.
+            Incluye campos de auditoría y eliminación lógica.
+            </summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.EntityBase.Id">
+            <summary>Identificador único de la entidad.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.EntityBase.CreatedAt">
+            <summary>Fecha en la que fue creada la entidad.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.EntityBase.UpdateAt">
+            <summary>Fecha de última modificación. Puede ser nula si nunca se modificó.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.EntityBase.DeleteAt">
+            <summary>
+            Fecha de eliminación lógica. Si tiene valor, la entidad está eliminada
+            y no aparecerá en ningún listado.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Domain.Entities.Entrenador">
+            <summary>
+            Entidad que representa a un entrenador. Hereda de Usuario.
+            </summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Entrenador.IdEntrenador">
+            <summary>Identificador específico del entrenador para distinguirlo de nadadores.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Entrenador.IdEquipoGestionado">
+            <summary>FK del equipo que gestiona el entrenador.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Entrenador.EquipoGestionado">
+            <summary>Equipo que gestiona este entrenador.</summary>
+        </member>
+        <member name="T:SwimmingApi.Domain.Entities.Equipo">
+            <summary>
+            Entidad que representa un equipo de natación.
+            Puede ser creado por un entrenador.
+            </summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Equipo.IdEquipo">
+            <summary>Identificador del equipo.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Equipo.Nombre">
+            <summary>Nombre del equipo.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Equipo.ListaNadadores">
+            <summary>Lista de nadadores registrados en el equipo.</summary>
+        </member>
+        <member name="T:SwimmingApi.Domain.Entities.MarcaDeTiempo">
+            <summary>
+            Entidad que registra una marca de tiempo de un nadador.
+            Puede ser registrada por el propio nadador o por un entrenador.
+            </summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.MarcaDeTiempo.IdMarca">
+            <summary>Identificador de la marca.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.MarcaDeTiempo.Tiempo">
+            <summary>Tiempo registrado en formato TimeSpan (hh:mm:ss.ms).</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.MarcaDeTiempo.Descripcion">
+            <summary>Descripción o prueba a la que corresponde la marca.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.MarcaDeTiempo.IdNadadorEquipo">
+            <summary>FK al registro NadadorEquipo al que pertenece esta marca.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.MarcaDeTiempo.NadadorEquipo">
+            <summary>Registro NadadorEquipo al que pertenece esta marca.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.MarcaDeTiempo.IdNadador">
+            <summary>FK del nadador que registró la marca. Puede ser nulo si la registró el entrenador.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.MarcaDeTiempo.Nadador">
+            <summary>Nadador que registró la marca.</summary>
+        </member>
+        <member name="T:SwimmingApi.Domain.Entities.Nadador">
+            <summary>
+            Entidad que representa a un nadador. Hereda de Usuario.
+            </summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Nadador.IdNadador">
+            <summary>Identificador específico del nadador para distinguirlo de entrenadores.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Nadador.IdNadadorEquipo">
+            <summary>FK al registro del nadador dentro de un equipo. Puede ser nulo.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Nadador.NadadorEquipo">
+            <summary>Registro del nadador dentro del equipo.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Nadador.ListaDeTiempo">
+            <summary>Lista de marcas de tiempo del nadador. Puede estar vacía.</summary>
+        </member>
+        <member name="T:SwimmingApi.Domain.Entities.NadadorEquipo">
+            <summary>
+            Registro de un nadador dentro de un equipo.
+            Puede ser creado por un entrenador aunque el nadador no esté registrado en el sistema.
+            Un nadador puede conectarse a este registro para ver sus datos de equipo.
+            </summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.NadadorEquipo.IdNadadorEquipo">
+            <summary>Identificador del nadador dentro del equipo.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.NadadorEquipo.Nombre">
+            <summary>Nombre del nadador en el equipo (para cuando no está registrado en el sistema).</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.NadadorEquipo.Apellidos">
+            <summary>Apellidos del nadador en el equipo.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.NadadorEquipo.Codigo">
+            <summary>Código único para que un nadador pueda conectarse a este registro.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.NadadorEquipo.IdEquipo">
+            <summary>FK del equipo al que pertenece. Obligatorio.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.NadadorEquipo.Equipo">
+            <summary>Equipo al que pertenece este registro.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.NadadorEquipo.ListaDeTiempoEquipo">
+            <summary>Lista de marcas de tiempo del nadador en el equipo.</summary>
+        </member>
+        <member name="T:SwimmingApi.Domain.Entities.Rutina">
+            <summary>
+            Entidad que representa una rutina de entrenamiento.
+            Puede pertenecer a un nadador o a un entrenador para su equipo.
+            </summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Rutina.IdRutina">
+            <summary>Identificador de la rutina.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Rutina.Contenido">
+            <summary>Contenido detallado de la rutina.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Rutina.Fecha">
+            <summary>Fecha en la que se realizará o realizó la rutina.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Rutina.Mostrar">
+            <summary>Indica si la rutina es visible para otros usuarios.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Rutina.IdUsuario">
+            <summary>FK del usuario al que pertenece la rutina.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Rutina.Usuario">
+            <summary>Usuario propietario de la rutina.</summary>
+        </member>
+        <member name="T:SwimmingApi.Domain.Entities.Usuario">
+            <summary>
+            Entidad principal que representa a un usuario del sistema.
+            Es la base de Nadador y Entrenador.
+            </summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Usuario.Nombre">
+            <summary>Nombre del usuario.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Usuario.Apellidos">
+            <summary>Apellidos del usuario.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Usuario.Email">
+            <summary>Email del usuario. Se usará para autenticación.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Usuario.PasswordHash">
+            <summary>Contraseña encriptada del usuario.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Usuario.IdEquipo">
+            <summary>FK al equipo al que pertenece. Puede ser nulo.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Usuario.Equipo">
+            <summary>Equipo al que pertenece el usuario.</summary>
+        </member>
+        <member name="P:SwimmingApi.Domain.Entities.Usuario.ListaRutinas">
+            <summary>Lista de rutinas del usuario. Puede estar vacía.</summary>
+        </member>
+        <member name="T:SwimmingApi.Domain.Extensiones.SlugExtension">
+            <summary>
+            Extensiones para asignar valores por defecto a las entidades (Slug).
+            Se aplican automáticamente antes de crear o modificar una entidad.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Domain.Extensiones.SlugExtension.AplicarSlugCreacion(SwimmingApi.Domain.Entities.EntityBase)">
+            <summary>
+            Asigna la fecha de creación al momento actual si no está definida.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Domain.Extensiones.SlugExtension.AplicarSlugActualizacion(SwimmingApi.Domain.Entities.EntityBase)">
+            <summary>
+            Actualiza la fecha de modificación al momento actual.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Domain.Extensiones.SlugExtension.AplicarSlugEliminacion(SwimmingApi.Domain.Entities.EntityBase)">
+            <summary>
+            Aplica la eliminación lógica insertando la fecha de eliminación.
+            La entidad no se borra de la base de datos.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Domain.Relaciones.EntrenadorRelaciones">
+            <summary>
+            Configuración de las relaciones y claves foráneas del Entrenador.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Domain.Relaciones.NadadorEquipoRelaciones">
+            <summary>
+            Configuración de las relaciones y claves foráneas de NadadorEquipo.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Domain.Relaciones.NadadorRelaciones">
+            <summary>
+            Configuración de las relaciones y claves foráneas de la entidad Nadador.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Domain.Relaciones.UsuarioRelaciones">
+            <summary>
+            Configuración de las relaciones y claves foráneas de la entidad Usuario.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Database.AppDbContext">
+            <summary>
+            Contexto principal de la base de datos.
+            Gestiona todas las entidades y aplica las configuraciones de relaciones.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Extensions.QueryExtensions">
+            <summary>
+            Extensiones para consultas comunes sobre IQueryable.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Extensions.QueryExtensions.OrderByReciente``1(System.Linq.IQueryable{``0})">
+            <summary>
+            Ordena una lista de entidades por fecha de creación de más reciente a más antigua.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Extensions.QueryExtensions.OrderByAntiguo``1(System.Linq.IQueryable{``0})">
+            <summary>
+            Ordena una lista de entidades por fecha de creación de más antigua a más reciente.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Extensions.QueryExtensions.SoloActivos``1(System.Linq.IQueryable{``0})">
+            <summary>
+            Filtra solo las entidades que no han sido eliminadas lógicamente.
+            Útil cuando se desactiva el filtro global.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Repositorios.EntrenadorRepository">
+            <summary>
+            Repositorio de acceso a datos para Entrenador.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.EntrenadorRepository.ObtenerPorIdAsync(System.Int32)">
+            <summary>Obtiene un entrenador por su ID con sus relaciones.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.EntrenadorRepository.ObtenerPorEmailAsync(System.String)">
+            <summary>Obtiene un entrenador por su email.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.EntrenadorRepository.ObtenerTodosAsync">
+            <summary>Obtiene todos los entrenadores activos.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.EntrenadorRepository.CrearAsync(SwimmingApi.Domain.Entities.Entrenador)">
+            <summary>Crea un nuevo entrenador.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.EntrenadorRepository.ActualizarAsync(SwimmingApi.Domain.Entities.Entrenador)">
+            <summary>Actualiza un entrenador existente.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.EntrenadorRepository.EliminarLogicoAsync(System.Int32)">
+            <summary>Aplica eliminación lógica a un entrenador.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.EntrenadorRepository.ExisteEmailAsync(System.String)">
+            <summary>Comprueba si ya existe un entrenador con ese email.</summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Repositorios.EquipoRepository">
+            <summary>
+            Repositorio de acceso a datos para Equipo.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.EquipoRepository.ObtenerPorIdAsync(System.Int32)">
+            <summary>Obtiene un equipo por su ID con la lista de nadadores.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.EquipoRepository.ObtenerTodosAsync">
+            <summary>Obtiene todos los equipos activos.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.EquipoRepository.CrearAsync(SwimmingApi.Domain.Entities.Equipo)">
+            <summary>Crea un nuevo equipo.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.EquipoRepository.ActualizarAsync(SwimmingApi.Domain.Entities.Equipo)">
+            <summary>Actualiza un equipo existente.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.EquipoRepository.EliminarLogicoAsync(System.Int32)">
+            <summary>Aplica eliminación lógica a un equipo.</summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Repositorios.MarcaRepository">
+            <summary>
+            Repositorio de acceso a datos para MarcaDeTiempo.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.MarcaRepository.ObtenerPorIdAsync(System.Int32)">
+            <summary>Obtiene una marca de tiempo por su ID.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.MarcaRepository.ObtenerPorNadadorEquipoAsync(System.Int32)">
+            <summary>Obtiene todas las marcas de tiempo de un NadadorEquipo.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.MarcaRepository.CrearAsync(SwimmingApi.Domain.Entities.MarcaDeTiempo)">
+            <summary>Registra una nueva marca de tiempo.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.MarcaRepository.ActualizarAsync(SwimmingApi.Domain.Entities.MarcaDeTiempo)">
+            <summary>Actualiza una marca de tiempo existente.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.MarcaRepository.EliminarLogicoAsync(System.Int32)">
+            <summary>Aplica eliminación lógica a una marca de tiempo.</summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Repositorios.NadadorEquipoRepository">
+            <summary>
+            Repositorio de acceso a datos para NadadorEquipo.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.NadadorEquipoRepository.ObtenerPorIdAsync(System.Int32)">
+            <summary>Obtiene un NadadorEquipo por su ID.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.NadadorEquipoRepository.ObtenerPorCodigoAsync(System.Int32)">
+            <summary>Obtiene un NadadorEquipo por su código único.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.NadadorEquipoRepository.ObtenerPorEquipoAsync(System.Int32)">
+            <summary>Obtiene todos los nadadores de un equipo específico.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.NadadorEquipoRepository.CrearAsync(SwimmingApi.Domain.Entities.NadadorEquipo)">
+            <summary>Crea un nuevo NadadorEquipo.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.NadadorEquipoRepository.ActualizarAsync(SwimmingApi.Domain.Entities.NadadorEquipo)">
+            <summary>Actualiza un NadadorEquipo existente.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.NadadorEquipoRepository.EliminarLogicoAsync(System.Int32)">
+            <summary>Aplica eliminación lógica a un NadadorEquipo.</summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Repositorios.NadadorRepository">
+            <summary>
+            Repositorio de acceso a datos para la entidad Nadador.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.NadadorRepository.ObtenerPorIdAsync(System.Int32)">
+            <summary>Obtiene un nadador por su ID incluyendo sus relaciones.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.NadadorRepository.ObtenerPorEmailAsync(System.String)">
+            <summary>Obtiene un nadador por su email.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.NadadorRepository.ObtenerTodosAsync">
+            <summary>Obtiene todos los nadadores activos.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.NadadorRepository.CrearAsync(SwimmingApi.Domain.Entities.Nadador)">
+            <summary>Crea un nuevo nadador en la base de datos.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.NadadorRepository.ActualizarAsync(SwimmingApi.Domain.Entities.Nadador)">
+            <summary>Actualiza los datos de un nadador existente.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.NadadorRepository.EliminarLogicoAsync(System.Int32)">
+            <summary>Aplica eliminación lógica a un nadador.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.NadadorRepository.ExisteEmailAsync(System.String)">
+            <summary>Comprueba si ya existe un nadador con ese email.</summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Repositorios.RutinaRepository">
+            <summary>
+            Repositorio de acceso a datos para Rutina.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.RutinaRepository.ObtenerPorIdAsync(System.Int32)">
+            <summary>Obtiene una rutina por su ID.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.RutinaRepository.ObtenerPorUsuarioAsync(System.Int32)">
+            <summary>Obtiene todas las rutinas de un usuario.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.RutinaRepository.CrearAsync(SwimmingApi.Domain.Entities.Rutina)">
+            <summary>Crea una nueva rutina.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.RutinaRepository.ActualizarAsync(SwimmingApi.Domain.Entities.Rutina)">
+            <summary>Actualiza una rutina existente.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.RutinaRepository.EliminarLogicoAsync(System.Int32)">
+            <summary>Aplica eliminación lógica a una rutina.</summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Rider.CacheService">
+            <summary>
+            Servicio de caché en memoria para evitar peticiones repetidas a la base de datos.
+            Actúa como la capa "Rider" del sistema.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Rider.CacheService.Obtener``1(System.String)">
+            <summary>
+            Obtiene un valor del caché. Devuelve null si no existe.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Rider.CacheService.Guardar``1(System.String,``0)">
+            <summary>
+            Guarda un valor en el caché con tiempo de expiración por defecto.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Rider.CacheService.Eliminar(System.String)">
+            <summary>
+            Elimina un valor del caché por su clave.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Rider.CacheService.GenerarClave(System.String,System.Int32)">
+            <summary>
+            Genera una clave de caché estándar para una entidad.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Rider.CacheService.GenerarClaveLista(System.String)">
+            <summary>
+            Genera una clave de caché para listas.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Servicios.EncryptionService">
+            <summary>
+            Servicio para encriptar y verificar contraseñas usando SHA-256 con salt.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Servicios.EncryptionService.HashPassword(System.String)">
+            <summary>
+            Genera un hash seguro de la contraseña con un salt aleatorio.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Servicios.EncryptionService.VerificarPassword(System.String,System.String)">
+            <summary>
+            Verifica que una contraseña coincide con su hash almacenado.
+            </summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Validaciones.EntrenadorInfraValidation">
+            <summary>
+            Validaciones de infraestructura para Entrenador.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Validaciones.EntrenadorInfraValidation.EmailDisponibleAsync(System.String)">
+            <summary>Verifica que el email no está en uso.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Validaciones.EntrenadorInfraValidation.EntrenadorExisteAsync(System.Int32)">
+            <summary>Verifica que existe un entrenador con ese ID.</summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Validaciones.EquipoInfraValidation">
+            <summary>
+            Validaciones de infraestructura para Equipo.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Validaciones.EquipoInfraValidation.EquipoExisteAsync(System.Int32)">
+            <summary>Verifica que existe un equipo con ese ID.</summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Validaciones.MarcaDeTiempoInfraValidation">
+            <summary>
+            Validaciones de infraestructura para MarcaDeTiempo.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Validaciones.MarcaDeTiempoInfraValidation.MarcaExisteAsync(System.Int32)">
+            <summary>Verifica que existe una marca con ese ID.</summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Validaciones.NadadorEquipoInfraValidation">
+            <summary>
+            Validaciones de infraestructura para NadadorEquipo.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Validaciones.NadadorEquipoInfraValidation.ExisteAsync(System.Int32)">
+            <summary>Verifica que existe un NadadorEquipo con ese ID.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Validaciones.NadadorEquipoInfraValidation.CodigoDisponibleAsync(System.Int32)">
+            <summary>Verifica que el código no está en uso.</summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Validaciones.NadadorInfraValidation">
+            <summary>
+            Validaciones de infraestructura para Nadador.
+            Comprueba condiciones que requieren acceso a la base de datos.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Validaciones.NadadorInfraValidation.EmailDisponibleAsync(System.String)">
+            <summary>Verifica que el email no está en uso por otro nadador.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Validaciones.NadadorInfraValidation.NadadorExisteAsync(System.Int32)">
+            <summary>Verifica que existe un nadador con ese ID.</summary>
+        </member>
+        <member name="T:SwimmingApi.Infraestructura.Validaciones.RutinaInfraValidation">
+            <summary>
+            Validaciones de infraestructura para Rutina.
+            </summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Validaciones.RutinaInfraValidation.RutinaExisteAsync(System.Int32)">
+            <summary>Verifica que existe una rutina con ese ID.</summary>
+        </member>
+        <member name="T:SwimmingApi.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:SwimmingApi.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SwimmingApi.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SwimmingApi.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

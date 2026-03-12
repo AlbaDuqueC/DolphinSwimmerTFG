@@ -6,6 +6,8 @@ namespace SwimmingApi.Api.Controller;
 
 /// <summary>
 /// Controlador para operaciones sobre Rutinas.
+/// Las rutinas pueden pertenecer a un nadador o a un entrenador para su equipo.
+/// Solo conoce la capa Application.
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
@@ -18,7 +20,7 @@ public class RutinaController : ControllerBase
         _useCase = useCase;
     }
 
-    /// <summary>Obtiene todas las rutinas de un usuario.</summary>
+    /// <summary>Obtiene todas las rutinas de un usuario concreto.</summary>
     [HttpGet("usuario/{idUsuario:int}")]
     [ProducesResponseType(typeof(ApiResponse<IEnumerable<RutinaResponseDto>>), 200)]
     public async Task<IActionResult> ObtenerPorUsuario(int idUsuario)
@@ -35,13 +37,13 @@ public class RutinaController : ControllerBase
     public async Task<IActionResult> ObtenerPorId(int id)
     {
         var rutina = await _useCase.ObtenerPorIdAsync(id);
-        var resultado = rutina != null
+        IActionResult resultado = rutina != null
             ? Ok(ApiResponse<RutinaResponseDto>.Ok(rutina))
             : NotFound(ApiResponse<RutinaResponseDto>.Error($"Rutina con ID {id} no encontrada."));
         return resultado;
     }
 
-    /// <summary>Crea una nueva rutina.</summary>
+    /// <summary>Crea una nueva rutina para un usuario.</summary>
     [HttpPost]
     [ProducesResponseType(typeof(ApiResponse<RutinaResponseDto>), 201)]
     [ProducesResponseType(400)]
@@ -53,7 +55,7 @@ public class RutinaController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Actualiza una rutina existente.</summary>
+    /// <summary>Actualiza el contenido o fecha de una rutina existente.</summary>
     [HttpPut("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<RutinaResponseDto>), 200)]
     [ProducesResponseType(404)]
@@ -64,7 +66,7 @@ public class RutinaController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Elimina lógicamente una rutina.</summary>
+    /// <summary>Elimina lógicamente una rutina (no se borra de la base de datos).</summary>
     [HttpDelete("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<bool>), 200)]
     [ProducesResponseType(404)]

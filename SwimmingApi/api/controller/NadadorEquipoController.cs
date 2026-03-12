@@ -6,6 +6,8 @@ namespace SwimmingApi.Api.Controller;
 
 /// <summary>
 /// Controlador para operaciones sobre NadadorEquipo.
+/// Gestiona los registros de nadadores dentro de un equipo.
+/// Solo conoce la capa Application.
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
@@ -18,7 +20,7 @@ public class NadadorEquipoController : ControllerBase
         _useCase = useCase;
     }
 
-    /// <summary>Obtiene todos los nadadores de un equipo.</summary>
+    /// <summary>Obtiene todos los nadadores registrados en un equipo concreto.</summary>
     [HttpGet("equipo/{idEquipo:int}")]
     [ProducesResponseType(typeof(ApiResponse<IEnumerable<NadadorEquipoResponseDto>>), 200)]
     public async Task<IActionResult> ObtenerPorEquipo(int idEquipo)
@@ -35,26 +37,32 @@ public class NadadorEquipoController : ControllerBase
     public async Task<IActionResult> ObtenerPorId(int id)
     {
         var nadadorEquipo = await _useCase.ObtenerPorIdAsync(id);
-        var resultado = nadadorEquipo != null
+        IActionResult resultado = nadadorEquipo != null
             ? Ok(ApiResponse<NadadorEquipoResponseDto>.Ok(nadadorEquipo))
             : NotFound(ApiResponse<NadadorEquipoResponseDto>.Error($"NadadorEquipo con ID {id} no encontrado."));
         return resultado;
     }
 
-    /// <summary>Obtiene un NadadorEquipo por su código de conexión.</summary>
+    /// <summary>
+    /// Obtiene un NadadorEquipo por su código único.
+    /// Sirve para que un nadador se conecte a su registro del equipo.
+    /// </summary>
     [HttpGet("codigo/{codigo:int}")]
     [ProducesResponseType(typeof(ApiResponse<NadadorEquipoResponseDto>), 200)]
     [ProducesResponseType(404)]
     public async Task<IActionResult> ObtenerPorCodigo(int codigo)
     {
         var nadadorEquipo = await _useCase.ObtenerPorCodigoAsync(codigo);
-        var resultado = nadadorEquipo != null
+        IActionResult resultado = nadadorEquipo != null
             ? Ok(ApiResponse<NadadorEquipoResponseDto>.Ok(nadadorEquipo))
             : NotFound(ApiResponse<NadadorEquipoResponseDto>.Error($"No se encontró un nadador con el código {codigo}."));
         return resultado;
     }
 
-    /// <summary>Crea un nuevo NadadorEquipo. Solo lo puede hacer un entrenador.</summary>
+    /// <summary>
+    /// Crea un nuevo NadadorEquipo dentro de un equipo.
+    /// Solo lo puede hacer un entrenador. Genera un código único automáticamente.
+    /// </summary>
     [HttpPost]
     [ProducesResponseType(typeof(ApiResponse<NadadorEquipoResponseDto>), 201)]
     [ProducesResponseType(400)]
@@ -66,7 +74,7 @@ public class NadadorEquipoController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Actualiza los datos de un NadadorEquipo.</summary>
+    /// <summary>Actualiza los datos de un NadadorEquipo existente.</summary>
     [HttpPut("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<NadadorEquipoResponseDto>), 200)]
     [ProducesResponseType(404)]
@@ -77,7 +85,7 @@ public class NadadorEquipoController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Elimina lógicamente un NadadorEquipo.</summary>
+    /// <summary>Elimina lógicamente un NadadorEquipo (no se borra de la base de datos).</summary>
     [HttpDelete("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<bool>), 200)]
     [ProducesResponseType(404)]
