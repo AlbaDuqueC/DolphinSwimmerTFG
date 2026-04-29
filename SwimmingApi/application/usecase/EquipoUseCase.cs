@@ -13,15 +13,18 @@ namespace SwimmingApi.Application.UseCase;
 public class EquipoUseCase : IEquipoUseCase
 {
     private readonly IEquipoRepository _repository;
+    private readonly IEntrenadorRepository _entrenadorRepository; // ✨ NUEVO
     private readonly CacheService _cache;
     private readonly EquipoInfraValidation _validation;
 
     public EquipoUseCase(
         IEquipoRepository repository,
+        IEntrenadorRepository entrenadorRepository, // ✨ NUEVO
         CacheService cache,
         EquipoInfraValidation validation)
     {
         _repository = repository;
+        _entrenadorRepository = entrenadorRepository; // ✨ NUEVO
         _cache = cache;
         _validation = validation;
     }
@@ -60,7 +63,9 @@ public class EquipoUseCase : IEquipoUseCase
         return resultado;
     }
 
-    /// <summary>Crea un nuevo equipo.</summary>
+    /// <summary>
+    /// Crea un nuevo equipo y, si viene IdEntrenador, lo vincula como equipo gestionado de ese entrenador.
+    /// </summary>
     public async Task<EquipoResponseDto> CrearAsync(EquipoRequestDto dto)
     {
         var equipo = new Equipo
@@ -68,14 +73,19 @@ public class EquipoUseCase : IEquipoUseCase
             Nombre = dto.Nombre
         };
 
-        Equipo creado;
-        try
+        var creado = await _repository.CrearAsync(equipo);
+
+        // Vincular al entrenador si nos pasaron su ID
+        if (dto.IdEntrenador.HasValue)
         {
-            creado = await _repository.CrearAsync(equipo);
-        }
-        catch
-        {
-            throw;
+            var entrenador = await _entrenadorRepository.ObtenerPorIdAsync(dto.IdEntrenador.Value);
+            if (entrenador != null)
+            {
+                entrenador.IdEquipoGestionado = creado.Id;
+                entrenador.IdEquipo = creado.Id;
+                await _entrenadorRepository.ActualizarAsync(entrenador);
+                _cache.Eliminar(_cache.GenerarClave("entrenador", entrenador.Id));
+            }
         }
 
         _cache.Eliminar(_cache.GenerarClaveLista("equipo"));
@@ -125,7 +135,7 @@ public class EquipoUseCase : IEquipoUseCase
         var resultado = new EquipoResponseDto
         {
             Id = equipo.Id,
-            IdEquipo = equipo.IdEquipo,
+            IdEquipo = equipo.Id,
             Nombre = equipo.Nombre,
             TotalNadadores = equipo.ListaNadadores.Count,
             CreatedAt = equipo.CreatedAt,

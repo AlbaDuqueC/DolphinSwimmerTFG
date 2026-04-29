@@ -60,6 +60,21 @@ public class MarcaDeTiempoUseCase : IMarcaDeTiempoUseCase
 
         return resultado;
     }
+    /// <summary>Obtiene todas las marcas registradas por un nadador concreto.</summary>
+    public async Task<IEnumerable<MarcaDeTiempoResponseDto>> ObtenerPorNadadorAsync(int idNadador)
+    {
+        var claveCaché = $"marca:nadador:{idNadador}";
+        var resultado = _cache.Obtener<IEnumerable<MarcaDeTiempoResponseDto>>(claveCaché);
+
+        if (resultado == null)
+        {
+            var marcas = await _repository.ObtenerPorNadadorAsync(idNadador);
+            resultado = marcas.Select(MapearAResponse);
+            _cache.Guardar(claveCaché, resultado);
+        }
+
+        return resultado;
+    }
 
     /// <summary>
     /// Registra una nueva marca de tiempo para un NadadorEquipo.
@@ -86,6 +101,8 @@ public class MarcaDeTiempoUseCase : IMarcaDeTiempoUseCase
         }
 
         _cache.Eliminar($"marca:nadadorequipo:{dto.IdNadadorEquipo}");
+        if (dto.IdNadador.HasValue)
+            _cache.Eliminar($"marca:nadador:{dto.IdNadador}");
         var resultado = MapearAResponse(creada);
         return resultado;
     }
@@ -130,7 +147,7 @@ public class MarcaDeTiempoUseCase : IMarcaDeTiempoUseCase
         var resultado = new MarcaDeTiempoResponseDto
         {
             Id = marca.Id,
-            IdMarca = marca.IdMarca,
+            IdMarca = marca.Id,
             Tiempo = marca.Tiempo,
             Descripcion = marca.Descripcion,
             IdNadadorEquipo = marca.IdNadadorEquipo,

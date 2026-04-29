@@ -9,6 +9,7 @@ public interface IMarcaRepository
 {
     Task<MarcaDeTiempo?> ObtenerPorIdAsync(int id);
     Task<IEnumerable<MarcaDeTiempo>> ObtenerPorNadadorEquipoAsync(int idNadadorEquipo);
+    Task<IEnumerable<MarcaDeTiempo>> ObtenerPorNadadorAsync(int idNadador);
     Task<MarcaDeTiempo> CrearAsync(MarcaDeTiempo marca);
     Task<MarcaDeTiempo> ActualizarAsync(MarcaDeTiempo marca);
     Task<bool> EliminarLogicoAsync(int id);

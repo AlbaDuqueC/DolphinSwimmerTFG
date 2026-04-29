@@ -41,6 +41,18 @@ public class EntrenadorController : ControllerBase
             : NotFound(ApiResponse<EntrenadorResponseDto>.Error($"Entrenador con ID {id} no encontrado."));
         return resultado;
     }
+    /// <summary>Obtiene un entrenador por su email.</summary>
+    [HttpGet("email/{email}")]
+    [ProducesResponseType(typeof(ApiResponse<EntrenadorResponseDto>), 200)]
+    [ProducesResponseType(404)]
+    public async Task<IActionResult> ObtenerPorEmail(string email)
+    {
+        var entrenador = await _useCase.ObtenerPorEmailAsync(email);
+        IActionResult resultado = entrenador != null
+            ? Ok(ApiResponse<EntrenadorResponseDto>.Ok(entrenador))
+            : NotFound(ApiResponse<EntrenadorResponseDto>.Error($"No se encontró ningún entrenador con email {email}."));
+        return resultado;
+    }
 
     /// <summary>Crea un nuevo entrenador.</summary>
     [HttpPost]

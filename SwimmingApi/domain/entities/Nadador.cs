@@ -5,8 +5,6 @@ namespace SwimmingApi.Domain.Entities;
 /// </summary>
 public class Nadador : Usuario
 {
-    /// <summary>Identificador específico del nadador para distinguirlo de entrenadores.</summary>
-    public int IdNadador { get; set; }
 
     /// <summary>FK al registro del nadador dentro de un equipo. Puede ser nulo.</summary>
     public int? IdNadadorEquipo { get; set; }

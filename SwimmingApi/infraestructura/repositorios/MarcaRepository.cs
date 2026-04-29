@@ -38,6 +38,16 @@ public class MarcaRepository : IMarcaRepository
         return resultado;
     }
 
+    /// <summary>Obtiene todas las marcas de tiempo registradas por un nadador.</summary>
+    public async Task<IEnumerable<MarcaDeTiempo>> ObtenerPorNadadorAsync(int idNadador)
+    {
+        var resultado = await _context.MarcasDeTiempo
+            .Where(m => m.IdNadador == idNadador)
+            .OrderByDescending(m => m.CreatedAt)
+            .ToListAsync();
+        return resultado;
+    }
+
     /// <summary>Registra una nueva marca de tiempo.</summary>
     public async Task<MarcaDeTiempo> CrearAsync(MarcaDeTiempo marca)
     {

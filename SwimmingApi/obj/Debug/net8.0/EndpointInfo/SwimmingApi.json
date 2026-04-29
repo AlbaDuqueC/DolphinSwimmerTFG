@@ -301,6 +301,66 @@
         }
       }
     },
+    "/api/Entrenador/email/{email}": {
+      "get": {
+        "tags": [
+          "Entrenador"
+        ],
+        "summary": "Obtiene un entrenador por su email.",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntrenadorResponseDtoApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntrenadorResponseDtoApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntrenadorResponseDtoApiResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Equipo": {
       "get": {
         "tags": [
@@ -605,6 +665,47 @@
         "parameters": [
           {
             "name": "idNadadorEquipo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarcaDeTiempoResponseDtoIEnumerableApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarcaDeTiempoResponseDtoIEnumerableApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarcaDeTiempoResponseDtoIEnumerableApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/MarcaDeTiempo/nadador/{idNadador}": {
+      "get": {
+        "tags": [
+          "MarcaDeTiempo"
+        ],
+        "summary": "Obtiene todas las marcas de tiempo registradas por un nadador.",
+        "parameters": [
+          {
+            "name": "idNadador",
             "in": "path",
             "required": true,
             "schema": {
@@ -1025,6 +1126,128 @@
         "responses": {
           "200": {
             "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Nadador/email/{email}": {
+      "get": {
+        "tags": [
+          "Nadador"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Nadador/{id}/vincular": {
+      "post": {
+        "tags": [
+          "Nadador"
+        ],
+        "summary": "Vincula un nadador con un NadadorEquipo del equipo usando el código que le da el entrenador.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VincularCodigoRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VincularCodigoRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VincularCodigoRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/NadadorResponseDtoApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NadadorResponseDtoApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NadadorResponseDtoApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -1853,6 +2076,12 @@
             "type": "string",
             "description": "Nombre del equipo.",
             "nullable": true
+          },
+          "idEntrenador": {
+            "type": "integer",
+            "description": "ID del entrenador que lo crea. Si viene, se vincula como su equipo gestionado.",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -1947,7 +2176,8 @@
           "idNadadorEquipo": {
             "type": "integer",
             "description": "ID del NadadorEquipo al que se asigna la marca.",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "idNadador": {
             "type": "integer",
@@ -1979,7 +2209,8 @@
           },
           "idNadadorEquipo": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "idNadador": {
             "type": "integer",
@@ -2185,6 +2416,71 @@
         },
         "additionalProperties": false,
         "description": "DTO para crear o actualizar un nadador."
+      },
+      "NadadorResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idNadador": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellidos": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "idEquipo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idNadadorEquipo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updateAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO de respuesta con los datos de un nadador."
+      },
+      "NadadorResponseDtoApiResponse": {
+        "type": "object",
+        "properties": {
+          "exito": {
+            "type": "boolean",
+            "description": "Indica si la operación fue exitosa."
+          },
+          "mensaje": {
+            "type": "string",
+            "description": "Mensaje descriptivo del resultado.",
+            "nullable": true
+          },
+          "datos": {
+            "$ref": "#/components/schemas/NadadorResponseDto"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Envoltorio estándar para todas las respuestas de la API.\r\nGarantiza un formato consistente en cada endpoint."
       },
       "ProblemDetails": {
         "type": "object",
@@ -2393,6 +2689,16 @@
             "type": "number",
             "format": "double",
             "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VincularCodigoRequest": {
+        "type": "object",
+        "properties": {
+          "codigo": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

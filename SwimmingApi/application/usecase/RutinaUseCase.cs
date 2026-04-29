@@ -4,6 +4,8 @@ using SwimmingApi.Application.Interfaces.UseCase;
 using SwimmingApi.Domain.Entities;
 using SwimmingApi.Infraestructura.Rider;
 using SwimmingApi.Infraestructura.Validaciones;
+using Microsoft.EntityFrameworkCore;
+using SwimmingApi.Infraestructura.Database;
 
 namespace SwimmingApi.Application.UseCase;
 
@@ -13,15 +15,21 @@ namespace SwimmingApi.Application.UseCase;
 public class RutinaUseCase : IRutinaUseCase
 {
     private readonly IRutinaRepository _repository;
+    private readonly IEntrenadorRepository _entrenadorRepository; // ✨ NUEVO
+    private readonly AppDbContext _context;                       // ✨ NUEVO
     private readonly CacheService _cache;
     private readonly RutinaInfraValidation _validation;
 
     public RutinaUseCase(
         IRutinaRepository repository,
+        IEntrenadorRepository entrenadorRepository, // ✨ NUEVO
+        AppDbContext context,                       // ✨ NUEVO
         CacheService cache,
         RutinaInfraValidation validation)
     {
         _repository = repository;
+        _entrenadorRepository = entrenadorRepository;
+        _context = context;
         _cache = cache;
         _validation = validation;
     }
@@ -60,25 +68,44 @@ public class RutinaUseCase : IRutinaUseCase
         return resultado;
     }
 
-    /// <summary>Crea una nueva rutina para un usuario.</summary>
+    /// <summary>
+    /// Crea una nueva rutina. Si el usuario que la crea es un entrenador con equipo,
+    /// la rutina se replica para todos los nadadores del equipo (incluyendo al propio entrenador).
+    /// </summary>
     public async Task<RutinaResponseDto> CrearAsync(RutinaRequestDto dto)
     {
-        var rutina = new Rutina
+        // 1) Crear la rutina del propio creador (entrenador o nadador) — siempre va una para él
+        var rutinaCreador = new Rutina
         {
             Contenido = dto.Contenido,
             Fecha = dto.Fecha,
             Mostrar = dto.Mostrar,
             IdUsuario = dto.IdUsuario
         };
+        var creada = await _repository.CrearAsync(rutinaCreador);
 
-        Rutina creada;
-        try
+        // 2) ¿El creador es un entrenador con equipo asignado? Si sí, replicar a sus nadadores
+        var entrenador = await _entrenadorRepository.ObtenerPorIdAsync(dto.IdUsuario);
+        if (entrenador != null && entrenador.IdEquipoGestionado.HasValue)
         {
-            creada = await _repository.CrearAsync(rutina);
-        }
-        catch
-        {
-            throw;
+            // Buscar todos los Nadadores (usuarios) cuyo IdEquipo == idEquipoGestionado
+            var idEquipo = entrenador.IdEquipoGestionado.Value;
+            var nadadores = await _context.Nadadores
+                .Where(n => n.IdEquipo == idEquipo)
+                .ToListAsync();
+
+            foreach (var nadador in nadadores)
+            {
+                var copia = new Rutina
+                {
+                    Contenido = dto.Contenido,
+                    Fecha = dto.Fecha,
+                    Mostrar = dto.Mostrar,
+                    IdUsuario = nadador.Id
+                };
+                await _repository.CrearAsync(copia);
+                _cache.Eliminar($"rutina:usuario:{nadador.Id}");
+            }
         }
 
         _cache.Eliminar($"rutina:usuario:{dto.IdUsuario}");
@@ -127,7 +154,7 @@ public class RutinaUseCase : IRutinaUseCase
         var resultado = new RutinaResponseDto
         {
             Id = rutina.Id,
-            IdRutina = rutina.IdRutina,
+            IdRutina = rutina.Id,
             Contenido = rutina.Contenido,
             Fecha = rutina.Fecha,
             Mostrar = rutina.Mostrar,

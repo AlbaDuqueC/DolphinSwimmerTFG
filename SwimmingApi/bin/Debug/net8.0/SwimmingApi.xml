@@ -37,6 +37,9 @@
         <member name="M:SwimmingApi.Api.Controller.EntrenadorController.ObtenerPorId(System.Int32)">
             <summary>Obtiene un entrenador por su ID.</summary>
         </member>
+        <member name="M:SwimmingApi.Api.Controller.EntrenadorController.ObtenerPorEmail(System.String)">
+            <summary>Obtiene un entrenador por su email.</summary>
+        </member>
         <member name="M:SwimmingApi.Api.Controller.EntrenadorController.Crear(SwimmingApi.Application.Dtos.Entrenador.EntrenadorRequestDto)">
             <summary>Crea un nuevo entrenador.</summary>
         </member>
@@ -77,6 +80,9 @@
         <member name="M:SwimmingApi.Api.Controller.MarcaDeTiempoController.ObtenerPorNadadorEquipo(System.Int32)">
             <summary>Obtiene todas las marcas de tiempo de un NadadorEquipo concreto.</summary>
         </member>
+        <member name="M:SwimmingApi.Api.Controller.MarcaDeTiempoController.ObtenerPorNadador(System.Int32)">
+            <summary>Obtiene todas las marcas de tiempo registradas por un nadador.</summary>
+        </member>
         <member name="M:SwimmingApi.Api.Controller.MarcaDeTiempoController.ObtenerPorId(System.Int32)">
             <summary>Obtiene una marca de tiempo por su ID.</summary>
         </member>
@@ -91,6 +97,11 @@
         </member>
         <member name="M:SwimmingApi.Api.Controller.MarcaDeTiempoController.Eliminar(System.Int32)">
             <summary>Elimina lógicamente una marca de tiempo (no se borra de la base de datos).</summary>
+        </member>
+        <member name="M:SwimmingApi.Api.Controller.NadadorController.VincularConCodigo(System.Int32,SwimmingApi.Api.Controller.VincularCodigoRequest)">
+            <summary>
+            Vincula un nadador con un NadadorEquipo del equipo usando el código que le da el entrenador.
+            </summary>
         </member>
         <member name="T:SwimmingApi.Api.Controller.NadadorEquipoController">
             <summary>
@@ -166,12 +177,12 @@
             Validador del DTO de Equipo.
             </summary>
         </member>
-        <member name="T:SwimmingApi.Api.Validaciones.MarcaDeTiempoValidator">
+        <member name="T:SwimmingApi.Api.Validaciones.NadadorEquipoValidator">
             <summary>
             Validador del DTO de MarcaDeTiempo.
             </summary>
         </member>
-        <member name="T:SwimmingApi.Api.Validaciones.NadadorEquipoValidator">
+        <member name="T:SwimmingApi.Api.Validaciones.MarcaDeTiempoValidator">
             <summary>
             Validador del DTO de NadadorEquipo.
             </summary>
@@ -204,6 +215,9 @@
         </member>
         <member name="P:SwimmingApi.Application.Dtos.Equipo.EquipoRequestDto.Nombre">
             <summary>Nombre del equipo.</summary>
+        </member>
+        <member name="P:SwimmingApi.Application.Dtos.Equipo.EquipoRequestDto.IdEntrenador">
+            <summary>ID del entrenador que lo crea. Si viene, se vincula como su equipo gestionado.</summary>
         </member>
         <member name="T:SwimmingApi.Application.Dtos.Equipo.EquipoResponseDto">
             <summary>
@@ -319,29 +333,14 @@
             Contrato para las operaciones de base de datos de Rutina.
             </summary>
         </member>
-        <member name="T:SwimmingApi.Application.Interfaces.UseCase.IEntrenadorUseCase">
-            <summary>
-            Contrato para los casos de uso de Entrenador.
-            </summary>
-        </member>
         <member name="T:SwimmingApi.Application.Interfaces.UseCase.IEquipoUseCase">
             <summary>
             Contrato para los casos de uso de Equipo.
             </summary>
         </member>
-        <member name="T:SwimmingApi.Application.Interfaces.UseCase.IMarcaDeTiempoUseCase">
-            <summary>
-            Contrato para los casos de uso de MarcaDeTiempo.
-            </summary>
-        </member>
         <member name="T:SwimmingApi.Application.Interfaces.UseCase.INadadorEquipoUseCase">
             <summary>
             Contrato para los casos de uso de NadadorEquipo.
-            </summary>
-        </member>
-        <member name="T:SwimmingApi.Application.Interfaces.UseCase.INadadorUseCase">
-            <summary>
-            Contrato para los casos de uso de Nadador.
             </summary>
         </member>
         <member name="T:SwimmingApi.Application.Interfaces.UseCase.IRutinaUseCase">
@@ -356,6 +355,9 @@
         </member>
         <member name="M:SwimmingApi.Application.UseCase.EntrenadorUseCase.ObtenerPorIdAsync(System.Int32)">
             <summary>Obtiene un entrenador por su ID. Primero comprueba la caché.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.EntrenadorUseCase.ObtenerPorEmailAsync(System.String)">
+            <summary>Obtiene un entrenador por su email.</summary>
         </member>
         <member name="M:SwimmingApi.Application.UseCase.EntrenadorUseCase.ObtenerTodosAsync">
             <summary>Obtiene todos los entrenadores activos.</summary>
@@ -381,7 +383,9 @@
             <summary>Obtiene todos los equipos activos.</summary>
         </member>
         <member name="M:SwimmingApi.Application.UseCase.EquipoUseCase.CrearAsync(SwimmingApi.Application.Dtos.Equipo.EquipoRequestDto)">
-            <summary>Crea un nuevo equipo.</summary>
+            <summary>
+            Crea un nuevo equipo y, si viene IdEntrenador, lo vincula como equipo gestionado de ese entrenador.
+            </summary>
         </member>
         <member name="M:SwimmingApi.Application.UseCase.EquipoUseCase.ActualizarAsync(System.Int32,SwimmingApi.Application.Dtos.Equipo.EquipoRequestDto)">
             <summary>Actualiza el nombre de un equipo existente.</summary>
@@ -400,6 +404,9 @@
         </member>
         <member name="M:SwimmingApi.Application.UseCase.MarcaDeTiempoUseCase.ObtenerPorNadadorEquipoAsync(System.Int32)">
             <summary>Obtiene todas las marcas de tiempo de un NadadorEquipo.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.MarcaDeTiempoUseCase.ObtenerPorNadadorAsync(System.Int32)">
+            <summary>Obtiene todas las marcas registradas por un nadador concreto.</summary>
         </member>
         <member name="M:SwimmingApi.Application.UseCase.MarcaDeTiempoUseCase.CrearAsync(SwimmingApi.Application.Dtos.MarcaDeTiempo.MarcaDeTiempoRequestDto)">
             <summary>
@@ -465,6 +472,15 @@
         <member name="M:SwimmingApi.Application.UseCase.NadadorUseCase.EliminarAsync(System.Int32)">
             <summary>Elimina lógicamente un nadador por su ID.</summary>
         </member>
+        <member name="M:SwimmingApi.Application.UseCase.NadadorUseCase.ObtenerPorEmailAsync(System.String)">
+            <summary>Obtiene un nadador por su email.</summary>
+        </member>
+        <member name="M:SwimmingApi.Application.UseCase.NadadorUseCase.VincularConCodigoAsync(System.Int32,System.Int32)">
+            <summary>
+            Vincula un nadador (usuario) con un NadadorEquipo (ficha del equipo) usando el código
+            que le ha dado el entrenador. Falla si el código no existe o si ya está siendo usado.
+            </summary>
+        </member>
         <member name="T:SwimmingApi.Application.UseCase.RutinaUseCase">
             <summary>
             Casos de uso para la entidad Rutina.
@@ -477,7 +493,10 @@
             <summary>Obtiene todas las rutinas de un usuario concreto.</summary>
         </member>
         <member name="M:SwimmingApi.Application.UseCase.RutinaUseCase.CrearAsync(SwimmingApi.Application.Dtos.Rutina.RutinaRequestDto)">
-            <summary>Crea una nueva rutina para un usuario.</summary>
+            <summary>
+            Crea una nueva rutina. Si el usuario que la crea es un entrenador con equipo,
+            la rutina se replica para todos los nadadores del equipo (incluyendo al propio entrenador).
+            </summary>
         </member>
         <member name="M:SwimmingApi.Application.UseCase.RutinaUseCase.ActualizarAsync(System.Int32,SwimmingApi.Application.Dtos.Rutina.RutinaRequestDto)">
             <summary>Actualiza una rutina existente.</summary>
@@ -511,9 +530,6 @@
             Entidad que representa a un entrenador. Hereda de Usuario.
             </summary>
         </member>
-        <member name="P:SwimmingApi.Domain.Entities.Entrenador.IdEntrenador">
-            <summary>Identificador específico del entrenador para distinguirlo de nadadores.</summary>
-        </member>
         <member name="P:SwimmingApi.Domain.Entities.Entrenador.IdEquipoGestionado">
             <summary>FK del equipo que gestiona el entrenador.</summary>
         </member>
@@ -526,9 +542,6 @@
             Puede ser creado por un entrenador.
             </summary>
         </member>
-        <member name="P:SwimmingApi.Domain.Entities.Equipo.IdEquipo">
-            <summary>Identificador del equipo.</summary>
-        </member>
         <member name="P:SwimmingApi.Domain.Entities.Equipo.Nombre">
             <summary>Nombre del equipo.</summary>
         </member>
@@ -540,9 +553,6 @@
             Entidad que registra una marca de tiempo de un nadador.
             Puede ser registrada por el propio nadador o por un entrenador.
             </summary>
-        </member>
-        <member name="P:SwimmingApi.Domain.Entities.MarcaDeTiempo.IdMarca">
-            <summary>Identificador de la marca.</summary>
         </member>
         <member name="P:SwimmingApi.Domain.Entities.MarcaDeTiempo.Tiempo">
             <summary>Tiempo registrado en formato TimeSpan (hh:mm:ss.ms).</summary>
@@ -567,9 +577,6 @@
             Entidad que representa a un nadador. Hereda de Usuario.
             </summary>
         </member>
-        <member name="P:SwimmingApi.Domain.Entities.Nadador.IdNadador">
-            <summary>Identificador específico del nadador para distinguirlo de entrenadores.</summary>
-        </member>
         <member name="P:SwimmingApi.Domain.Entities.Nadador.IdNadadorEquipo">
             <summary>FK al registro del nadador dentro de un equipo. Puede ser nulo.</summary>
         </member>
@@ -585,9 +592,6 @@
             Puede ser creado por un entrenador aunque el nadador no esté registrado en el sistema.
             Un nadador puede conectarse a este registro para ver sus datos de equipo.
             </summary>
-        </member>
-        <member name="P:SwimmingApi.Domain.Entities.NadadorEquipo.IdNadadorEquipo">
-            <summary>Identificador del nadador dentro del equipo.</summary>
         </member>
         <member name="P:SwimmingApi.Domain.Entities.NadadorEquipo.Nombre">
             <summary>Nombre del nadador en el equipo (para cuando no está registrado en el sistema).</summary>
@@ -612,9 +616,6 @@
             Entidad que representa una rutina de entrenamiento.
             Puede pertenecer a un nadador o a un entrenador para su equipo.
             </summary>
-        </member>
-        <member name="P:SwimmingApi.Domain.Entities.Rutina.IdRutina">
-            <summary>Identificador de la rutina.</summary>
         </member>
         <member name="P:SwimmingApi.Domain.Entities.Rutina.Contenido">
             <summary>Contenido detallado de la rutina.</summary>
@@ -783,6 +784,9 @@
         </member>
         <member name="M:SwimmingApi.Infraestructura.Repositorios.MarcaRepository.ObtenerPorNadadorEquipoAsync(System.Int32)">
             <summary>Obtiene todas las marcas de tiempo de un NadadorEquipo.</summary>
+        </member>
+        <member name="M:SwimmingApi.Infraestructura.Repositorios.MarcaRepository.ObtenerPorNadadorAsync(System.Int32)">
+            <summary>Obtiene todas las marcas de tiempo registradas por un nadador.</summary>
         </member>
         <member name="M:SwimmingApi.Infraestructura.Repositorios.MarcaRepository.CrearAsync(SwimmingApi.Domain.Entities.MarcaDeTiempo)">
             <summary>Registra una nueva marca de tiempo.</summary>
@@ -976,6 +980,30 @@
             <inheritdoc />
         </member>
         <member name="M:SwimmingApi.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SwimmingApi.Migrations.EliminarIdsDuplicados">
+            <inheritdoc />
+        </member>
+        <member name="M:SwimmingApi.Migrations.EliminarIdsDuplicados.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SwimmingApi.Migrations.EliminarIdsDuplicados.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SwimmingApi.Migrations.EliminarIdsDuplicados.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SwimmingApi.Migrations.HacerIdNadadorEquipoNullable">
+            <inheritdoc />
+        </member>
+        <member name="M:SwimmingApi.Migrations.HacerIdNadadorEquipoNullable.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SwimmingApi.Migrations.HacerIdNadadorEquipoNullable.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SwimmingApi.Migrations.HacerIdNadadorEquipoNullable.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

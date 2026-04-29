@@ -29,6 +29,15 @@ public class MarcaDeTiempoController : ControllerBase
         var resultado = Ok(ApiResponse<IEnumerable<MarcaDeTiempoResponseDto>>.Ok(marcas));
         return resultado;
     }
+    /// <summary>Obtiene todas las marcas de tiempo registradas por un nadador.</summary>
+    [HttpGet("nadador/{idNadador:int}")]
+    [ProducesResponseType(typeof(ApiResponse<IEnumerable<MarcaDeTiempoResponseDto>>), 200)]
+    public async Task<IActionResult> ObtenerPorNadador(int idNadador)
+    {
+        var marcas = await _useCase.ObtenerPorNadadorAsync(idNadador);
+        var resultado = Ok(ApiResponse<IEnumerable<MarcaDeTiempoResponseDto>>.Ok(marcas));
+        return resultado;
+    }
 
     /// <summary>Obtiene una marca de tiempo por su ID.</summary>
     [HttpGet("{id:int}")]

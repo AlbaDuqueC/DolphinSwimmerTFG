@@ -155,7 +155,7 @@ public class NadadorEquipoUseCase : INadadorEquipoUseCase
         var resultado = new NadadorEquipoResponseDto
         {
             Id = ne.Id,
-            IdNadadorEquipo = ne.IdNadadorEquipo,
+            IdNadadorEquipo = ne.Id,
             Nombre = ne.Nombre,
             Apellidos = ne.Apellidos,
             Codigo = ne.Codigo,

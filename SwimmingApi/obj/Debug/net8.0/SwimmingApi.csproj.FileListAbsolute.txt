@@ -130,3 +130,4 @@ C:\Users\albad\OneDrive\Documentos\GitHub\DolphinSwimmerTFG\SwimmingApi\obj\Debu
 C:\Users\albad\OneDrive\Documentos\GitHub\DolphinSwimmerTFG\SwimmingApi\obj\Debug\net8.0\SwimmingApi.pdb
 C:\Users\albad\OneDrive\Documentos\GitHub\DolphinSwimmerTFG\SwimmingApi\obj\Debug\net8.0\SwimmingApi.genruntimeconfig.cache
 C:\Users\albad\OneDrive\Documentos\GitHub\DolphinSwimmerTFG\SwimmingApi\obj\Debug\net8.0\ref\SwimmingApi.dll
+C:\Users\albad\OneDrive\Documentos\GitHub\DolphinSwimmerTFG\SwimmingApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

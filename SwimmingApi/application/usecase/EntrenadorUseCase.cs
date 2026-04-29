@@ -48,6 +48,14 @@ public class EntrenadorUseCase : IEntrenadorUseCase
         return resultado;
     }
 
+    /// <summary>Obtiene un entrenador por su email.</summary>
+    public async Task<EntrenadorResponseDto?> ObtenerPorEmailAsync(string email)
+    {
+        var entrenador = await _repository.ObtenerPorEmailAsync(email);
+        var resultado = entrenador != null ? MapearAResponse(entrenador) : null;
+        return resultado;
+    }
+
     /// <summary>Obtiene todos los entrenadores activos.</summary>
     public async Task<IEnumerable<EntrenadorResponseDto>> ObtenerTodosAsync()
     {
@@ -143,7 +151,7 @@ public class EntrenadorUseCase : IEntrenadorUseCase
         var resultado = new EntrenadorResponseDto
         {
             Id = entrenador.Id,
-            IdEntrenador = entrenador.IdEntrenador,
+            IdEntrenador = entrenador.Id,
             Nombre = entrenador.Nombre,
             Apellidos = entrenador.Apellidos,
             Email = entrenador.Email,

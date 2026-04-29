@@ -3,28 +3,84 @@
   "WorkspaceRootPath": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\usecase\\rutinausecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\usecase\\rutinausecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\domain\\extensiones\\slugextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:domain\\extensiones\\slugextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\controller\\nadadorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\controller\\nadadorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\domain\\relaciones\\entrenadorrelaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:domain\\relaciones\\entrenadorrelaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\interfaces\\usecase\\inadadorusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\interfaces\\usecase\\inadadorusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\database\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\database\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\usecase\\nadadorequipousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\usecase\\nadadorequipousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\validaciones\\equipoinfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\validaciones\\equipoinfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\controller\\nadadorequipocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\controller\\nadadorequipocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\validaciones\\entrenadorinfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\validaciones\\entrenadorinfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\interfaces\\usecase\\inadadorequipousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\interfaces\\usecase\\inadadorequipousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\usecase\\nadadorusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\usecase\\nadadorusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\usecase\\equipousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\usecase\\equipousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\dtos\\equipo\\equiporequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\dtos\\equipo\\equiporequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\controller\\entrenadorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\controller\\entrenadorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\usecase\\entrenadorusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\usecase\\entrenadorusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\interfaces\\usecase\\ientrenadorusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\interfaces\\usecase\\ientrenadorusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\controller\\marcadetiempocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\controller\\marcadetiempocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\usecase\\marcadetiempousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\usecase\\marcadetiempousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\interfaces\\usecase\\imarcadetiempousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\interfaces\\usecase\\imarcadetiempousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\repositorios\\marcarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\repositorios\\marcarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\interfaces\\repository\\imarcarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\interfaces\\repository\\imarcarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\domain\\entities\\entitybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:domain\\entities\\entitybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\domain\\entities\\marcadetiempo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:domain\\entities\\marcadetiempo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\validaciones\\marcadetiempoinfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\validaciones\\marcadetiempoinfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\servicios\\encryptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,64 +91,236 @@
       "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\rider\\cacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\repositorios\\entrenadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\repositorios\\entrenadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\extensions\\queryextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\extensions\\queryextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\database\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\database\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\dtos\\marcadetiempo\\marcadetiemporesponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\dtos\\marcadetiempo\\marcadetiemporesponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\dtos\\entrenador\\entrenadorrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\dtos\\entrenador\\entrenadorrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\dtos\\marcadetiempo\\marcadetiemporequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\dtos\\marcadetiempo\\marcadetiemporequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\globalexceptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\validaciones\\nadadorequipovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\validaciones\\nadadorequipovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\validaciones\\marcadetiempovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\validaciones\\marcadetiempovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\domain\\relaciones\\nadadorequiporelaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:domain\\relaciones\\nadadorequiporelaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\domain\\extensiones\\slugextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:domain\\extensiones\\slugextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\dtos\\rutina\\rutinaresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\dtos\\rutina\\rutinaresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\validaciones\\rutinavalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\validaciones\\rutinavalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\validaciones\\nadadorvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\validaciones\\nadadorvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\validaciones\\equipovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\validaciones\\equipovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\validaciones\\entrenadorvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\validaciones\\entrenadorvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\controller\\entrenadorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\controller\\entrenadorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\controller\\marcadetiempocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\controller\\marcadetiempocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\controller\\rutinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\controller\\rutinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\controller\\nadadorequipocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\controller\\nadadorequipocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\controller\\equipocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\controller\\equipocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\api\\controller\\nadadorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:api\\controller\\nadadorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\interfaces\\usecase\\irutinausecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\interfaces\\usecase\\irutinausecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\interfaces\\usecase\\iequipousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\interfaces\\usecase\\iequipousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\interfaces\\repository\\irutinarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\interfaces\\repository\\irutinarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\interfaces\\repository\\inadadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\interfaces\\repository\\inadadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\interfaces\\repository\\inadadorequiporepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\interfaces\\repository\\inadadorequiporepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\interfaces\\repository\\iequiporepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\interfaces\\repository\\iequiporepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\interfaces\\repository\\ientrenadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\interfaces\\repository\\ientrenadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\dtos\\rutina\\rutinarequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\dtos\\rutina\\rutinarequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\dtos\\nadadorequipo\\nadadorequiporesponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\dtos\\nadadorequipo\\nadadorequiporesponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\dtos\\nadadorequipo\\nadadorequiporequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\dtos\\nadadorequipo\\nadadorequiporequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\dtos\\nadador\\nadadorresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\dtos\\nadador\\nadadorresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\dtos\\nadador\\nadadorrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\dtos\\nadador\\nadadorrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\dtos\\equipo\\equiporesponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\dtos\\equipo\\equiporesponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\dtos\\entrenador\\entrenadorresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\dtos\\entrenador\\entrenadorresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\application\\dtos\\entrenador\\entrenadorrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:application\\dtos\\entrenador\\entrenadorrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\validaciones\\rutinainfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\validaciones\\rutinainfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\validaciones\\nadadorinfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\validaciones\\nadadorinfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\validaciones\\nadadorequipoinfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\validaciones\\nadadorequipoinfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\validaciones\\equipoinfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\validaciones\\equipoinfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\validaciones\\entrenadorinfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\validaciones\\entrenadorinfravalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\repositorios\\rutinarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\repositorios\\rutinarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\repositorios\\nadadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\repositorios\\nadadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\repositorios\\nadadorequiporepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\repositorios\\nadadorequiporepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\repositorios\\equiporepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\repositorios\\equiporepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\infraestructura\\repositorios\\entrenadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:infraestructura\\repositorios\\entrenadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\domain\\relaciones\\usuariorelaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:domain\\relaciones\\usuariorelaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\domain\\relaciones\\nadadorrelaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:domain\\relaciones\\nadadorrelaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\domain\\relaciones\\entrenadorrelaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:domain\\relaciones\\entrenadorrelaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\domain\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:domain\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\domain\\entities\\rutina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:domain\\entities\\rutina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\domain\\entities\\nadadorequipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:domain\\entities\\nadadorequipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\domain\\entities\\nadador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:domain\\entities\\nadador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\domain\\entities\\equipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:domain\\entities\\equipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\domain\\entities\\entrenador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:domain\\entities\\entrenador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\migrations\\20260312120608_initialcreate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:migrations\\20260312120608_initialcreate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\migrations\\20260312120608_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:migrations\\20260312120608_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|c:\\users\\albad\\onedrive\\documentos\\github\\dolphinswimmertfg\\swimmingapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5A8AD892-DB44-2C25-6C80-144CE2D62EF2}|SwimmingApi.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -102,132 +330,421 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EquipoInfraValidation.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\EquipoInfraValidation.cs",
-              "RelativeDocumentMoniker": "infraestructura\\validaciones\\EquipoInfraValidation.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\EquipoInfraValidation.cs",
-              "RelativeToolTip": "infraestructura\\validaciones\\EquipoInfraValidation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T11:49:28.192Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EntrenadorInfraValidation.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\EntrenadorInfraValidation.cs",
-              "RelativeDocumentMoniker": "infraestructura\\validaciones\\EntrenadorInfraValidation.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\EntrenadorInfraValidation.cs",
-              "RelativeToolTip": "infraestructura\\validaciones\\EntrenadorInfraValidation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T11:49:07.043Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EncryptionService.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\servicios\\EncryptionService.cs",
-              "RelativeDocumentMoniker": "infraestructura\\servicios\\EncryptionService.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\servicios\\EncryptionService.cs",
-              "RelativeToolTip": "infraestructura\\servicios\\EncryptionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T11:32:58.652Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CacheService.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\rider\\CacheService.cs",
-              "RelativeDocumentMoniker": "infraestructura\\rider\\CacheService.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\rider\\CacheService.cs",
-              "RelativeToolTip": "infraestructura\\rider\\CacheService.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T11:29:10.688Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EntrenadorRepository.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\repositorios\\EntrenadorRepository.cs",
-              "RelativeDocumentMoniker": "infraestructura\\repositorios\\EntrenadorRepository.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\repositorios\\EntrenadorRepository.cs",
-              "RelativeToolTip": "infraestructura\\repositorios\\EntrenadorRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T11:19:23.95Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SlugExtension.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\extensiones\\SlugExtension.cs",
-              "RelativeDocumentMoniker": "domain\\extensiones\\SlugExtension.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\extensiones\\SlugExtension.cs",
-              "RelativeToolTip": "domain\\extensiones\\SlugExtension.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
+              "Title": "NadadorController.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\NadadorController.cs",
+              "RelativeDocumentMoniker": "api\\controller\\NadadorController.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\NadadorController.cs",
+              "RelativeToolTip": "api\\controller\\NadadorController.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAqwFkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-11T15:12:51.98Z"
+              "WhenOpened": "2026-03-12T10:51:54.354Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ApiResponse.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\ApiResponse.cs",
-              "RelativeDocumentMoniker": "api\\ApiResponse.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\ApiResponse.cs",
-              "RelativeToolTip": "api\\ApiResponse.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "RutinaUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\usecase\\RutinaUseCase.cs",
+              "RelativeDocumentMoniker": "application\\usecase\\RutinaUseCase.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\usecase\\RutinaUseCase.cs",
+              "RelativeToolTip": "application\\usecase\\RutinaUseCase.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAiwHEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T13:57:01.264Z",
+              "WhenOpened": "2026-04-25T00:40:58.108Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "EntrenadorRelaciones.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\relaciones\\EntrenadorRelaciones.cs",
-              "RelativeDocumentMoniker": "domain\\relaciones\\EntrenadorRelaciones.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\relaciones\\EntrenadorRelaciones.cs",
-              "RelativeToolTip": "domain\\relaciones\\EntrenadorRelaciones.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "INadadorUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\usecase\\INadadorUseCase.cs",
+              "RelativeDocumentMoniker": "application\\interfaces\\usecase\\INadadorUseCase.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\usecase\\INadadorUseCase.cs",
+              "RelativeToolTip": "application\\interfaces\\usecase\\INadadorUseCase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T11:49:45.961Z"
+              "WhenOpened": "2026-04-25T00:50:56.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NadadorEquipoUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\usecase\\NadadorEquipoUseCase.cs",
+              "RelativeDocumentMoniker": "application\\usecase\\NadadorEquipoUseCase.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\usecase\\NadadorEquipoUseCase.cs",
+              "RelativeToolTip": "application\\usecase\\NadadorEquipoUseCase.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAADgvw0AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:51:20.452Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NadadorEquipoController.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\NadadorEquipoController.cs",
+              "RelativeDocumentMoniker": "api\\controller\\NadadorEquipoController.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\NadadorEquipoController.cs",
+              "RelativeToolTip": "api\\controller\\NadadorEquipoController.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAADgvw8AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T11:15:33.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "INadadorEquipoUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\usecase\\INadadorEquipoUseCase.cs",
+              "RelativeDocumentMoniker": "application\\interfaces\\usecase\\INadadorEquipoUseCase.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\usecase\\INadadorEquipoUseCase.cs",
+              "RelativeToolTip": "application\\interfaces\\usecase\\INadadorEquipoUseCase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:50:51.586Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NadadorUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\usecase\\NadadorUseCase.cs",
+              "RelativeDocumentMoniker": "application\\usecase\\NadadorUseCase.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\usecase\\NadadorUseCase.cs",
+              "RelativeToolTip": "application\\usecase\\NadadorUseCase.cs",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAuwL4AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:51:30.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EquipoUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\usecase\\EquipoUseCase.cs",
+              "RelativeDocumentMoniker": "application\\usecase\\EquipoUseCase.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\usecase\\EquipoUseCase.cs",
+              "RelativeToolTip": "application\\usecase\\EquipoUseCase.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAgwGYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:51:14.989Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "EntrenadorController.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\EntrenadorController.cs",
+              "RelativeDocumentMoniker": "api\\controller\\EntrenadorController.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\EntrenadorController.cs",
+              "RelativeToolTip": "api\\controller\\EntrenadorController.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAgwDYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T11:20:53.663Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EntrenadorUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\usecase\\EntrenadorUseCase.cs",
+              "RelativeDocumentMoniker": "application\\usecase\\EntrenadorUseCase.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\usecase\\EntrenadorUseCase.cs",
+              "RelativeToolTip": "application\\usecase\\EntrenadorUseCase.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwDgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:51:08.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EquipoRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\equipo\\EquipoRequestDto.cs",
+              "RelativeDocumentMoniker": "application\\dtos\\equipo\\EquipoRequestDto.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\equipo\\EquipoRequestDto.cs",
+              "RelativeToolTip": "application\\dtos\\equipo\\EquipoRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:48:49.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IEntrenadorUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\usecase\\IEntrenadorUseCase.cs",
+              "RelativeDocumentMoniker": "application\\interfaces\\usecase\\IEntrenadorUseCase.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\usecase\\IEntrenadorUseCase.cs",
+              "RelativeToolTip": "application\\interfaces\\usecase\\IEntrenadorUseCase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:50:37.501Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MarcaDeTiempoController.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\MarcaDeTiempoController.cs",
+              "RelativeDocumentMoniker": "api\\controller\\MarcaDeTiempoController.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\MarcaDeTiempoController.cs",
+              "RelativeToolTip": "api\\controller\\MarcaDeTiempoController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwB4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T11:21:41.41Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MarcaDeTiempoUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\usecase\\MarcaDeTiempoUseCase.cs",
+              "RelativeDocumentMoniker": "application\\usecase\\MarcaDeTiempoUseCase.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\usecase\\MarcaDeTiempoUseCase.cs",
+              "RelativeToolTip": "application\\usecase\\MarcaDeTiempoUseCase.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAAwGgAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:51:20.951Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IMarcaDeTiempoUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\usecase\\IMarcaDeTiempoUseCase.cs",
+              "RelativeDocumentMoniker": "application\\interfaces\\usecase\\IMarcaDeTiempoUseCase.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\usecase\\IMarcaDeTiempoUseCase.cs",
+              "RelativeToolTip": "application\\interfaces\\usecase\\IMarcaDeTiempoUseCase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:50:46.934Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MarcaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\repositorios\\MarcaRepository.cs",
+              "RelativeDocumentMoniker": "infraestructura\\repositorios\\MarcaRepository.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\repositorios\\MarcaRepository.cs",
+              "RelativeToolTip": "infraestructura\\repositorios\\MarcaRepository.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAwDAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:47:20.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IMarcaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\repository\\IMarcaRepository.cs",
+              "RelativeDocumentMoniker": "application\\interfaces\\repository\\IMarcaRepository.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\repository\\IMarcaRepository.cs",
+              "RelativeToolTip": "application\\interfaces\\repository\\IMarcaRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:50:14.558Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "EntityBase.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\EntityBase.cs",
+              "RelativeDocumentMoniker": "domain\\entities\\EntityBase.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\EntityBase.cs",
+              "RelativeToolTip": "domain\\entities\\EntityBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:25:45.437Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "MarcaDeTiempoInfraValidation.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\MarcaDeTiempoInfraValidation.cs",
+              "RelativeDocumentMoniker": "infraestructura\\validaciones\\MarcaDeTiempoInfraValidation.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\MarcaDeTiempoInfraValidation.cs",
+              "RelativeToolTip": "infraestructura\\validaciones\\MarcaDeTiempoInfraValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:48:05.546Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CacheService.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\rider\\CacheService.cs",
+              "RelativeDocumentMoniker": "infraestructura\\rider\\CacheService.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\rider\\CacheService.cs",
+              "RelativeToolTip": "infraestructura\\rider\\CacheService.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAwEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T11:29:10.688Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "QueryExtensions.cs",
               "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\extensions\\QueryExtensions.cs",
               "RelativeDocumentMoniker": "infraestructura\\extensions\\QueryExtensions.cs",
               "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\extensions\\QueryExtensions.cs",
               "RelativeToolTip": "infraestructura\\extensions\\QueryExtensions.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAzwCgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-13T11:19:18.619Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 23,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\database\\AppDbContext.cs",
               "RelativeDocumentMoniker": "infraestructura\\database\\AppDbContext.cs",
               "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\database\\AppDbContext.cs",
               "RelativeToolTip": "infraestructura\\database\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAwC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-11T15:02:53.328Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
+              "Title": "MarcaDeTiempo.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\MarcaDeTiempo.cs",
+              "RelativeDocumentMoniker": "domain\\entities\\MarcaDeTiempo.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\MarcaDeTiempo.cs",
+              "RelativeToolTip": "domain\\entities\\MarcaDeTiempo.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAmwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:26:13.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "EncryptionService.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\servicios\\EncryptionService.cs",
+              "RelativeDocumentMoniker": "infraestructura\\servicios\\EncryptionService.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\servicios\\EncryptionService.cs",
+              "RelativeToolTip": "infraestructura\\servicios\\EncryptionService.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAwDAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T11:32:58.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "MarcaDeTiempoResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\marcadetiempo\\MarcaDeTiempoResponseDto.cs",
+              "RelativeDocumentMoniker": "application\\dtos\\marcadetiempo\\MarcaDeTiempoResponseDto.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\marcadetiempo\\MarcaDeTiempoResponseDto.cs",
+              "RelativeToolTip": "application\\dtos\\marcadetiempo\\MarcaDeTiempoResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:49:09.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "MarcaDeTiempoRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\marcadetiempo\\MarcaDeTiempoRequestDto.cs",
+              "RelativeDocumentMoniker": "application\\dtos\\marcadetiempo\\MarcaDeTiempoRequestDto.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\marcadetiempo\\MarcaDeTiempoRequestDto.cs",
+              "RelativeToolTip": "application\\dtos\\marcadetiempo\\MarcaDeTiempoRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:49:03.264Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "GlobalExceptionHandler.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\GlobalExceptionHandler.cs",
+              "RelativeDocumentMoniker": "api\\GlobalExceptionHandler.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\GlobalExceptionHandler.cs",
+              "RelativeToolTip": "api\\GlobalExceptionHandler.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAYwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T14:08:39.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ApiResponse.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\ApiResponse.cs",
+              "RelativeDocumentMoniker": "api\\ApiResponse.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\ApiResponse.cs",
+              "RelativeToolTip": "api\\ApiResponse.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T13:57:01.264Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "NadadorEquipoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\validaciones\\NadadorEquipoValidator.cs",
+              "RelativeDocumentMoniker": "api\\validaciones\\NadadorEquipoValidator.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\validaciones\\NadadorEquipoValidator.cs",
+              "RelativeToolTip": "api\\validaciones\\NadadorEquipoValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:53:15.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "MarcaDeTiempoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\validaciones\\MarcaDeTiempoValidator.cs",
+              "RelativeDocumentMoniker": "api\\validaciones\\MarcaDeTiempoValidator.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\validaciones\\MarcaDeTiempoValidator.cs",
+              "RelativeToolTip": "api\\validaciones\\MarcaDeTiempoValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:53:09.505Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "RutinaResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\rutina\\RutinaResponseDto.cs",
+              "RelativeDocumentMoniker": "application\\dtos\\rutina\\RutinaResponseDto.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\rutina\\RutinaResponseDto.cs",
+              "RelativeToolTip": "application\\dtos\\rutina\\RutinaResponseDto.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAYwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:40:48.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAqwGwAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T14:53:06.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "NadadorEquipoRelaciones.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\relaciones\\NadadorEquipoRelaciones.cs",
+              "RelativeDocumentMoniker": "domain\\relaciones\\NadadorEquipoRelaciones.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\relaciones\\NadadorEquipoRelaciones.cs",
+              "RelativeToolTip": "domain\\relaciones\\NadadorEquipoRelaciones.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAiwB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:46:27.723Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "SlugExtension.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\extensiones\\SlugExtension.cs",
+              "RelativeDocumentMoniker": "domain\\extensiones\\SlugExtension.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\extensiones\\SlugExtension.cs",
+              "RelativeToolTip": "domain\\extensiones\\SlugExtension.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T15:12:51.98Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\appsettings.Development.json",
               "RelativeDocumentMoniker": "appsettings.Development.json",
@@ -239,7 +756,523 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 35,
+              "Title": "RutinaValidator.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\validaciones\\RutinaValidator.cs",
+              "RelativeDocumentMoniker": "api\\validaciones\\RutinaValidator.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\validaciones\\RutinaValidator.cs",
+              "RelativeToolTip": "api\\validaciones\\RutinaValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:53:24.878Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "NadadorValidator.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\validaciones\\NadadorValidator.cs",
+              "RelativeDocumentMoniker": "api\\validaciones\\NadadorValidator.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\validaciones\\NadadorValidator.cs",
+              "RelativeToolTip": "api\\validaciones\\NadadorValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:53:20.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "EquipoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\validaciones\\EquipoValidator.cs",
+              "RelativeDocumentMoniker": "api\\validaciones\\EquipoValidator.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\validaciones\\EquipoValidator.cs",
+              "RelativeToolTip": "api\\validaciones\\EquipoValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:52:49.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "EntrenadorValidator.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\validaciones\\EntrenadorValidator.cs",
+              "RelativeDocumentMoniker": "api\\validaciones\\EntrenadorValidator.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\validaciones\\EntrenadorValidator.cs",
+              "RelativeToolTip": "api\\validaciones\\EntrenadorValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T13:56:56.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "RutinaController.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\RutinaController.cs",
+              "RelativeDocumentMoniker": "api\\controller\\RutinaController.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\RutinaController.cs",
+              "RelativeToolTip": "api\\controller\\RutinaController.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAUwE4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T11:21:32.226Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "EquipoController.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\EquipoController.cs",
+              "RelativeDocumentMoniker": "api\\controller\\EquipoController.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\EquipoController.cs",
+              "RelativeToolTip": "api\\controller\\EquipoController.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAUwE0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T11:21:06.418Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "IRutinaUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\usecase\\IRutinaUseCase.cs",
+              "RelativeDocumentMoniker": "application\\interfaces\\usecase\\IRutinaUseCase.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\usecase\\IRutinaUseCase.cs",
+              "RelativeToolTip": "application\\interfaces\\usecase\\IRutinaUseCase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:51:00.869Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "IEquipoUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\usecase\\IEquipoUseCase.cs",
+              "RelativeDocumentMoniker": "application\\interfaces\\usecase\\IEquipoUseCase.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\usecase\\IEquipoUseCase.cs",
+              "RelativeToolTip": "application\\interfaces\\usecase\\IEquipoUseCase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:50:42.498Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "IRutinaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\repository\\IRutinaRepository.cs",
+              "RelativeDocumentMoniker": "application\\interfaces\\repository\\IRutinaRepository.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\repository\\IRutinaRepository.cs",
+              "RelativeToolTip": "application\\interfaces\\repository\\IRutinaRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:50:30.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "INadadorRepository.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\repository\\INadadorRepository.cs",
+              "RelativeDocumentMoniker": "application\\interfaces\\repository\\INadadorRepository.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\repository\\INadadorRepository.cs",
+              "RelativeToolTip": "application\\interfaces\\repository\\INadadorRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:50:25.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "INadadorEquipoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\repository\\INadadorEquipoRepository.cs",
+              "RelativeDocumentMoniker": "application\\interfaces\\repository\\INadadorEquipoRepository.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\repository\\INadadorEquipoRepository.cs",
+              "RelativeToolTip": "application\\interfaces\\repository\\INadadorEquipoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:50:20.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "IEquipoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\repository\\IEquipoRepository.cs",
+              "RelativeDocumentMoniker": "application\\interfaces\\repository\\IEquipoRepository.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\repository\\IEquipoRepository.cs",
+              "RelativeToolTip": "application\\interfaces\\repository\\IEquipoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:50:09.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "IEntrenadorRepository.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\repository\\IEntrenadorRepository.cs",
+              "RelativeDocumentMoniker": "application\\interfaces\\repository\\IEntrenadorRepository.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\interfaces\\repository\\IEntrenadorRepository.cs",
+              "RelativeToolTip": "application\\interfaces\\repository\\IEntrenadorRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:50:03.828Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "RutinaRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\rutina\\RutinaRequestDto.cs",
+              "RelativeDocumentMoniker": "application\\dtos\\rutina\\RutinaRequestDto.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\rutina\\RutinaRequestDto.cs",
+              "RelativeToolTip": "application\\dtos\\rutina\\RutinaRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:49:49.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "NadadorEquipoResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\nadadorequipo\\NadadorEquipoResponseDto.cs",
+              "RelativeDocumentMoniker": "application\\dtos\\nadadorequipo\\NadadorEquipoResponseDto.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\nadadorequipo\\NadadorEquipoResponseDto.cs",
+              "RelativeToolTip": "application\\dtos\\nadadorequipo\\NadadorEquipoResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:49:41.852Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "NadadorEquipoRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\nadadorequipo\\NadadorEquipoRequestDto.cs",
+              "RelativeDocumentMoniker": "application\\dtos\\nadadorequipo\\NadadorEquipoRequestDto.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\nadadorequipo\\NadadorEquipoRequestDto.cs",
+              "RelativeToolTip": "application\\dtos\\nadadorequipo\\NadadorEquipoRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:49:37.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "NadadorResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\nadador\\NadadorResponseDto.cs",
+              "RelativeDocumentMoniker": "application\\dtos\\nadador\\NadadorResponseDto.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\nadador\\NadadorResponseDto.cs",
+              "RelativeToolTip": "application\\dtos\\nadador\\NadadorResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:49:30.741Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "NadadorRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\nadador\\NadadorRequestDto.cs",
+              "RelativeDocumentMoniker": "application\\dtos\\nadador\\NadadorRequestDto.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\nadador\\NadadorRequestDto.cs",
+              "RelativeToolTip": "application\\dtos\\nadador\\NadadorRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:49:25.166Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "EquipoResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\equipo\\EquipoResponseDto.cs",
+              "RelativeDocumentMoniker": "application\\dtos\\equipo\\EquipoResponseDto.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\equipo\\EquipoResponseDto.cs",
+              "RelativeToolTip": "application\\dtos\\equipo\\EquipoResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:48:54.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "EntrenadorResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\entrenador\\EntrenadorResponseDto.cs",
+              "RelativeDocumentMoniker": "application\\dtos\\entrenador\\EntrenadorResponseDto.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\entrenador\\EntrenadorResponseDto.cs",
+              "RelativeToolTip": "application\\dtos\\entrenador\\EntrenadorResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:48:43.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "RutinaInfraValidation.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\RutinaInfraValidation.cs",
+              "RelativeDocumentMoniker": "infraestructura\\validaciones\\RutinaInfraValidation.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\RutinaInfraValidation.cs",
+              "RelativeToolTip": "infraestructura\\validaciones\\RutinaInfraValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:48:21.476Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "EntrenadorRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\entrenador\\EntrenadorRequestDto.cs",
+              "RelativeDocumentMoniker": "application\\dtos\\entrenador\\EntrenadorRequestDto.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\entrenador\\EntrenadorRequestDto.cs",
+              "RelativeToolTip": "application\\dtos\\entrenador\\EntrenadorRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T14:11:58.29Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "NadadorInfraValidation.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\NadadorInfraValidation.cs",
+              "RelativeDocumentMoniker": "infraestructura\\validaciones\\NadadorInfraValidation.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\NadadorInfraValidation.cs",
+              "RelativeToolTip": "infraestructura\\validaciones\\NadadorInfraValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:48:16.476Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "NadadorEquipoInfraValidation.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\NadadorEquipoInfraValidation.cs",
+              "RelativeDocumentMoniker": "infraestructura\\validaciones\\NadadorEquipoInfraValidation.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\NadadorEquipoInfraValidation.cs",
+              "RelativeToolTip": "infraestructura\\validaciones\\NadadorEquipoInfraValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:48:11.371Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "EntrenadorInfraValidation.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\EntrenadorInfraValidation.cs",
+              "RelativeDocumentMoniker": "infraestructura\\validaciones\\EntrenadorInfraValidation.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\EntrenadorInfraValidation.cs",
+              "RelativeToolTip": "infraestructura\\validaciones\\EntrenadorInfraValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T11:49:07.043Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "EquipoInfraValidation.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\EquipoInfraValidation.cs",
+              "RelativeDocumentMoniker": "infraestructura\\validaciones\\EquipoInfraValidation.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\validaciones\\EquipoInfraValidation.cs",
+              "RelativeToolTip": "infraestructura\\validaciones\\EquipoInfraValidation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T11:49:28.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "RutinaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\repositorios\\RutinaRepository.cs",
+              "RelativeDocumentMoniker": "infraestructura\\repositorios\\RutinaRepository.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\repositorios\\RutinaRepository.cs",
+              "RelativeToolTip": "infraestructura\\repositorios\\RutinaRepository.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAcwEsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:47:39.474Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "NadadorRepository.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\repositorios\\NadadorRepository.cs",
+              "RelativeDocumentMoniker": "infraestructura\\repositorios\\NadadorRepository.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\repositorios\\NadadorRepository.cs",
+              "RelativeToolTip": "infraestructura\\repositorios\\NadadorRepository.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAUwFsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:47:32.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "NadadorEquipoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\repositorios\\NadadorEquipoRepository.cs",
+              "RelativeDocumentMoniker": "infraestructura\\repositorios\\NadadorEquipoRepository.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\repositorios\\NadadorEquipoRepository.cs",
+              "RelativeToolTip": "infraestructura\\repositorios\\NadadorEquipoRepository.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAcwFcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:47:26.589Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "EquipoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\repositorios\\EquipoRepository.cs",
+              "RelativeDocumentMoniker": "infraestructura\\repositorios\\EquipoRepository.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\repositorios\\EquipoRepository.cs",
+              "RelativeToolTip": "infraestructura\\repositorios\\EquipoRepository.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAcwEsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:47:01.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "EntrenadorRepository.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\repositorios\\EntrenadorRepository.cs",
+              "RelativeDocumentMoniker": "infraestructura\\repositorios\\EntrenadorRepository.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\infraestructura\\repositorios\\EntrenadorRepository.cs",
+              "RelativeToolTip": "infraestructura\\repositorios\\EntrenadorRepository.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAUwFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T11:19:23.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "UsuarioRelaciones.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\relaciones\\UsuarioRelaciones.cs",
+              "RelativeDocumentMoniker": "domain\\relaciones\\UsuarioRelaciones.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\relaciones\\UsuarioRelaciones.cs",
+              "RelativeToolTip": "domain\\relaciones\\UsuarioRelaciones.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:46:39.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "NadadorRelaciones.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\relaciones\\NadadorRelaciones.cs",
+              "RelativeDocumentMoniker": "domain\\relaciones\\NadadorRelaciones.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\relaciones\\NadadorRelaciones.cs",
+              "RelativeToolTip": "domain\\relaciones\\NadadorRelaciones.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:46:34.691Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\Usuario.cs",
+              "RelativeDocumentMoniker": "domain\\entities\\Usuario.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\Usuario.cs",
+              "RelativeToolTip": "domain\\entities\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:31:03.831Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "EntrenadorRelaciones.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\relaciones\\EntrenadorRelaciones.cs",
+              "RelativeDocumentMoniker": "domain\\relaciones\\EntrenadorRelaciones.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\relaciones\\EntrenadorRelaciones.cs",
+              "RelativeToolTip": "domain\\relaciones\\EntrenadorRelaciones.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T11:49:45.961Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "Rutina.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\Rutina.cs",
+              "RelativeDocumentMoniker": "domain\\entities\\Rutina.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\Rutina.cs",
+              "RelativeToolTip": "domain\\entities\\Rutina.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:30:55.887Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "NadadorEquipo.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\NadadorEquipo.cs",
+              "RelativeDocumentMoniker": "domain\\entities\\NadadorEquipo.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\NadadorEquipo.cs",
+              "RelativeToolTip": "domain\\entities\\NadadorEquipo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:28:07.619Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "Nadador.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\Nadador.cs",
+              "RelativeDocumentMoniker": "domain\\entities\\Nadador.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\Nadador.cs",
+              "RelativeToolTip": "domain\\entities\\Nadador.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:26:19.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "Equipo.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\Equipo.cs",
+              "RelativeDocumentMoniker": "domain\\entities\\Equipo.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\Equipo.cs",
+              "RelativeToolTip": "domain\\entities\\Equipo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:26:03.487Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "Entrenador.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\Entrenador.cs",
+              "RelativeDocumentMoniker": "domain\\entities\\Entrenador.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\domain\\entities\\Entrenador.cs",
+              "RelativeToolTip": "domain\\entities\\Entrenador.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:25:46.761Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "20260312120608_InitialCreate.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\Migrations\\20260312120608_InitialCreate.Designer.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260312120608_InitialCreate.Designer.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\Migrations\\20260312120608_InitialCreate.Designer.cs",
+              "RelativeToolTip": "Migrations\\20260312120608_InitialCreate.Designer.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAADwv6UAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:41:20.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "AppDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Migrations\\AppDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeToolTip": "Migrations\\AppDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAJAAAAAAAAAAAADwv5kAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:42:06.627Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "20260312120608_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\Migrations\\20260312120608_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260312120608_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\Migrations\\20260312120608_InitialCreate.cs",
+              "RelativeToolTip": "Migrations\\20260312120608_InitialCreate.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAlwIkAAAB9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T00:41:05.407Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
@@ -251,19 +1284,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAMwGgAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-11T14:53:06.215Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 78,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -272,114 +1293,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-03-11T15:04:18.602Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "EntrenadorRequestDto.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\entrenador\\EntrenadorRequestDto.cs",
-              "RelativeDocumentMoniker": "application\\dtos\\entrenador\\EntrenadorRequestDto.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\application\\dtos\\entrenador\\EntrenadorRequestDto.cs",
-              "RelativeToolTip": "application\\dtos\\entrenador\\EntrenadorRequestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T14:11:58.29Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "GlobalExceptionHandler.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\GlobalExceptionHandler.cs",
-              "RelativeDocumentMoniker": "api\\GlobalExceptionHandler.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\GlobalExceptionHandler.cs",
-              "RelativeToolTip": "api\\GlobalExceptionHandler.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T14:08:39.123Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "EntrenadorValidator.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\validaciones\\EntrenadorValidator.cs",
-              "RelativeDocumentMoniker": "api\\validaciones\\EntrenadorValidator.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\validaciones\\EntrenadorValidator.cs",
-              "RelativeToolTip": "api\\validaciones\\EntrenadorValidator.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T13:56:56.337Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "NadadorEquipoController.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\NadadorEquipoController.cs",
-              "RelativeDocumentMoniker": "api\\controller\\NadadorEquipoController.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\NadadorEquipoController.cs",
-              "RelativeToolTip": "api\\controller\\NadadorEquipoController.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAmwGEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T11:15:33.625Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "EquipoController.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\EquipoController.cs",
-              "RelativeDocumentMoniker": "api\\controller\\EquipoController.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\EquipoController.cs",
-              "RelativeToolTip": "api\\controller\\EquipoController.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAqwE0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T11:21:06.418Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "EntrenadorController.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\EntrenadorController.cs",
-              "RelativeDocumentMoniker": "api\\controller\\EntrenadorController.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\EntrenadorController.cs",
-              "RelativeToolTip": "api\\controller\\EntrenadorController.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAqwE0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T11:20:53.663Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "NadadorController.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\NadadorController.cs",
-              "RelativeDocumentMoniker": "api\\controller\\NadadorController.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\NadadorController.cs",
-              "RelativeToolTip": "api\\controller\\NadadorController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T10:51:54.354Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "RutinaController.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\RutinaController.cs",
-              "RelativeDocumentMoniker": "api\\controller\\RutinaController.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\RutinaController.cs",
-              "RelativeToolTip": "api\\controller\\RutinaController.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAmwE4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T11:21:32.226Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "MarcaDeTiempoController.cs",
-              "DocumentMoniker": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\MarcaDeTiempoController.cs",
-              "RelativeDocumentMoniker": "api\\controller\\MarcaDeTiempoController.cs",
-              "ToolTip": "C:\\Users\\albad\\OneDrive\\Documentos\\GitHub\\DolphinSwimmerTFG\\SwimmingApi\\api\\controller\\MarcaDeTiempoController.cs",
-              "RelativeToolTip": "api\\controller\\MarcaDeTiempoController.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAmwFEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T11:21:41.41Z"
             }
           ]
         }

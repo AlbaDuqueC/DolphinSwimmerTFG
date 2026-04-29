@@ -15,8 +15,8 @@ public class NadadorEquipoRelaciones : IEntityTypeConfiguration<NadadorEquipo>
         builder.HasOne(ne => ne.Equipo)
                .WithMany(e => e.ListaNadadores)
                .HasForeignKey(ne => ne.IdEquipo)
-               .IsRequired()
-               .OnDelete(DeleteBehavior.Cascade);
+               .IsRequired(false)
+               .OnDelete(DeleteBehavior.SetNull);
 
         // Relación NadadorEquipo con MarcasDeTiempo
         builder.HasMany(ne => ne.ListaDeTiempoEquipo)

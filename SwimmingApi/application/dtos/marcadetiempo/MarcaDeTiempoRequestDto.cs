@@ -12,7 +12,7 @@ public class MarcaDeTiempoRequestDto
     public string Descripcion { get; set; } = string.Empty;
 
     /// <summary>ID del NadadorEquipo al que se asigna la marca.</summary>
-    public int IdNadadorEquipo { get; set; }
+    public int? IdNadadorEquipo { get; set; }
 
     /// <summary>ID del nadador que registra. Nulo si lo registra el entrenador.</summary>
     public int? IdNadador { get; set; }

@@ -7,8 +7,6 @@ namespace SwimmingApi.Domain.Entities;
 /// </summary>
 public class NadadorEquipo : EntityBase
 {
-    /// <summary>Identificador del nadador dentro del equipo.</summary>
-    public int IdNadadorEquipo { get; set; }
 
     /// <summary>Nombre del nadador en el equipo (para cuando no está registrado en el sistema).</summary>
     public string Nombre { get; set; } = string.Empty;

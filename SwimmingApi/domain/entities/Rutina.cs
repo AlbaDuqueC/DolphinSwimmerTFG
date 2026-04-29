@@ -6,8 +6,6 @@ namespace SwimmingApi.Domain.Entities;
 /// </summary>
 public class Rutina : EntityBase
 {
-    /// <summary>Identificador de la rutina.</summary>
-    public int IdRutina { get; set; }
 
     /// <summary>Contenido detallado de la rutina.</summary>
     public string Contenido { get; set; } = string.Empty;

@@ -9,7 +9,7 @@ public class MarcaDeTiempoResponseDto
     public int IdMarca { get; set; }
     public TimeSpan Tiempo { get; set; }
     public string Descripcion { get; set; } = string.Empty;
-    public int IdNadadorEquipo { get; set; }
+    public int? IdNadadorEquipo { get; set; }
     public int? IdNadador { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime? UpdateAt { get; set; }

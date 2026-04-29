@@ -6,8 +6,6 @@ namespace SwimmingApi.Domain.Entities;
 /// </summary>
 public class MarcaDeTiempo : EntityBase
 {
-    /// <summary>Identificador de la marca.</summary>
-    public int IdMarca { get; set; }
 
     /// <summary>Tiempo registrado en formato TimeSpan (hh:mm:ss.ms).</summary>
     public TimeSpan Tiempo { get; set; }
@@ -16,10 +14,10 @@ public class MarcaDeTiempo : EntityBase
     public string Descripcion { get; set; } = string.Empty;
 
     /// <summary>FK al registro NadadorEquipo al que pertenece esta marca.</summary>
-    public int IdNadadorEquipo { get; set; }
+    public int? IdNadadorEquipo { get; set; }
 
     /// <summary>Registro NadadorEquipo al que pertenece esta marca.</summary>
-    public NadadorEquipo NadadorEquipo { get; set; } = null!;
+    public NadadorEquipo? NadadorEquipo { get; set; } = null!;
 
     /// <summary>FK del nadador que registró la marca. Puede ser nulo si la registró el entrenador.</summary>
     public int? IdNadador { get; set; }

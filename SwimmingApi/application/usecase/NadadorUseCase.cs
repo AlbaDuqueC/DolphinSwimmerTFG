@@ -15,17 +15,20 @@ namespace SwimmingApi.Application.UseCase;
 public class NadadorUseCase : INadadorUseCase
 {
     private readonly INadadorRepository _repository;
+    private readonly INadadorEquipoRepository _nadadorEquipoRepository;
     private readonly EncryptionService _encryption;
     private readonly CacheService _cache;
     private readonly NadadorInfraValidation _validation;
 
     public NadadorUseCase(
         INadadorRepository repository,
+        INadadorEquipoRepository nadadorEquipoRepository,
         EncryptionService encryption,
         CacheService cache,
         NadadorInfraValidation validation)
     {
         _repository = repository;
+        _nadadorEquipoRepository = nadadorEquipoRepository;
         _encryption = encryption;
         _cache = cache;
         _validation = validation;
@@ -145,13 +148,56 @@ public class NadadorUseCase : INadadorUseCase
         return resultado;
     }
 
+    /// <summary>Obtiene un nadador por su email.</summary>
+    public async Task<NadadorResponseDto?> ObtenerPorEmailAsync(string email)
+    {
+        var nadador = await _repository.ObtenerPorEmailAsync(email);
+        var resultado = nadador != null ? MapearAResponse(nadador) : null;
+        return resultado;
+    }
+
+    /// <summary>
+    /// Vincula un nadador (usuario) con un NadadorEquipo (ficha del equipo) usando el código
+    /// que le ha dado el entrenador. Falla si el código no existe o si ya está siendo usado.
+    /// </summary>
+    public async Task<NadadorResponseDto> VincularConCodigoAsync(int idNadador, int codigo)
+    {
+        // 1) Buscar al nadador (usuario)
+        var nadador = await _repository.ObtenerPorIdAsync(idNadador)
+            ?? throw new KeyNotFoundException($"Nadador con ID {idNadador} no encontrado.");
+
+        // 2) Comprobar que no esté ya vinculado
+        if (nadador.IdNadadorEquipo != null)
+            throw new InvalidOperationException("Ya estás vinculado a un equipo.");
+
+        // 3) Buscar el NadadorEquipo por su código
+        var nadadorEquipo = await _nadadorEquipoRepository.ObtenerPorCodigoAsync(codigo)
+            ?? throw new KeyNotFoundException("No existe ningún nadador con ese código.");
+
+        // 4) Comprobar que ese código no esté ya en uso por otro usuario
+        var todos = await _repository.ObtenerTodosAsync();
+        var ocupado = todos.Any(n => n.IdNadadorEquipo == nadadorEquipo.Id);
+        if (ocupado)
+            throw new InvalidOperationException("Ese código ya está siendo usado por otro nadador.");
+
+        // 5) Vincular
+        nadador.IdNadadorEquipo = nadadorEquipo.Id;
+        nadador.IdEquipo = nadadorEquipo.IdEquipo;
+        var actualizado = await _repository.ActualizarAsync(nadador);
+
+        // 6) Limpiar caché
+        _cache.Eliminar(_cache.GenerarClave("nadador", nadador.Id));
+
+        return MapearAResponse(actualizado);
+    }
+
     // Mapea la entidad Nadador al DTO de respuesta
     private NadadorResponseDto MapearAResponse(Nadador nadador)
     {
         var resultado = new NadadorResponseDto
         {
             Id = nadador.Id,
-            IdNadador = nadador.IdNadador,
+            IdNadador = nadador.Id,
             Nombre = nadador.Nombre,
             Apellidos = nadador.Apellidos,
             Email = nadador.Email,

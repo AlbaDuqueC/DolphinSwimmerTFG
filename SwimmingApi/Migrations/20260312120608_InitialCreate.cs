@@ -136,7 +136,6 @@ namespace SwimmingApi.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    IdRutina = table.Column<int>(type: "integer", nullable: false),
                     Contenido = table.Column<string>(type: "text", nullable: false),
                     Fecha = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Mostrar = table.Column<bool>(type: "boolean", nullable: false),
