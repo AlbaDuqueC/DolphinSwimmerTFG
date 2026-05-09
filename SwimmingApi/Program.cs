@@ -14,8 +14,21 @@ using SwimmingApi.Infraestructura.Validaciones;
 var builder = WebApplication.CreateBuilder(args);
 
 // ─── Base de datos PostgreSQL ────────────────────────────────────────────────
+// Cadena de conexión: prioriza variable de entorno (DATABASE_URL en Render),
+// y si no, usa la del appsettings.json (modo local).
+var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL")
+    ?? builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Si viene de Render como URL postgres://, la convertimos al formato Npgsql.
+if (!string.IsNullOrEmpty(connectionString) && connectionString.StartsWith("postgres://"))
+{
+    var uri = new Uri(connectionString);
+    var userInfo = uri.UserInfo.Split(':');
+    connectionString = $"Host={uri.Host};Port={uri.Port};Database={uri.AbsolutePath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Require;Trust Server Certificate=true";
+}
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(connectionString));
 
 // ─── Caché en memoria ────────────────────────────────────────────────────────
 builder.Services.AddMemoryCache();
@@ -105,5 +118,14 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 //app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
+// ─── Render asigna el puerto via variable de entorno PORT ────────────────────
+// En local no hay PORT, así que usa la config por defecto (lo que pongas en launchSettings.json)
+var port = Environment.GetEnvironmentVariable("PORT");
+if (!string.IsNullOrEmpty(port))
+{
+    app.Urls.Clear();
+    app.Urls.Add($"http://0.0.0.0:{port}");
+}
 
 app.Run();

@@ -5,6 +5,7 @@ namespace SwimmingApi.Application.Interfaces.UseCase;
 public interface INadadorUseCase
 {
     Task<NadadorResponseDto?> ObtenerPorIdAsync(int id);
+
     Task<NadadorResponseDto?> ObtenerPorEmailAsync(string email);
     Task<IEnumerable<NadadorResponseDto>> ObtenerTodosAsync();
     Task<NadadorResponseDto> CrearAsync(NadadorRequestDto dto);

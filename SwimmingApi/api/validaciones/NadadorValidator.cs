@@ -23,9 +23,11 @@ public class NadadorValidator : AbstractValidator<NadadorRequestDto>
             .NotEmpty().WithMessage("El email es obligatorio.")
             .EmailAddress().WithMessage("El formato del email no es válido.");
 
+        // Password solo se valida cuando viene rellena.
+        // Al actualizar perfil llega vacía y no la cambiamos.
         RuleFor(x => x.Password)
-            .NotEmpty().WithMessage("La contraseña es obligatoria.")
-            .MinimumLength(8).WithMessage("La contraseña debe tener al menos 8 caracteres.");
+            .MinimumLength(8).WithMessage("La contraseña debe tener al menos 8 caracteres.")
+            .When(x => !string.IsNullOrEmpty(x.Password));
 
         RuleFor(x => x.IdEquipo)
             .GreaterThan(0).When(x => x.IdEquipo.HasValue)

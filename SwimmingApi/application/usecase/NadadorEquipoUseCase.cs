@@ -14,15 +14,18 @@ namespace SwimmingApi.Application.UseCase;
 public class NadadorEquipoUseCase : INadadorEquipoUseCase
 {
     private readonly INadadorEquipoRepository _repository;
+    private readonly INadadorRepository _nadadorRepository; // ✨ NUEVO
     private readonly CacheService _cache;
     private readonly NadadorEquipoInfraValidation _validation;
 
     public NadadorEquipoUseCase(
         INadadorEquipoRepository repository,
+        INadadorRepository nadadorRepository, 
         CacheService cache,
         NadadorEquipoInfraValidation validation)
     {
         _repository = repository;
+        _nadadorRepository = nadadorRepository;
         _cache = cache;
         _validation = validation;
     }
@@ -117,20 +120,37 @@ public class NadadorEquipoUseCase : INadadorEquipoUseCase
         return resultado;
     }
 
-    /// <summary>Elimina lógicamente un NadadorEquipo.</summary>
+    /// <summary>
+    /// Elimina lógicamente un NadadorEquipo.
+    /// Si había un Nadador (usuario) vinculado a esa ficha, lo desvincula del equipo.
+    /// </summary>
     public async Task<bool> EliminarAsync(int id)
     {
-        var existe = await _validation.ExisteAsync(id);
-        if (!existe)
-            throw new KeyNotFoundException($"NadadorEquipo con ID {id} no encontrado.");
+        var nadadorEquipo = await _repository.ObtenerPorIdAsync(id)
+            ?? throw new KeyNotFoundException($"NadadorEquipo con ID {id} no encontrado.");
+
+        var idEquipo = nadadorEquipo.IdEquipo;
+
+        // Buscar si algún Nadador (usuario) tiene esta ficha como su NadadorEquipo y desvincularlo
+        var todosLosNadadores = await _nadadorRepository.ObtenerTodosAsync();
+        var usuarioVinculado = todosLosNadadores.FirstOrDefault(n => n.IdNadadorEquipo == id);
+        if (usuarioVinculado != null)
+        {
+            usuarioVinculado.IdNadadorEquipo = null;
+            usuarioVinculado.IdEquipo = null;
+            await _nadadorRepository.ActualizarAsync(usuarioVinculado);
+            _cache.Eliminar(_cache.GenerarClave("nadador", usuarioVinculado.Id));
+        }
 
         var eliminado = await _repository.EliminarLogicoAsync(id);
 
         if (eliminado)
+        {
             _cache.Eliminar(_cache.GenerarClave("nadadorequipo", id));
+            _cache.Eliminar($"nadadorequipo:equipo:{idEquipo}");
+        }
 
-        var resultado = eliminado;
-        return resultado;
+        return eliminado;
     }
 
     // Genera un código numérico único de 6 dígitos

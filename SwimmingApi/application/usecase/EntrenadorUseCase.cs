@@ -48,6 +48,8 @@ public class EntrenadorUseCase : IEntrenadorUseCase
         return resultado;
     }
 
+
+
     /// <summary>Obtiene un entrenador por su email.</summary>
     public async Task<EntrenadorResponseDto?> ObtenerPorEmailAsync(string email)
     {

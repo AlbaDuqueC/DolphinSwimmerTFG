@@ -52,6 +52,14 @@ public class NadadorUseCase : INadadorUseCase
         return resultado;
     }
 
+    /// <summary>Busca un nadador por su email.</summary>
+    public async Task<NadadorResponseDto?> ObtenerPorEmailAsync(string email)
+    {
+        var nadador = await _repository.ObtenerPorEmailAsync(email);
+        var resultado = nadador != null ? MapearAResponse(nadador) : null;
+        return resultado;
+    }
+
     /// <summary>Obtiene la lista completa de nadadores activos.</summary>
     public async Task<IEnumerable<NadadorResponseDto>> ObtenerTodosAsync()
     {
@@ -145,14 +153,6 @@ public class NadadorUseCase : INadadorUseCase
         }
 
         var resultado = eliminado;
-        return resultado;
-    }
-
-    /// <summary>Obtiene un nadador por su email.</summary>
-    public async Task<NadadorResponseDto?> ObtenerPorEmailAsync(string email)
-    {
-        var nadador = await _repository.ObtenerPorEmailAsync(email);
-        var resultado = nadador != null ? MapearAResponse(nadador) : null;
         return resultado;
     }
 
