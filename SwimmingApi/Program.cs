@@ -19,8 +19,9 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL")
     ?? builder.Configuration.GetConnectionString("DefaultConnection");
 
-// Si viene de Render como URL postgres://, la convertimos al formato Npgsql.
-if (!string.IsNullOrEmpty(connectionString) && connectionString.StartsWith("postgres://"))
+// Si viene de Render como URL postgres:// o postgresql://, la convertimos al formato Npgsql.
+if (!string.IsNullOrEmpty(connectionString) &&
+    (connectionString.StartsWith("postgres://") || connectionString.StartsWith("postgresql://")))
 {
     var uri = new Uri(connectionString);
     var userInfo = uri.UserInfo.Split(':');
