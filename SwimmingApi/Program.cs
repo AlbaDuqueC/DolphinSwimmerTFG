@@ -25,9 +25,9 @@ if (!string.IsNullOrEmpty(connectionString) &&
 {
     var uri = new Uri(connectionString);
     var userInfo = uri.UserInfo.Split(':');
-    var port = uri.Port > 0 ? uri.Port : 5432; // Si no hay puerto, usar 5432 por defecto
+    var dbPort = uri.Port > 0 ? uri.Port : 5432; // Si no hay puerto, usar 5432 por defecto
     var database = uri.AbsolutePath.TrimStart('/');
-    connectionString = $"Host={uri.Host};Port={port};Database={database};Username={userInfo[0]};Password={Uri.UnescapeDataString(userInfo[1])};SSL Mode=Require;Trust Server Certificate=true";
+    connectionString = $"Host={uri.Host};Port={dbPort};Database={database};Username={userInfo[0]};Password={Uri.UnescapeDataString(userInfo[1])};SSL Mode=Require;Trust Server Certificate=true";
 }
 
 builder.Services.AddDbContext<AppDbContext>(options =>
