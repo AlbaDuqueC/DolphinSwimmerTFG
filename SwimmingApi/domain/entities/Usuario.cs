@@ -2,7 +2,8 @@ namespace SwimmingApi.Domain.Entities;
 
 /// <summary>
 /// Entidad principal que representa a un usuario del sistema.
-/// Es la base de Nadador y Entrenador.
+/// Contiene los datos comunes a todos los usuarios (nombre, email, contraseña...)
+/// y actúa como clase base de Nadador y Entrenador, que añaden sus propias propiedades.
 /// </summary>
 public class Usuario : EntityBase
 {
@@ -12,18 +13,24 @@ public class Usuario : EntityBase
     /// <summary>Apellidos del usuario.</summary>
     public string Apellidos { get; set; } = string.Empty;
 
-    /// <summary>Email del usuario. Se usará para autenticación.</summary>
+    /// <summary>Correo electrónico del usuario. Se utiliza como identificador para autenticación.</summary>
     public string Email { get; set; } = string.Empty;
 
-    /// <summary>Contraseña encriptada del usuario.</summary>
+    /// <summary>
+    /// Contraseña del usuario en formato encriptado (hash BCrypt).
+    /// Nunca se almacena en texto plano por seguridad.
+    /// </summary>
     public string PasswordHash { get; set; } = string.Empty;
 
-    /// <summary>FK al equipo al que pertenece. Puede ser nulo.</summary>
+    /// <summary>Clave foránea al equipo al que pertenece el usuario. Puede ser nula si todavía no pertenece a ninguno.</summary>
     public int? IdEquipo { get; set; }
 
-    /// <summary>Equipo al que pertenece el usuario.</summary>
+    /// <summary>
+    /// Propiedad de navegación al equipo al que pertenece el usuario.
+    /// Entity Framework la carga automáticamente cuando se incluye en la consulta.
+    /// </summary>
     public Equipo? Equipo { get; set; }
 
-    /// <summary>Lista de rutinas del usuario. Puede estar vacía.</summary>
+    /// <summary>Lista de rutinas que ha creado el usuario. Puede estar vacía.</summary>
     public ICollection<Rutina> ListaRutinas { get; set; } = new List<Rutina>();
 }

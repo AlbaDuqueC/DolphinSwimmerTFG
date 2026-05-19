@@ -1,7 +1,8 @@
 namespace SwimmingApi.Application.Dtos.NadadorEquipo;
 
 /// <summary>
-/// DTO para crear o actualizar un NadadorEquipo.
+/// DTO de entrada para crear o actualizar un NadadorEquipo.
+/// Representa una plaza de nadador dentro de un equipo, creada por el entrenador.
 /// </summary>
 public class NadadorEquipoRequestDto
 {

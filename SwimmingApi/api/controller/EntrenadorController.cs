@@ -5,21 +5,26 @@ using SwimmingApi.Application.Interfaces.UseCase;
 namespace SwimmingApi.Api.Controller;
 
 /// <summary>
-/// Controlador para operaciones sobre Entrenadores.
-/// Solo conoce la capa Application.
+/// Controlador REST para operaciones sobre Entrenadores.
+/// Recibe las peticiones HTTP del cliente y delega la lógica de negocio
+/// al caso de uso correspondiente. Solo conoce la capa Application.
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
 public class EntrenadorController : ControllerBase
 {
+    // Caso de uso que contiene la lógica de negocio para entrenadores.
     private readonly IEntrenadorUseCase _useCase;
 
+    /// <summary>
+    /// Constructor con inyección de dependencias del caso de uso.
+    /// </summary>
     public EntrenadorController(IEntrenadorUseCase useCase)
     {
         _useCase = useCase;
     }
 
-    /// <summary>Obtiene todos los entrenadores activos.</summary>
+    /// <summary>Obtiene la lista de todos los entrenadores activos.</summary>
     [HttpGet]
     [ProducesResponseType(typeof(ApiResponse<IEnumerable<EntrenadorResponseDto>>), 200)]
     public async Task<IActionResult> ObtenerTodos()
@@ -29,7 +34,10 @@ public class EntrenadorController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Obtiene un entrenador por su ID.</summary>
+    /// <summary>
+    /// Obtiene un entrenador por su ID.
+    /// Devuelve 404 si no existe.
+    /// </summary>
     [HttpGet("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<EntrenadorResponseDto>), 200)]
     [ProducesResponseType(404)]
@@ -41,7 +49,11 @@ public class EntrenadorController : ControllerBase
             : NotFound(ApiResponse<EntrenadorResponseDto>.Error($"Entrenador con ID {id} no encontrado."));
         return resultado;
     }
-    /// <summary>Obtiene un entrenador por su email.</summary>
+
+    /// <summary>
+    /// Obtiene un entrenador a partir de su correo electrónico.
+    /// Utilizado principalmente al iniciar sesión para identificar al usuario.
+    /// </summary>
     [HttpGet("email/{email}")]
     [ProducesResponseType(typeof(ApiResponse<EntrenadorResponseDto>), 200)]
     [ProducesResponseType(404)]
@@ -54,7 +66,10 @@ public class EntrenadorController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Crea un nuevo entrenador.</summary>
+    /// <summary>
+    /// Crea un nuevo entrenador en el sistema.
+    /// Recibe los datos del nuevo usuario en el cuerpo de la petición.
+    /// </summary>
     [HttpPost]
     [ProducesResponseType(typeof(ApiResponse<EntrenadorResponseDto>), 201)]
     [ProducesResponseType(400)]
@@ -66,7 +81,9 @@ public class EntrenadorController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Actualiza los datos de un entrenador existente.</summary>
+    /// <summary>
+    /// Actualiza los datos de un entrenador existente (nombre, apellidos, etc.).
+    /// </summary>
     [HttpPut("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<EntrenadorResponseDto>), 200)]
     [ProducesResponseType(404)]
@@ -77,7 +94,10 @@ public class EntrenadorController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Elimina lógicamente un entrenador (no se borra de la base de datos).</summary>
+    /// <summary>
+    /// Elimina lógicamente un entrenador del sistema.
+    /// El registro permanece en la base de datos pero se marca como inactivo.
+    /// </summary>
     [HttpDelete("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<bool>), 200)]
     [ProducesResponseType(404)]

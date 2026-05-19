@@ -1,4 +1,4 @@
-ï»¿using FluentValidation;
+using FluentValidation;
 using SwimmingApi.Application.Dtos.MarcaDeTiempo;
 using SwimmingApi.Application.Dtos.NadadorEquipo;
 
@@ -6,18 +6,23 @@ namespace SwimmingApi.Api.Validaciones;
 
 /// <summary>
 /// Validador del DTO de NadadorEquipo.
+/// Comprueba que los datos del nadador que se va a registrar en el equipo sean correctos.
 /// </summary>
-public class MarcaDeTiempoValidator : AbstractValidator<MarcaDeTiempoRequestDto>
+public class NadadorEquipoValidator : AbstractValidator<NadadorEquipoRequestDto>
 {
-    public MarcaDeTiempoValidator()
+    /// <summary>
+    /// Define las reglas de validación para los campos del DTO.
+    /// </summary>
+    public NadadorEquipoValidator()
     {
-        RuleFor(x => x.Tiempo)
-            .NotEmpty().WithMessage("El tiempo es obligatorio.")
-            .Must(t => t > TimeSpan.Zero).WithMessage("El tiempo debe ser mayor que cero.");
+        // El nombre es obligatorio y no puede tener más de 100 caracteres.
+        RuleFor(x => x.Nombre)
+            .NotEmpty().WithMessage("El nombre es obligatorio.")
+            .MaximumLength(100).WithMessage("El nombre no puede superar 100 caracteres.");
 
-        RuleFor(x => x.Descripcion)
-            .NotEmpty().WithMessage("La descripciÃ³n de la prueba es obligatoria.")
-            .MaximumLength(200).WithMessage("La descripciÃ³n no puede superar 200 caracteres.");
-
+        // Los apellidos son obligatorios y no pueden tener más de 150 caracteres.
+        RuleFor(x => x.Apellidos)
+            .NotEmpty().WithMessage("Los apellidos son obligatorios.")
+            .MaximumLength(150).WithMessage("Los apellidos no pueden superar 150 caracteres.");
     }
 }

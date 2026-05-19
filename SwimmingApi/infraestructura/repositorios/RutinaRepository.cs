@@ -7,18 +7,26 @@ using SwimmingApi.Infraestructura.Database;
 namespace SwimmingApi.Infraestructura.Repositorios;
 
 /// <summary>
-/// Repositorio de acceso a datos para Rutina.
+/// Implementación del repositorio de acceso a datos para Rutina.
+/// Encapsula las operaciones de lectura y escritura contra la base de datos
+/// usando Entity Framework.
 /// </summary>
 public class RutinaRepository : IRutinaRepository
 {
+    // Contexto de Entity Framework que da acceso a la base de datos.
     private readonly AppDbContext _context;
 
+    /// <summary>
+    /// Constructor con inyección de dependencias del contexto de base de datos.
+    /// </summary>
     public RutinaRepository(AppDbContext context)
     {
         _context = context;
     }
 
-    /// <summary>Obtiene una rutina por su ID.</summary>
+    /// <summary>
+    /// Obtiene una rutina por su ID incluyendo el usuario propietario.
+    /// </summary>
     public async Task<Rutina?> ObtenerPorIdAsync(int id)
     {
         var resultado = await _context.Rutinas
@@ -27,7 +35,10 @@ public class RutinaRepository : IRutinaRepository
         return resultado;
     }
 
-    /// <summary>Obtiene todas las rutinas de un usuario.</summary>
+    /// <summary>
+    /// Obtiene todas las rutinas de un usuario concreto,
+    /// ordenadas por fecha de la más reciente a la más antigua.
+    /// </summary>
     public async Task<IEnumerable<Rutina>> ObtenerPorUsuarioAsync(int idUsuario)
     {
         var resultado = await _context.Rutinas
@@ -37,7 +48,10 @@ public class RutinaRepository : IRutinaRepository
         return resultado;
     }
 
-    /// <summary>Crea una nueva rutina.</summary>
+    /// <summary>
+    /// Crea una nueva rutina en la base de datos.
+    /// Aplica automáticamente la fecha de creación antes de guardarla.
+    /// </summary>
     public async Task<Rutina> CrearAsync(Rutina rutina)
     {
         rutina.AplicarSlugCreacion();
@@ -47,7 +61,10 @@ public class RutinaRepository : IRutinaRepository
         return resultado;
     }
 
-    /// <summary>Actualiza una rutina existente.</summary>
+    /// <summary>
+    /// Actualiza los datos de una rutina existente.
+    /// Aplica automáticamente la fecha de modificación antes de guardar.
+    /// </summary>
     public async Task<Rutina> ActualizarAsync(Rutina rutina)
     {
         rutina.AplicarSlugActualizacion();
@@ -57,7 +74,10 @@ public class RutinaRepository : IRutinaRepository
         return resultado;
     }
 
-    /// <summary>Aplica eliminación lógica a una rutina.</summary>
+    /// <summary>
+    /// Aplica la eliminación lógica a una rutina.
+    /// El registro permanece en la base de datos pero se marca como inactivo.
+    /// </summary>
     public async Task<bool> EliminarLogicoAsync(int id)
     {
         var rutina = await _context.Rutinas.FindAsync(id);

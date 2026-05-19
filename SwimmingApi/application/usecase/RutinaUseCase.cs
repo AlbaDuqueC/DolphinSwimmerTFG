@@ -11,19 +11,34 @@ namespace SwimmingApi.Application.UseCase;
 
 /// <summary>
 /// Casos de uso para la entidad Rutina.
+/// Cuando un entrenador crea una rutina, esta se replica automáticamente
+/// para todos los nadadores de su equipo.
 /// </summary>
 public class RutinaUseCase : IRutinaUseCase
 {
+    // Acceso a la base de datos a través del repositorio de rutinas.
     private readonly IRutinaRepository _repository;
-    private readonly IEntrenadorRepository _entrenadorRepository; // ✨ NUEVO
-    private readonly AppDbContext _context;                       // ✨ NUEVO
+
+    // Repositorio de entrenadores, para saber si el creador gestiona un equipo.
+    private readonly IEntrenadorRepository _entrenadorRepository;
+
+    // Contexto de Entity Framework, usado para consultar nadadores del equipo
+    // cuando hay que replicar rutinas a todo el equipo.
+    private readonly AppDbContext _context;
+
+    // Servicio de caché en memoria.
     private readonly CacheService _cache;
+
+    // Validaciones de infraestructura para rutinas.
     private readonly RutinaInfraValidation _validation;
 
+    /// <summary>
+    /// Constructor con inyección de dependencias.
+    /// </summary>
     public RutinaUseCase(
         IRutinaRepository repository,
-        IEntrenadorRepository entrenadorRepository, // ✨ NUEVO
-        AppDbContext context,                       // ✨ NUEVO
+        IEntrenadorRepository entrenadorRepository,
+        AppDbContext context,
         CacheService cache,
         RutinaInfraValidation validation)
     {
@@ -34,7 +49,10 @@ public class RutinaUseCase : IRutinaUseCase
         _validation = validation;
     }
 
-    /// <summary>Obtiene una rutina por su ID.</summary>
+    /// <summary>
+    /// Obtiene una rutina por su ID.
+    /// Aplica el patrón cache-aside.
+    /// </summary>
     public async Task<RutinaResponseDto?> ObtenerPorIdAsync(int id)
     {
         var claveCaché = _cache.GenerarClave("rutina", id);
@@ -52,7 +70,10 @@ public class RutinaUseCase : IRutinaUseCase
         return resultado;
     }
 
-    /// <summary>Obtiene todas las rutinas de un usuario concreto.</summary>
+    /// <summary>
+    /// Obtiene todas las rutinas asociadas a un usuario concreto.
+    /// La lista se cachea para acelerar lecturas posteriores.
+    /// </summary>
     public async Task<IEnumerable<RutinaResponseDto>> ObtenerPorUsuarioAsync(int idUsuario)
     {
         var claveCaché = $"rutina:usuario:{idUsuario}";
@@ -69,12 +90,14 @@ public class RutinaUseCase : IRutinaUseCase
     }
 
     /// <summary>
-    /// Crea una nueva rutina. Si el usuario que la crea es un entrenador con equipo,
-    /// la rutina se replica para todos los nadadores del equipo (incluyendo al propio entrenador).
+    /// Crea una nueva rutina. Si el usuario que la crea es un entrenador con equipo gestionado,
+    /// la rutina se replica también para todos los nadadores del equipo,
+    /// de forma que cada uno la vea en su propio listado.
     /// </summary>
     public async Task<RutinaResponseDto> CrearAsync(RutinaRequestDto dto)
     {
-        // 1) Crear la rutina del propio creador (entrenador o nadador) — siempre va una para él
+        // 1) Se crea la rutina para el propio creador (entrenador o nadador).
+        //    Siempre se genera una copia para él.
         var rutinaCreador = new Rutina
         {
             Contenido = dto.Contenido,
@@ -84,16 +107,18 @@ public class RutinaUseCase : IRutinaUseCase
         };
         var creada = await _repository.CrearAsync(rutinaCreador);
 
-        // 2) ¿El creador es un entrenador con equipo asignado? Si sí, replicar a sus nadadores
+        // 2) Si el creador es un entrenador con equipo, se replica la rutina
+        //    para todos los nadadores del equipo (uno por usuario).
         var entrenador = await _entrenadorRepository.ObtenerPorIdAsync(dto.IdUsuario);
         if (entrenador != null && entrenador.IdEquipoGestionado.HasValue)
         {
-            // Buscar todos los Nadadores (usuarios) cuyo IdEquipo == idEquipoGestionado
+            // Se buscan todos los nadadores (usuarios) cuyo IdEquipo coincida con el del entrenador.
             var idEquipo = entrenador.IdEquipoGestionado.Value;
             var nadadores = await _context.Nadadores
                 .Where(n => n.IdEquipo == idEquipo)
                 .ToListAsync();
 
+            // Se crea una copia idéntica de la rutina para cada nadador del equipo.
             foreach (var nadador in nadadores)
             {
                 var copia = new Rutina
@@ -113,7 +138,9 @@ public class RutinaUseCase : IRutinaUseCase
         return resultado;
     }
 
-    /// <summary>Actualiza una rutina existente.</summary>
+    /// <summary>
+    /// Actualiza el contenido, la fecha o la visibilidad de una rutina existente.
+    /// </summary>
     public async Task<RutinaResponseDto> ActualizarAsync(int id, RutinaRequestDto dto)
     {
         var rutina = await _repository.ObtenerPorIdAsync(id)
@@ -125,6 +152,7 @@ public class RutinaUseCase : IRutinaUseCase
 
         var actualizada = await _repository.ActualizarAsync(rutina);
 
+        // Se invalidan las cachés afectadas por el cambio.
         _cache.Eliminar(_cache.GenerarClave("rutina", id));
         _cache.Eliminar($"rutina:usuario:{rutina.IdUsuario}");
 
@@ -132,7 +160,10 @@ public class RutinaUseCase : IRutinaUseCase
         return resultado;
     }
 
-    /// <summary>Elimina lógicamente una rutina.</summary>
+    /// <summary>
+    /// Elimina lógicamente una rutina.
+    /// El registro permanece en la base de datos pero se marca como inactivo.
+    /// </summary>
     public async Task<bool> EliminarAsync(int id)
     {
         var existe = await _validation.RutinaExisteAsync(id);
@@ -148,7 +179,9 @@ public class RutinaUseCase : IRutinaUseCase
         return resultado;
     }
 
-    // Mapea Rutina al DTO de respuesta
+    /// <summary>
+    /// Convierte una entidad Rutina del dominio en su DTO de respuesta para la API.
+    /// </summary>
     private RutinaResponseDto MapearAResponse(Rutina rutina)
     {
         var resultado = new RutinaResponseDto

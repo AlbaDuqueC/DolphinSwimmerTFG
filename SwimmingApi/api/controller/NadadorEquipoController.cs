@@ -5,22 +5,30 @@ using SwimmingApi.Application.Interfaces.UseCase;
 namespace SwimmingApi.Api.Controller;
 
 /// <summary>
-/// Controlador para operaciones sobre NadadorEquipo.
-/// Gestiona los registros de nadadores dentro de un equipo.
+/// Controlador REST para operaciones sobre NadadorEquipo.
+/// Un NadadorEquipo representa una "plaza" dentro de un equipo, creada por el entrenador.
+/// Cada plaza tiene un código único que el nadador real puede usar para vincularse.
 /// Solo conoce la capa Application.
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
 public class NadadorEquipoController : ControllerBase
 {
+    // Caso de uso que contiene la lógica de negocio para NadadorEquipo.
     private readonly INadadorEquipoUseCase _useCase;
 
+    /// <summary>
+    /// Constructor con inyección de dependencias del caso de uso.
+    /// </summary>
     public NadadorEquipoController(INadadorEquipoUseCase useCase)
     {
         _useCase = useCase;
     }
 
-    /// <summary>Obtiene todos los nadadores registrados en un equipo concreto.</summary>
+    /// <summary>
+    /// Obtiene todos los nadadores registrados dentro de un equipo concreto.
+    /// Es la consulta principal de la pantalla del equipo.
+    /// </summary>
     [HttpGet("equipo/{idEquipo:int}")]
     [ProducesResponseType(typeof(ApiResponse<IEnumerable<NadadorEquipoResponseDto>>), 200)]
     public async Task<IActionResult> ObtenerPorEquipo(int idEquipo)
@@ -30,7 +38,10 @@ public class NadadorEquipoController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Obtiene un NadadorEquipo por su ID.</summary>
+    /// <summary>
+    /// Obtiene un NadadorEquipo por su ID.
+    /// Devuelve 404 si no existe.
+    /// </summary>
     [HttpGet("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<NadadorEquipoResponseDto>), 200)]
     [ProducesResponseType(404)]
@@ -44,8 +55,9 @@ public class NadadorEquipoController : ControllerBase
     }
 
     /// <summary>
-    /// Obtiene un NadadorEquipo por su código único.
-    /// Sirve para que un nadador se conecte a su registro del equipo.
+    /// Obtiene un NadadorEquipo a partir de su código único.
+    /// Es la operación que ejecuta la app cuando un nadador
+    /// introduce su código de 6 dígitos para unirse al equipo.
     /// </summary>
     [HttpGet("codigo/{codigo:int}")]
     [ProducesResponseType(typeof(ApiResponse<NadadorEquipoResponseDto>), 200)]
@@ -61,7 +73,8 @@ public class NadadorEquipoController : ControllerBase
 
     /// <summary>
     /// Crea un nuevo NadadorEquipo dentro de un equipo.
-    /// Solo lo puede hacer un entrenador. Genera un código único automáticamente.
+    /// Esta acción solo puede realizarla un entrenador.
+    /// El sistema genera un código único de 6 dígitos automáticamente.
     /// </summary>
     [HttpPost]
     [ProducesResponseType(typeof(ApiResponse<NadadorEquipoResponseDto>), 201)]
@@ -74,7 +87,9 @@ public class NadadorEquipoController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Actualiza los datos de un NadadorEquipo existente.</summary>
+    /// <summary>
+    /// Actualiza los datos de un NadadorEquipo existente (nombre o apellidos).
+    /// </summary>
     [HttpPut("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<NadadorEquipoResponseDto>), 200)]
     [ProducesResponseType(404)]
@@ -85,7 +100,11 @@ public class NadadorEquipoController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Elimina lógicamente un NadadorEquipo (no se borra de la base de datos).</summary>
+    /// <summary>
+    /// Elimina lógicamente un NadadorEquipo del equipo.
+    /// Si está vinculado a una cuenta de usuario real, esa cuenta queda desvinculada
+    /// automáticamente y vuelve al estado "sin equipo".
+    /// </summary>
     [HttpDelete("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<bool>), 200)]
     [ProducesResponseType(404)]

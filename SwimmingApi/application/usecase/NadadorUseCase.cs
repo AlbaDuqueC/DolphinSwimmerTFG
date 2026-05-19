@@ -10,16 +10,29 @@ namespace SwimmingApi.Application.UseCase;
 
 /// <summary>
 /// Casos de uso para la entidad Nadador.
-/// Aquí se define la lógica de negocio paso a paso con rollback en caso de error.
+/// Aquí se define la lógica de negocio del nadador, incluyendo la vinculación
+/// con un equipo a través del código generado por el entrenador.
 /// </summary>
 public class NadadorUseCase : INadadorUseCase
 {
+    // Acceso a la base de datos a través del repositorio de nadadores.
     private readonly INadadorRepository _repository;
+
+    // Repositorio de NadadorEquipo, necesario para vincular cuentas con fichas del equipo.
     private readonly INadadorEquipoRepository _nadadorEquipoRepository;
+
+    // Servicio que encripta las contraseñas con BCrypt antes de guardarlas.
     private readonly EncryptionService _encryption;
+
+    // Servicio de caché en memoria.
     private readonly CacheService _cache;
+
+    // Validaciones de infraestructura (ej: comprobar que el email no exista).
     private readonly NadadorInfraValidation _validation;
 
+    /// <summary>
+    /// Constructor con inyección de dependencias.
+    /// </summary>
     public NadadorUseCase(
         INadadorRepository repository,
         INadadorEquipoRepository nadadorEquipoRepository,
@@ -34,7 +47,11 @@ public class NadadorUseCase : INadadorUseCase
         _validation = validation;
     }
 
-    /// <summary>Obtiene un nadador por su ID. Primero busca en caché.</summary>
+    /// <summary>
+    /// Obtiene un nadador por su ID.
+    /// Aplica el patrón cache-aside: busca primero en caché y, si no está,
+    /// consulta la base de datos y guarda el resultado.
+    /// </summary>
     public async Task<NadadorResponseDto?> ObtenerPorIdAsync(int id)
     {
         var claveCaché = _cache.GenerarClave("nadador", id);
@@ -52,7 +69,10 @@ public class NadadorUseCase : INadadorUseCase
         return resultado;
     }
 
-    /// <summary>Busca un nadador por su email.</summary>
+    /// <summary>
+    /// Busca un nadador por su correo electrónico.
+    /// Utilizado principalmente al iniciar sesión para identificar al usuario.
+    /// </summary>
     public async Task<NadadorResponseDto?> ObtenerPorEmailAsync(string email)
     {
         var nadador = await _repository.ObtenerPorEmailAsync(email);
@@ -60,7 +80,10 @@ public class NadadorUseCase : INadadorUseCase
         return resultado;
     }
 
-    /// <summary>Obtiene la lista completa de nadadores activos.</summary>
+    /// <summary>
+    /// Obtiene la lista completa de nadadores activos.
+    /// La lista se cachea para acelerar lecturas posteriores.
+    /// </summary>
     public async Task<IEnumerable<NadadorResponseDto>> ObtenerTodosAsync()
     {
         var claveCaché = _cache.GenerarClaveLista("nadador");
@@ -78,14 +101,17 @@ public class NadadorUseCase : INadadorUseCase
 
     /// <summary>
     /// Crea un nuevo nadador.
-    /// Valida el email, encripta la contraseña y limpia la caché de la lista.
+    /// Valida que el email no esté ya registrado, encripta la contraseña
+    /// y limpia la caché de la lista para que el nuevo registro sea visible.
     /// </summary>
     public async Task<NadadorResponseDto> CrearAsync(NadadorRequestDto dto)
     {
+        // Se valida que el email esté disponible antes de crear el registro.
         var emailDisponible = await _validation.EmailDisponibleAsync(dto.Email);
         if (!emailDisponible)
             throw new InvalidOperationException("El email ya está registrado.");
 
+        // Se construye la entidad y se encripta la contraseña.
         var nadador = new Nadador
         {
             Nombre = dto.Nombre,
@@ -103,7 +129,7 @@ public class NadadorUseCase : INadadorUseCase
         catch
         {
             // Rollback: si falla la creación, no hay nada que revertir manualmente
-            // EF Core no persiste nada si SaveChanges falla
+            // porque EF Core no persiste nada si SaveChanges falla.
             throw;
         }
 
@@ -114,6 +140,7 @@ public class NadadorUseCase : INadadorUseCase
 
     /// <summary>
     /// Actualiza los datos de un nadador existente.
+    /// Si la contraseña viene vacía, se conserva la actual sin tocarla.
     /// </summary>
     public async Task<NadadorResponseDto> ActualizarAsync(int id, NadadorRequestDto dto)
     {
@@ -125,11 +152,13 @@ public class NadadorUseCase : INadadorUseCase
         nadador.Email = dto.Email;
         nadador.IdEquipo = dto.IdEquipo;
 
+        // La contraseña solo se actualiza si llega informada (al editar perfil suele venir vacía).
         if (!string.IsNullOrWhiteSpace(dto.Password))
             nadador.PasswordHash = _encryption.HashPassword(dto.Password);
 
         var nadadorActualizado = await _repository.ActualizarAsync(nadador);
 
+        // Se invalidan las cachés afectadas por el cambio.
         _cache.Eliminar(_cache.GenerarClave("nadador", id));
         _cache.Eliminar(_cache.GenerarClaveLista("nadador"));
 
@@ -137,7 +166,10 @@ public class NadadorUseCase : INadadorUseCase
         return resultado;
     }
 
-    /// <summary>Elimina lógicamente un nadador por su ID.</summary>
+    /// <summary>
+    /// Elimina lógicamente un nadador por su ID.
+    /// El registro permanece en la base de datos pero se marca como inactivo.
+    /// </summary>
     public async Task<bool> EliminarAsync(int id)
     {
         var existe = await _validation.NadadorExisteAsync(id);
@@ -157,41 +189,44 @@ public class NadadorUseCase : INadadorUseCase
     }
 
     /// <summary>
-    /// Vincula un nadador (usuario) con un NadadorEquipo (ficha del equipo) usando el código
-    /// que le ha dado el entrenador. Falla si el código no existe o si ya está siendo usado.
+    /// Vincula un nadador (usuario) con un NadadorEquipo (ficha del equipo)
+    /// utilizando el código de 6 dígitos que le ha proporcionado el entrenador.
+    /// Falla si el código no existe o si ya está siendo usado por otro nadador.
     /// </summary>
     public async Task<NadadorResponseDto> VincularConCodigoAsync(int idNadador, int codigo)
     {
-        // 1) Buscar al nadador (usuario)
+        // 1) Se busca al nadador (usuario) por su ID.
         var nadador = await _repository.ObtenerPorIdAsync(idNadador)
             ?? throw new KeyNotFoundException($"Nadador con ID {idNadador} no encontrado.");
 
-        // 2) Comprobar que no esté ya vinculado
+        // 2) Se comprueba que el nadador no esté ya vinculado a otro equipo.
         if (nadador.IdNadadorEquipo != null)
             throw new InvalidOperationException("Ya estás vinculado a un equipo.");
 
-        // 3) Buscar el NadadorEquipo por su código
+        // 3) Se busca el NadadorEquipo correspondiente al código introducido.
         var nadadorEquipo = await _nadadorEquipoRepository.ObtenerPorCodigoAsync(codigo)
             ?? throw new KeyNotFoundException("No existe ningún nadador con ese código.");
 
-        // 4) Comprobar que ese código no esté ya en uso por otro usuario
+        // 4) Se comprueba que ese código no esté ya en uso por otro nadador.
         var todos = await _repository.ObtenerTodosAsync();
         var ocupado = todos.Any(n => n.IdNadadorEquipo == nadadorEquipo.Id);
         if (ocupado)
             throw new InvalidOperationException("Ese código ya está siendo usado por otro nadador.");
 
-        // 5) Vincular
+        // 5) Se realiza la vinculación actualizando el nadador con su nueva ficha y equipo.
         nadador.IdNadadorEquipo = nadadorEquipo.Id;
         nadador.IdEquipo = nadadorEquipo.IdEquipo;
         var actualizado = await _repository.ActualizarAsync(nadador);
 
-        // 6) Limpiar caché
+        // 6) Se limpia la caché del nadador para que la próxima lectura sea fresca.
         _cache.Eliminar(_cache.GenerarClave("nadador", nadador.Id));
 
         return MapearAResponse(actualizado);
     }
 
-    // Mapea la entidad Nadador al DTO de respuesta
+    /// <summary>
+    /// Convierte una entidad Nadador del dominio en su DTO de respuesta para la API.
+    /// </summary>
     private NadadorResponseDto MapearAResponse(Nadador nadador)
     {
         var resultado = new NadadorResponseDto

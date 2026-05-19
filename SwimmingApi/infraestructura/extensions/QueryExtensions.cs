@@ -3,12 +3,14 @@ using SwimmingApi.Domain.Entities;
 namespace SwimmingApi.Infraestructura.Extensions;
 
 /// <summary>
-/// Extensiones para consultas comunes sobre IQueryable.
+/// Métodos de extensión para consultas LINQ comunes sobre cualquier IQueryable
+/// que herede de EntityBase. Permiten reutilizar lógica de ordenación
+/// y filtrado sin tener que repetirla en cada repositorio.
 /// </summary>
 public static class QueryExtensions
 {
     /// <summary>
-    /// Ordena una lista de entidades por fecha de creación de más reciente a más antigua.
+    /// Ordena las entidades por fecha de creación, mostrando primero las más recientes.
     /// </summary>
     public static IQueryable<T> OrderByReciente<T>(this IQueryable<T> query)
         where T : EntityBase
@@ -18,7 +20,7 @@ public static class QueryExtensions
     }
 
     /// <summary>
-    /// Ordena una lista de entidades por fecha de creación de más antigua a más reciente.
+    /// Ordena las entidades por fecha de creación, mostrando primero las más antiguas.
     /// </summary>
     public static IQueryable<T> OrderByAntiguo<T>(this IQueryable<T> query)
         where T : EntityBase
@@ -29,7 +31,7 @@ public static class QueryExtensions
 
     /// <summary>
     /// Filtra solo las entidades que no han sido eliminadas lógicamente.
-    /// Útil cuando se desactiva el filtro global.
+    /// Útil cuando se ha desactivado el filtro global del DbContext con IgnoreQueryFilters.
     /// </summary>
     public static IQueryable<T> SoloActivos<T>(this IQueryable<T> query)
         where T : EntityBase

@@ -9,18 +9,29 @@ namespace SwimmingApi.Application.UseCase;
 
 /// <summary>
 /// Casos de uso para NadadorEquipo.
-/// Gestiona el registro de nadadores dentro de un equipo y genera su código único.
+/// Gestiona el registro de nadadores dentro de un equipo y se encarga
+/// de generar un código único de 6 dígitos que el nadador real usará para vincularse.
 /// </summary>
 public class NadadorEquipoUseCase : INadadorEquipoUseCase
 {
+    // Acceso a la base de datos a través del repositorio de NadadorEquipo.
     private readonly INadadorEquipoRepository _repository;
-    private readonly INadadorRepository _nadadorRepository; // ✨ NUEVO
+
+    // Repositorio de nadadores, necesario para desvincular usuarios al eliminar fichas.
+    private readonly INadadorRepository _nadadorRepository;
+
+    // Servicio de caché en memoria.
     private readonly CacheService _cache;
+
+    // Validaciones de infraestructura para NadadorEquipo (ej: comprobar códigos únicos).
     private readonly NadadorEquipoInfraValidation _validation;
 
+    /// <summary>
+    /// Constructor con inyección de dependencias.
+    /// </summary>
     public NadadorEquipoUseCase(
         INadadorEquipoRepository repository,
-        INadadorRepository nadadorRepository, 
+        INadadorRepository nadadorRepository,
         CacheService cache,
         NadadorEquipoInfraValidation validation)
     {
@@ -30,7 +41,10 @@ public class NadadorEquipoUseCase : INadadorEquipoUseCase
         _validation = validation;
     }
 
-    /// <summary>Obtiene un NadadorEquipo por su ID.</summary>
+    /// <summary>
+    /// Obtiene un NadadorEquipo por su ID.
+    /// Aplica el patrón cache-aside.
+    /// </summary>
     public async Task<NadadorEquipoResponseDto?> ObtenerPorIdAsync(int id)
     {
         var claveCaché = _cache.GenerarClave("nadadorequipo", id);
@@ -48,7 +62,9 @@ public class NadadorEquipoUseCase : INadadorEquipoUseCase
         return resultado;
     }
 
-    /// <summary>Obtiene un NadadorEquipo por su código de conexión.</summary>
+    /// <summary>
+    /// Obtiene un NadadorEquipo a partir del código de conexión que introduce el nadador.
+    /// </summary>
     public async Task<NadadorEquipoResponseDto?> ObtenerPorCodigoAsync(int codigo)
     {
         var nadadorEquipo = await _repository.ObtenerPorCodigoAsync(codigo);
@@ -56,7 +72,10 @@ public class NadadorEquipoUseCase : INadadorEquipoUseCase
         return resultado;
     }
 
-    /// <summary>Obtiene todos los NadadoresEquipo de un equipo concreto.</summary>
+    /// <summary>
+    /// Obtiene todos los NadadoresEquipo de un equipo concreto.
+    /// La lista se cachea para acelerar lecturas posteriores.
+    /// </summary>
     public async Task<IEnumerable<NadadorEquipoResponseDto>> ObtenerPorEquipoAsync(int idEquipo)
     {
         var claveCaché = $"nadadorequipo:equipo:{idEquipo}";
@@ -73,10 +92,12 @@ public class NadadorEquipoUseCase : INadadorEquipoUseCase
     }
 
     /// <summary>
-    /// Crea un nuevo NadadorEquipo con un código único generado automáticamente.
+    /// Crea un nuevo NadadorEquipo asignándole un código único de 6 dígitos
+    /// que el nadador real usará para vincular su cuenta al equipo.
     /// </summary>
     public async Task<NadadorEquipoResponseDto> CrearAsync(NadadorEquipoRequestDto dto)
     {
+        // Se genera un código único antes de crear el registro.
         var codigo = await GenerarCodigoUnicoAsync();
 
         var nadadorEquipo = new NadadorEquipo
@@ -102,7 +123,9 @@ public class NadadorEquipoUseCase : INadadorEquipoUseCase
         return resultado;
     }
 
-    /// <summary>Actualiza los datos de un NadadorEquipo.</summary>
+    /// <summary>
+    /// Actualiza el nombre y los apellidos de un NadadorEquipo existente.
+    /// </summary>
     public async Task<NadadorEquipoResponseDto> ActualizarAsync(int id, NadadorEquipoRequestDto dto)
     {
         var nadadorEquipo = await _repository.ObtenerPorIdAsync(id)
@@ -113,6 +136,7 @@ public class NadadorEquipoUseCase : INadadorEquipoUseCase
 
         var actualizado = await _repository.ActualizarAsync(nadadorEquipo);
 
+        // Se invalidan las cachés afectadas por el cambio.
         _cache.Eliminar(_cache.GenerarClave("nadadorequipo", id));
         _cache.Eliminar($"nadadorequipo:equipo:{nadadorEquipo.IdEquipo}");
 
@@ -122,7 +146,8 @@ public class NadadorEquipoUseCase : INadadorEquipoUseCase
 
     /// <summary>
     /// Elimina lógicamente un NadadorEquipo.
-    /// Si había un Nadador (usuario) vinculado a esa ficha, lo desvincula del equipo.
+    /// Si había un Nadador (usuario) vinculado a esa ficha, lo desvincula del equipo
+    /// para que vuelva al estado "sin equipo".
     /// </summary>
     public async Task<bool> EliminarAsync(int id)
     {
@@ -131,7 +156,8 @@ public class NadadorEquipoUseCase : INadadorEquipoUseCase
 
         var idEquipo = nadadorEquipo.IdEquipo;
 
-        // Buscar si algún Nadador (usuario) tiene esta ficha como su NadadorEquipo y desvincularlo
+        // Se busca si algún Nadador (usuario real) está vinculado a esta ficha.
+        // Si lo encuentra, se le quita el equipo para que vuelva al estado "sin equipo".
         var todosLosNadadores = await _nadadorRepository.ObtenerTodosAsync();
         var usuarioVinculado = todosLosNadadores.FirstOrDefault(n => n.IdNadadorEquipo == id);
         if (usuarioVinculado != null)
@@ -144,6 +170,7 @@ public class NadadorEquipoUseCase : INadadorEquipoUseCase
 
         var eliminado = await _repository.EliminarLogicoAsync(id);
 
+        // Se invalidan las cachés afectadas tras la eliminación.
         if (eliminado)
         {
             _cache.Eliminar(_cache.GenerarClave("nadadorequipo", id));
@@ -153,13 +180,17 @@ public class NadadorEquipoUseCase : INadadorEquipoUseCase
         return eliminado;
     }
 
-    // Genera un código numérico único de 6 dígitos
+    /// <summary>
+    /// Genera un código numérico único de 6 dígitos para identificar un NadadorEquipo.
+    /// Repite el proceso hasta encontrar un código que no esté ya en uso.
+    /// </summary>
     private async Task<int> GenerarCodigoUnicoAsync()
     {
         var random = new Random();
         int codigo;
         bool disponible;
 
+        // Bucle: se generan códigos aleatorios hasta encontrar uno libre.
         do
         {
             codigo = random.Next(100000, 999999);
@@ -169,7 +200,9 @@ public class NadadorEquipoUseCase : INadadorEquipoUseCase
         return codigo;
     }
 
-    // Mapea NadadorEquipo al DTO de respuesta
+    /// <summary>
+    /// Convierte una entidad NadadorEquipo del dominio en su DTO de respuesta para la API.
+    /// </summary>
     private NadadorEquipoResponseDto MapearAResponse(NadadorEquipo ne)
     {
         var resultado = new NadadorEquipoResponseDto

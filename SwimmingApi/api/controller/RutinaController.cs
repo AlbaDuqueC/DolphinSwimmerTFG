@@ -5,22 +5,30 @@ using SwimmingApi.Application.Interfaces.UseCase;
 namespace SwimmingApi.Api.Controller;
 
 /// <summary>
-/// Controlador para operaciones sobre Rutinas.
-/// Las rutinas pueden pertenecer a un nadador o a un entrenador para su equipo.
+/// Controlador REST para operaciones sobre Rutinas.
+/// Las rutinas son notas personales que un usuario (nadador o entrenador)
+/// crea para organizar sus entrenamientos o recordatorios.
 /// Solo conoce la capa Application.
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
 public class RutinaController : ControllerBase
 {
+    // Caso de uso que contiene la lógica de negocio para rutinas.
     private readonly IRutinaUseCase _useCase;
 
+    /// <summary>
+    /// Constructor con inyección de dependencias del caso de uso.
+    /// </summary>
     public RutinaController(IRutinaUseCase useCase)
     {
         _useCase = useCase;
     }
 
-    /// <summary>Obtiene todas las rutinas de un usuario concreto.</summary>
+    /// <summary>
+    /// Obtiene todas las rutinas asociadas a un usuario concreto.
+    /// Sirve para mostrar al usuario sus propias rutinas en la pantalla de inicio.
+    /// </summary>
     [HttpGet("usuario/{idUsuario:int}")]
     [ProducesResponseType(typeof(ApiResponse<IEnumerable<RutinaResponseDto>>), 200)]
     public async Task<IActionResult> ObtenerPorUsuario(int idUsuario)
@@ -30,7 +38,10 @@ public class RutinaController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Obtiene una rutina por su ID.</summary>
+    /// <summary>
+    /// Obtiene una rutina concreta por su ID.
+    /// Devuelve 404 si no existe.
+    /// </summary>
     [HttpGet("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<RutinaResponseDto>), 200)]
     [ProducesResponseType(404)]
@@ -43,7 +54,10 @@ public class RutinaController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Crea una nueva rutina para un usuario.</summary>
+    /// <summary>
+    /// Crea una nueva rutina para un usuario.
+    /// Recibe el contenido y la fecha de la rutina en el cuerpo de la petición.
+    /// </summary>
     [HttpPost]
     [ProducesResponseType(typeof(ApiResponse<RutinaResponseDto>), 201)]
     [ProducesResponseType(400)]
@@ -55,7 +69,9 @@ public class RutinaController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Actualiza el contenido o fecha de una rutina existente.</summary>
+    /// <summary>
+    /// Actualiza el contenido o la fecha de una rutina existente.
+    /// </summary>
     [HttpPut("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<RutinaResponseDto>), 200)]
     [ProducesResponseType(404)]
@@ -66,7 +82,10 @@ public class RutinaController : ControllerBase
         return resultado;
     }
 
-    /// <summary>Elimina lógicamente una rutina (no se borra de la base de datos).</summary>
+    /// <summary>
+    /// Elimina lógicamente una rutina del sistema.
+    /// El registro permanece en la base de datos pero se marca como inactivo.
+    /// </summary>
     [HttpDelete("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<bool>), 200)]
     [ProducesResponseType(404)]

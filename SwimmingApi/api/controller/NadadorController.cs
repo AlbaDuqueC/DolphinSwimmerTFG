@@ -5,22 +5,36 @@ using SwimmingApi.Application.Interfaces.UseCase;
 
 namespace SwimmingApi.Api.Controller;
 
+/// <summary>
+/// DTO auxiliar para recibir el código que un nadador introduce
+/// al intentar unirse a un equipo a través de su entrenador.
+/// </summary>
 public class VincularCodigoRequest
 {
     public int Codigo { get; set; }
 }
 
+/// <summary>
+/// Controlador REST para operaciones sobre Nadadores.
+/// Gestiona el ciclo de vida del nadador y su vinculación con equipos.
+/// Solo conoce la capa Application.
+/// </summary>
 [ApiController]
 [Route("api/[controller]")]
 public class NadadorController : ControllerBase
 {
+    // Caso de uso que contiene la lógica de negocio para nadadores.
     private readonly INadadorUseCase _useCase;
 
+    /// <summary>
+    /// Constructor con inyección de dependencias del caso de uso.
+    /// </summary>
     public NadadorController(INadadorUseCase useCase)
     {
         _useCase = useCase;
     }
 
+    /// <summary>Obtiene la lista de todos los nadadores activos del sistema.</summary>
     [HttpGet]
     public async Task<IActionResult> ObtenerTodos()
     {
@@ -29,6 +43,10 @@ public class NadadorController : ControllerBase
         return resultado;
     }
 
+    /// <summary>
+    /// Obtiene un nadador por su ID.
+    /// Devuelve 404 si no existe.
+    /// </summary>
     [HttpGet("{id:int}")]
     public async Task<IActionResult> ObtenerPorId(int id)
     {
@@ -39,6 +57,10 @@ public class NadadorController : ControllerBase
         return resultado;
     }
 
+    /// <summary>
+    /// Obtiene un nadador a partir de su correo electrónico.
+    /// Utilizado principalmente al iniciar sesión para identificar al usuario.
+    /// </summary>
     [HttpGet("email/{email}")]
     public async Task<IActionResult> ObtenerPorEmail(string email)
     {
@@ -49,6 +71,10 @@ public class NadadorController : ControllerBase
         return resultado;
     }
 
+    /// <summary>
+    /// Crea un nuevo nadador en el sistema.
+    /// Recibe los datos del nuevo usuario en el cuerpo de la petición.
+    /// </summary>
     [HttpPost]
     public async Task<IActionResult> Crear([FromBody] NadadorRequestDto dto)
     {
@@ -58,6 +84,9 @@ public class NadadorController : ControllerBase
         return resultado;
     }
 
+    /// <summary>
+    /// Actualiza los datos de un nadador existente (nombre, apellidos, etc.).
+    /// </summary>
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Actualizar(int id, [FromBody] NadadorRequestDto dto)
     {
@@ -66,6 +95,10 @@ public class NadadorController : ControllerBase
         return resultado;
     }
 
+    /// <summary>
+    /// Elimina lógicamente un nadador del sistema.
+    /// El registro permanece en la base de datos pero se marca como inactivo.
+    /// </summary>
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Eliminar(int id)
     {
@@ -75,7 +108,9 @@ public class NadadorController : ControllerBase
     }
 
     /// <summary>
-    /// Vincula un nadador con un NadadorEquipo del equipo usando el código que le da el entrenador.
+    /// Vincula un nadador con un NadadorEquipo del equipo
+    /// utilizando el código único que le proporciona su entrenador.
+    /// Si el código no existe devuelve 404. Si ya está vinculado devuelve 400.
     /// </summary>
     [HttpPost("{id:int}/vincular")]
     [ProducesResponseType(typeof(ApiResponse<NadadorResponseDto>), 200)]
@@ -90,10 +125,12 @@ public class NadadorController : ControllerBase
         }
         catch (KeyNotFoundException ex)
         {
+            // El código introducido no existe en ningún equipo activo.
             return NotFound(ApiResponse<NadadorResponseDto>.Error(ex.Message));
         }
         catch (InvalidOperationException ex)
         {
+            // El nadador ya está vinculado o el código está ocupado.
             return BadRequest(ApiResponse<NadadorResponseDto>.Error(ex.Message));
         }
     }

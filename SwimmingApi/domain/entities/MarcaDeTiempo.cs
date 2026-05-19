@@ -1,27 +1,30 @@
 namespace SwimmingApi.Domain.Entities;
 
 /// <summary>
-/// Entidad que registra una marca de tiempo de un nadador.
-/// Puede ser registrada por el propio nadador o por un entrenador.
+/// Entidad que representa una marca de tiempo registrada en una prueba de natación.
+/// Puede ser registrada directamente por un nadador para sí mismo,
+/// o asignada por un entrenador a uno de los nadadores de su equipo.
 /// </summary>
 public class MarcaDeTiempo : EntityBase
 {
-
     /// <summary>Tiempo registrado en formato TimeSpan (hh:mm:ss.ms).</summary>
     public TimeSpan Tiempo { get; set; }
 
-    /// <summary>Descripción o prueba a la que corresponde la marca.</summary>
+    /// <summary>Descripción de la prueba a la que corresponde la marca (por ejemplo: "100m libre").</summary>
     public string Descripcion { get; set; } = string.Empty;
 
-    /// <summary>FK al registro NadadorEquipo al que pertenece esta marca.</summary>
+    /// <summary>Clave foránea al NadadorEquipo (ficha del equipo) al que pertenece esta marca.</summary>
     public int? IdNadadorEquipo { get; set; }
 
-    /// <summary>Registro NadadorEquipo al que pertenece esta marca.</summary>
+    /// <summary>Propiedad de navegación al NadadorEquipo al que pertenece esta marca.</summary>
     public NadadorEquipo? NadadorEquipo { get; set; } = null!;
 
-    /// <summary>FK del nadador que registró la marca. Puede ser nulo si la registró el entrenador.</summary>
+    /// <summary>
+    /// Clave foránea del nadador (usuario) que registró la marca.
+    /// Es nula si la marca la asignó el entrenador en lugar del propio nadador.
+    /// </summary>
     public int? IdNadador { get; set; }
 
-    /// <summary>Nadador que registró la marca.</summary>
+    /// <summary>Propiedad de navegación al nadador que registró la marca.</summary>
     public Nadador? Nadador { get; set; }
 }

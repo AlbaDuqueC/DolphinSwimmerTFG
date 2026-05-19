@@ -9,27 +9,41 @@ namespace SwimmingApi.Application.UseCase;
 
 /// <summary>
 /// Casos de uso para la entidad Equipo.
+/// Gestiona el ciclo de vida de los equipos y su vinculación con entrenadores.
 /// </summary>
 public class EquipoUseCase : IEquipoUseCase
 {
+    // Acceso a la base de datos a través del repositorio de equipos.
     private readonly IEquipoRepository _repository;
-    private readonly IEntrenadorRepository _entrenadorRepository; // ✨ NUEVO
+
+    // Repositorio de entrenadores, usado para vincular un equipo a su creador.
+    private readonly IEntrenadorRepository _entrenadorRepository;
+
+    // Servicio de caché en memoria.
     private readonly CacheService _cache;
+
+    // Validaciones de infraestructura para equipos.
     private readonly EquipoInfraValidation _validation;
 
+    /// <summary>
+    /// Constructor con inyección de dependencias.
+    /// </summary>
     public EquipoUseCase(
         IEquipoRepository repository,
-        IEntrenadorRepository entrenadorRepository, // ✨ NUEVO
+        IEntrenadorRepository entrenadorRepository,
         CacheService cache,
         EquipoInfraValidation validation)
     {
         _repository = repository;
-        _entrenadorRepository = entrenadorRepository; // ✨ NUEVO
+        _entrenadorRepository = entrenadorRepository;
         _cache = cache;
         _validation = validation;
     }
 
-    /// <summary>Obtiene un equipo por su ID.</summary>
+    /// <summary>
+    /// Obtiene un equipo por su ID.
+    /// Aplica el patrón cache-aside: consulta primero la caché.
+    /// </summary>
     public async Task<EquipoResponseDto?> ObtenerPorIdAsync(int id)
     {
         var claveCaché = _cache.GenerarClave("equipo", id);
@@ -47,7 +61,10 @@ public class EquipoUseCase : IEquipoUseCase
         return resultado;
     }
 
-    /// <summary>Obtiene todos los equipos activos.</summary>
+    /// <summary>
+    /// Obtiene todos los equipos activos.
+    /// La lista se cachea para acelerar lecturas posteriores.
+    /// </summary>
     public async Task<IEnumerable<EquipoResponseDto>> ObtenerTodosAsync()
     {
         var claveCaché = _cache.GenerarClaveLista("equipo");
@@ -64,10 +81,12 @@ public class EquipoUseCase : IEquipoUseCase
     }
 
     /// <summary>
-    /// Crea un nuevo equipo y, si viene IdEntrenador, lo vincula como equipo gestionado de ese entrenador.
+    /// Crea un nuevo equipo. Si en el DTO viene un IdEntrenador,
+    /// vincula automáticamente el equipo a ese entrenador como su equipo gestionado.
     /// </summary>
     public async Task<EquipoResponseDto> CrearAsync(EquipoRequestDto dto)
     {
+        // Se crea el equipo con el nombre indicado.
         var equipo = new Equipo
         {
             Nombre = dto.Nombre
@@ -75,7 +94,8 @@ public class EquipoUseCase : IEquipoUseCase
 
         var creado = await _repository.CrearAsync(equipo);
 
-        // Vincular al entrenador si nos pasaron su ID
+        // Si el creador es un entrenador, se vincula el equipo a su perfil
+        // para que lo gestione y aparezca como su equipo activo.
         if (dto.IdEntrenador.HasValue)
         {
             var entrenador = await _entrenadorRepository.ObtenerPorIdAsync(dto.IdEntrenador.Value);
@@ -93,7 +113,9 @@ public class EquipoUseCase : IEquipoUseCase
         return resultado;
     }
 
-    /// <summary>Actualiza el nombre de un equipo existente.</summary>
+    /// <summary>
+    /// Actualiza el nombre de un equipo existente.
+    /// </summary>
     public async Task<EquipoResponseDto> ActualizarAsync(int id, EquipoRequestDto dto)
     {
         var equipo = await _repository.ObtenerPorIdAsync(id)
@@ -103,6 +125,7 @@ public class EquipoUseCase : IEquipoUseCase
 
         var actualizado = await _repository.ActualizarAsync(equipo);
 
+        // Se invalidan las cachés afectadas por el cambio.
         _cache.Eliminar(_cache.GenerarClave("equipo", id));
         _cache.Eliminar(_cache.GenerarClaveLista("equipo"));
 
@@ -110,7 +133,10 @@ public class EquipoUseCase : IEquipoUseCase
         return resultado;
     }
 
-    /// <summary>Elimina lógicamente un equipo por su ID.</summary>
+    /// <summary>
+    /// Elimina lógicamente un equipo por su ID.
+    /// El registro permanece en la base de datos pero se marca como inactivo.
+    /// </summary>
     public async Task<bool> EliminarAsync(int id)
     {
         var existe = await _validation.EquipoExisteAsync(id);
@@ -119,6 +145,7 @@ public class EquipoUseCase : IEquipoUseCase
 
         var eliminado = await _repository.EliminarLogicoAsync(id);
 
+        // Se limpia la caché del equipo eliminado y la de la lista global.
         if (eliminado)
         {
             _cache.Eliminar(_cache.GenerarClave("equipo", id));
@@ -129,7 +156,10 @@ public class EquipoUseCase : IEquipoUseCase
         return resultado;
     }
 
-    // Mapea Equipo al DTO de respuesta
+    /// <summary>
+    /// Convierte una entidad Equipo del dominio en su DTO de respuesta para la API.
+    /// Calcula también el número total de nadadores que pertenecen al equipo.
+    /// </summary>
     private EquipoResponseDto MapearAResponse(Equipo equipo)
     {
         var resultado = new EquipoResponseDto

@@ -9,14 +9,22 @@ namespace SwimmingApi.Application.UseCase;
 
 /// <summary>
 /// Casos de uso para la entidad MarcaDeTiempo.
-/// Permite registrar una marca uno mismo o a través del entrenador.
+/// Permite registrar una marca por uno mismo (el nadador) o asignarla a través del entrenador.
 /// </summary>
 public class MarcaDeTiempoUseCase : IMarcaDeTiempoUseCase
 {
+    // Acceso a la base de datos a través del repositorio de marcas.
     private readonly IMarcaRepository _repository;
+
+    // Servicio de caché en memoria.
     private readonly CacheService _cache;
+
+    // Validaciones de infraestructura para marcas de tiempo.
     private readonly MarcaDeTiempoInfraValidation _validation;
 
+    /// <summary>
+    /// Constructor con inyección de dependencias.
+    /// </summary>
     public MarcaDeTiempoUseCase(
         IMarcaRepository repository,
         CacheService cache,
@@ -27,7 +35,10 @@ public class MarcaDeTiempoUseCase : IMarcaDeTiempoUseCase
         _validation = validation;
     }
 
-    /// <summary>Obtiene una marca de tiempo por su ID.</summary>
+    /// <summary>
+    /// Obtiene una marca de tiempo por su ID.
+    /// Aplica el patrón cache-aside.
+    /// </summary>
     public async Task<MarcaDeTiempoResponseDto?> ObtenerPorIdAsync(int id)
     {
         var claveCaché = _cache.GenerarClave("marca", id);
@@ -45,7 +56,11 @@ public class MarcaDeTiempoUseCase : IMarcaDeTiempoUseCase
         return resultado;
     }
 
-    /// <summary>Obtiene todas las marcas de tiempo de un NadadorEquipo.</summary>
+    /// <summary>
+    /// Obtiene todas las marcas de tiempo asociadas a un NadadorEquipo concreto.
+    /// Incluye tanto las que el nadador se ha registrado a sí mismo
+    /// como las que le ha asignado el entrenador.
+    /// </summary>
     public async Task<IEnumerable<MarcaDeTiempoResponseDto>> ObtenerPorNadadorEquipoAsync(int idNadadorEquipo)
     {
         var claveCaché = $"marca:nadadorequipo:{idNadadorEquipo}";
@@ -60,7 +75,10 @@ public class MarcaDeTiempoUseCase : IMarcaDeTiempoUseCase
 
         return resultado;
     }
-    /// <summary>Obtiene todas las marcas registradas por un nadador concreto.</summary>
+
+    /// <summary>
+    /// Obtiene todas las marcas registradas directamente por un nadador concreto.
+    /// </summary>
     public async Task<IEnumerable<MarcaDeTiempoResponseDto>> ObtenerPorNadadorAsync(int idNadador)
     {
         var claveCaché = $"marca:nadador:{idNadador}";
@@ -77,11 +95,13 @@ public class MarcaDeTiempoUseCase : IMarcaDeTiempoUseCase
     }
 
     /// <summary>
-    /// Registra una nueva marca de tiempo para un NadadorEquipo.
-    /// Puede ser registrada por el nadador o por el entrenador.
+    /// Registra una nueva marca de tiempo asociada a un NadadorEquipo.
+    /// Si en el DTO se incluye IdNadador, la registra el propio nadador.
+    /// Si no, se entiende que la ha asignado el entrenador.
     /// </summary>
     public async Task<MarcaDeTiempoResponseDto> CrearAsync(MarcaDeTiempoRequestDto dto)
     {
+        // Se construye la entidad a partir del DTO.
         var marca = new MarcaDeTiempo
         {
             Tiempo = dto.Tiempo,
@@ -100,6 +120,7 @@ public class MarcaDeTiempoUseCase : IMarcaDeTiempoUseCase
             throw;
         }
 
+        // Se invalidan las cachés relacionadas para reflejar la nueva marca.
         _cache.Eliminar($"marca:nadadorequipo:{dto.IdNadadorEquipo}");
         if (dto.IdNadador.HasValue)
             _cache.Eliminar($"marca:nadador:{dto.IdNadador}");
@@ -107,7 +128,9 @@ public class MarcaDeTiempoUseCase : IMarcaDeTiempoUseCase
         return resultado;
     }
 
-    /// <summary>Actualiza una marca de tiempo existente.</summary>
+    /// <summary>
+    /// Actualiza el tiempo o la descripción de una marca existente.
+    /// </summary>
     public async Task<MarcaDeTiempoResponseDto> ActualizarAsync(int id, MarcaDeTiempoRequestDto dto)
     {
         var marca = await _repository.ObtenerPorIdAsync(id)
@@ -118,6 +141,7 @@ public class MarcaDeTiempoUseCase : IMarcaDeTiempoUseCase
 
         var actualizada = await _repository.ActualizarAsync(marca);
 
+        // Se invalidan las cachés afectadas por el cambio.
         _cache.Eliminar(_cache.GenerarClave("marca", id));
         _cache.Eliminar($"marca:nadadorequipo:{marca.IdNadadorEquipo}");
 
@@ -125,7 +149,10 @@ public class MarcaDeTiempoUseCase : IMarcaDeTiempoUseCase
         return resultado;
     }
 
-    /// <summary>Elimina lógicamente una marca de tiempo.</summary>
+    /// <summary>
+    /// Elimina lógicamente una marca de tiempo.
+    /// El registro permanece en la base de datos pero se marca como inactivo.
+    /// </summary>
     public async Task<bool> EliminarAsync(int id)
     {
         var existe = await _validation.MarcaExisteAsync(id);
@@ -141,7 +168,9 @@ public class MarcaDeTiempoUseCase : IMarcaDeTiempoUseCase
         return resultado;
     }
 
-    // Mapea MarcaDeTiempo al DTO de respuesta
+    /// <summary>
+    /// Convierte una entidad MarcaDeTiempo del dominio en su DTO de respuesta para la API.
+    /// </summary>
     private MarcaDeTiempoResponseDto MapearAResponse(MarcaDeTiempo marca)
     {
         var resultado = new MarcaDeTiempoResponseDto
