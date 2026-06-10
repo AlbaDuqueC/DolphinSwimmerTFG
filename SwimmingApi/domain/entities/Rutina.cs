@@ -1,14 +1,21 @@
 namespace SwimmingApi.Domain.Entities;
 
 /// <summary>
-/// Entidad que representa una rutina de entrenamiento.
+/// Entidad que representa una rutina de entrenamiento o evento del calendario.
 /// Puede pertenecer a un nadador (rutina personal) o a un entrenador,
 /// en cuyo caso la rutina se replica automáticamente para todos los nadadores
 /// del equipo que gestiona.
 /// </summary>
 public class Rutina : EntityBase
 {
-    /// <summary>Contenido detallado de la rutina (texto libre con la descripción del entrenamiento).</summary>
+    /// <summary>Título corto del evento o rutina (ej. "Entrenamiento crol", "Competición Espartina").</summary>
+    public string Titulo { get; set; } = string.Empty;
+
+    /// <summary>Descripción detallada del evento: qué se va a hacer, qué pasó, notas del entrenador...</summary>
+    public string? Descripcion { get; set; }
+
+    /// <summary>Contenido heredado. Se mantiene por compatibilidad con datos existentes.
+    /// Los nuevos registros usarán Titulo + Descripcion.</summary>
     public string Contenido { get; set; } = string.Empty;
 
     /// <summary>Fecha en la que se realizará o se realizó la rutina.</summary>

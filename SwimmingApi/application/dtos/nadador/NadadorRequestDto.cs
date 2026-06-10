@@ -18,6 +18,9 @@ public class NadadorRequestDto
     /// <summary>Contraseña en texto plano (se encripta antes de guardarla).</summary>
     public string Password { get; set; } = string.Empty;
 
+    /// <summary>URL de la foto de perfil almacenada en Firebase Storage. Opcional.</summary>
+    public string? FotoPerfil { get; set; }
+
     /// <summary>ID del equipo al que pertenece. Opcional al registrarse.</summary>
     public int? IdEquipo { get; set; }
 

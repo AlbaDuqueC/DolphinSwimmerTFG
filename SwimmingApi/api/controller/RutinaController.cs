@@ -33,9 +33,24 @@ public class RutinaController : ControllerBase
     [ProducesResponseType(typeof(ApiResponse<IEnumerable<RutinaResponseDto>>), 200)]
     public async Task<IActionResult> ObtenerPorUsuario(int idUsuario)
     {
-        var rutinas = await _useCase.ObtenerPorUsuarioAsync(idUsuario);
-        var resultado = Ok(ApiResponse<IEnumerable<RutinaResponseDto>>.Ok(rutinas));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var rutinas = await _useCase.ObtenerPorUsuarioAsync(idUsuario);
+            if (!rutinas.Any())
+            {
+                salida = NoContent();
+            }
+            else
+            {
+                salida = Ok(ApiResponse<IEnumerable<RutinaResponseDto>>.Ok(rutinas));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -47,11 +62,24 @@ public class RutinaController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> ObtenerPorId(int id)
     {
-        var rutina = await _useCase.ObtenerPorIdAsync(id);
-        IActionResult resultado = rutina != null
-            ? Ok(ApiResponse<RutinaResponseDto>.Ok(rutina))
-            : NotFound(ApiResponse<RutinaResponseDto>.Error($"Rutina con ID {id} no encontrada."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var rutina = await _useCase.ObtenerPorIdAsync(id);
+            if (rutina == null)
+            {
+                salida = NotFound(ApiResponse<RutinaResponseDto>.Error($"Rutina con ID {id} no encontrada."));
+            }
+            else
+            {
+                salida = Ok(ApiResponse<RutinaResponseDto>.Ok(rutina));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -63,10 +91,18 @@ public class RutinaController : ControllerBase
     [ProducesResponseType(400)]
     public async Task<IActionResult> Crear([FromBody] RutinaRequestDto dto)
     {
-        var rutina = await _useCase.CrearAsync(dto);
-        var resultado = CreatedAtAction(nameof(ObtenerPorId), new { id = rutina.Id },
-            ApiResponse<RutinaResponseDto>.Ok(rutina, "Rutina creada con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var rutina = await _useCase.CrearAsync(dto);
+            salida = CreatedAtAction(nameof(ObtenerPorId), new { id = rutina.Id },
+                ApiResponse<RutinaResponseDto>.Ok(rutina, "Rutina creada con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -77,9 +113,17 @@ public class RutinaController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> Actualizar(int id, [FromBody] RutinaRequestDto dto)
     {
-        var rutina = await _useCase.ActualizarAsync(id, dto);
-        var resultado = Ok(ApiResponse<RutinaResponseDto>.Ok(rutina, "Rutina actualizada con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var rutina = await _useCase.ActualizarAsync(id, dto);
+            salida = Ok(ApiResponse<RutinaResponseDto>.Ok(rutina, "Rutina actualizada con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -91,8 +135,16 @@ public class RutinaController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> Eliminar(int id)
     {
-        var eliminada = await _useCase.EliminarAsync(id);
-        var resultado = Ok(ApiResponse<bool>.Ok(eliminada, "Rutina eliminada con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var eliminada = await _useCase.EliminarAsync(id);
+            salida = Ok(ApiResponse<bool>.Ok(eliminada, "Rutina eliminada con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 }

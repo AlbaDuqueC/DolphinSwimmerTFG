@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using SwimmingApi.Application.Dtos.Nadador;
 using SwimmingApi.Application.Interfaces.UseCase;
 
-
 namespace SwimmingApi.Api.Controller;
 
 /// <summary>
@@ -38,9 +37,24 @@ public class NadadorController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> ObtenerTodos()
     {
-        var nadadores = await _useCase.ObtenerTodosAsync();
-        var resultado = Ok(ApiResponse<IEnumerable<NadadorResponseDto>>.Ok(nadadores));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var nadadores = await _useCase.ObtenerTodosAsync();
+            if (!nadadores.Any())
+            {
+                salida = NoContent();
+            }
+            else
+            {
+                salida = Ok(ApiResponse<IEnumerable<NadadorResponseDto>>.Ok(nadadores));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -50,11 +64,24 @@ public class NadadorController : ControllerBase
     [HttpGet("{id:int}")]
     public async Task<IActionResult> ObtenerPorId(int id)
     {
-        var nadador = await _useCase.ObtenerPorIdAsync(id);
-        IActionResult resultado = nadador != null
-            ? Ok(ApiResponse<NadadorResponseDto>.Ok(nadador))
-            : NotFound(ApiResponse<NadadorResponseDto>.Error($"Nadador con ID {id} no encontrado."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var nadador = await _useCase.ObtenerPorIdAsync(id);
+            if (nadador == null)
+            {
+                salida = NotFound(ApiResponse<NadadorResponseDto>.Error($"Nadador con ID {id} no encontrado."));
+            }
+            else
+            {
+                salida = Ok(ApiResponse<NadadorResponseDto>.Ok(nadador));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -64,11 +91,24 @@ public class NadadorController : ControllerBase
     [HttpGet("email/{email}")]
     public async Task<IActionResult> ObtenerPorEmail(string email)
     {
-        var nadador = await _useCase.ObtenerPorEmailAsync(email);
-        IActionResult resultado = nadador != null
-            ? Ok(ApiResponse<NadadorResponseDto>.Ok(nadador))
-            : NotFound(ApiResponse<NadadorResponseDto>.Error($"No se encontró ningún nadador con email {email}."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var nadador = await _useCase.ObtenerPorEmailAsync(email);
+            if (nadador == null)
+            {
+                salida = NotFound(ApiResponse<NadadorResponseDto>.Error($"No se encontró ningún nadador con email {email}."));
+            }
+            else
+            {
+                salida = Ok(ApiResponse<NadadorResponseDto>.Ok(nadador));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -78,10 +118,18 @@ public class NadadorController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Crear([FromBody] NadadorRequestDto dto)
     {
-        var nadador = await _useCase.CrearAsync(dto);
-        var resultado = CreatedAtAction(nameof(ObtenerPorId), new { id = nadador.Id },
-            ApiResponse<NadadorResponseDto>.Ok(nadador, "Nadador creado con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var nadador = await _useCase.CrearAsync(dto);
+            salida = CreatedAtAction(nameof(ObtenerPorId), new { id = nadador.Id },
+                ApiResponse<NadadorResponseDto>.Ok(nadador, "Nadador creado con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -90,9 +138,17 @@ public class NadadorController : ControllerBase
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Actualizar(int id, [FromBody] NadadorRequestDto dto)
     {
-        var nadador = await _useCase.ActualizarAsync(id, dto);
-        var resultado = Ok(ApiResponse<NadadorResponseDto>.Ok(nadador, "Nadador actualizado con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var nadador = await _useCase.ActualizarAsync(id, dto);
+            salida = Ok(ApiResponse<NadadorResponseDto>.Ok(nadador, "Nadador actualizado con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -102,9 +158,17 @@ public class NadadorController : ControllerBase
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Eliminar(int id)
     {
-        var eliminado = await _useCase.EliminarAsync(id);
-        var resultado = Ok(ApiResponse<bool>.Ok(eliminado, "Nadador eliminado con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var eliminado = await _useCase.EliminarAsync(id);
+            salida = Ok(ApiResponse<bool>.Ok(eliminado, "Nadador eliminado con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -118,20 +182,16 @@ public class NadadorController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> VincularConCodigo(int id, [FromBody] VincularCodigoRequest request)
     {
+        IActionResult salida;
         try
         {
             var nadador = await _useCase.VincularConCodigoAsync(id, request.Codigo);
-            return Ok(ApiResponse<NadadorResponseDto>.Ok(nadador, "Te has unido al equipo correctamente."));
+            salida = Ok(ApiResponse<NadadorResponseDto>.Ok(nadador, "Te has unido al equipo correctamente."));
         }
-        catch (KeyNotFoundException ex)
+        catch
         {
-            // El código introducido no existe en ningún equipo activo.
-            return NotFound(ApiResponse<NadadorResponseDto>.Error(ex.Message));
+            salida = BadRequest();
         }
-        catch (InvalidOperationException ex)
-        {
-            // El nadador ya está vinculado o el código está ocupado.
-            return BadRequest(ApiResponse<NadadorResponseDto>.Error(ex.Message));
-        }
+        return salida;
     }
 }

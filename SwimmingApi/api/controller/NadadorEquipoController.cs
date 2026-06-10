@@ -33,9 +33,24 @@ public class NadadorEquipoController : ControllerBase
     [ProducesResponseType(typeof(ApiResponse<IEnumerable<NadadorEquipoResponseDto>>), 200)]
     public async Task<IActionResult> ObtenerPorEquipo(int idEquipo)
     {
-        var lista = await _useCase.ObtenerPorEquipoAsync(idEquipo);
-        var resultado = Ok(ApiResponse<IEnumerable<NadadorEquipoResponseDto>>.Ok(lista));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var lista = await _useCase.ObtenerPorEquipoAsync(idEquipo);
+            if (!lista.Any())
+            {
+                salida = NoContent();
+            }
+            else
+            {
+                salida = Ok(ApiResponse<IEnumerable<NadadorEquipoResponseDto>>.Ok(lista));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -47,11 +62,24 @@ public class NadadorEquipoController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> ObtenerPorId(int id)
     {
-        var nadadorEquipo = await _useCase.ObtenerPorIdAsync(id);
-        IActionResult resultado = nadadorEquipo != null
-            ? Ok(ApiResponse<NadadorEquipoResponseDto>.Ok(nadadorEquipo))
-            : NotFound(ApiResponse<NadadorEquipoResponseDto>.Error($"NadadorEquipo con ID {id} no encontrado."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var nadadorEquipo = await _useCase.ObtenerPorIdAsync(id);
+            if (nadadorEquipo == null)
+            {
+                salida = NotFound(ApiResponse<NadadorEquipoResponseDto>.Error($"NadadorEquipo con ID {id} no encontrado."));
+            }
+            else
+            {
+                salida = Ok(ApiResponse<NadadorEquipoResponseDto>.Ok(nadadorEquipo));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -64,11 +92,24 @@ public class NadadorEquipoController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> ObtenerPorCodigo(int codigo)
     {
-        var nadadorEquipo = await _useCase.ObtenerPorCodigoAsync(codigo);
-        IActionResult resultado = nadadorEquipo != null
-            ? Ok(ApiResponse<NadadorEquipoResponseDto>.Ok(nadadorEquipo))
-            : NotFound(ApiResponse<NadadorEquipoResponseDto>.Error($"No se encontró un nadador con el código {codigo}."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var nadadorEquipo = await _useCase.ObtenerPorCodigoAsync(codigo);
+            if (nadadorEquipo == null)
+            {
+                salida = NotFound(ApiResponse<NadadorEquipoResponseDto>.Error($"No se encontró un nadador con el código {codigo}."));
+            }
+            else
+            {
+                salida = Ok(ApiResponse<NadadorEquipoResponseDto>.Ok(nadadorEquipo));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -81,10 +122,18 @@ public class NadadorEquipoController : ControllerBase
     [ProducesResponseType(400)]
     public async Task<IActionResult> Crear([FromBody] NadadorEquipoRequestDto dto)
     {
-        var nadadorEquipo = await _useCase.CrearAsync(dto);
-        var resultado = CreatedAtAction(nameof(ObtenerPorId), new { id = nadadorEquipo.Id },
-            ApiResponse<NadadorEquipoResponseDto>.Ok(nadadorEquipo, "NadadorEquipo creado con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var nadadorEquipo = await _useCase.CrearAsync(dto);
+            salida = CreatedAtAction(nameof(ObtenerPorId), new { id = nadadorEquipo.Id },
+                ApiResponse<NadadorEquipoResponseDto>.Ok(nadadorEquipo, "NadadorEquipo creado con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -95,9 +144,17 @@ public class NadadorEquipoController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> Actualizar(int id, [FromBody] NadadorEquipoRequestDto dto)
     {
-        var nadadorEquipo = await _useCase.ActualizarAsync(id, dto);
-        var resultado = Ok(ApiResponse<NadadorEquipoResponseDto>.Ok(nadadorEquipo, "NadadorEquipo actualizado con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var nadadorEquipo = await _useCase.ActualizarAsync(id, dto);
+            salida = Ok(ApiResponse<NadadorEquipoResponseDto>.Ok(nadadorEquipo, "NadadorEquipo actualizado con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -110,8 +167,16 @@ public class NadadorEquipoController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> Eliminar(int id)
     {
-        var eliminado = await _useCase.EliminarAsync(id);
-        var resultado = Ok(ApiResponse<bool>.Ok(eliminado, "NadadorEquipo eliminado con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var eliminado = await _useCase.EliminarAsync(id);
+            salida = Ok(ApiResponse<bool>.Ok(eliminado, "NadadorEquipo eliminado con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 }

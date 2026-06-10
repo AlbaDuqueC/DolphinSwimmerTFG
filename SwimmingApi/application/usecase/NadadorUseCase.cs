@@ -54,18 +54,15 @@ public class NadadorUseCase : INadadorUseCase
     /// </summary>
     public async Task<NadadorResponseDto?> ObtenerPorIdAsync(int id)
     {
-        var claveCaché = _cache.GenerarClave("nadador", id);
-        var resultado = _cache.Obtener<NadadorResponseDto>(claveCaché);
-
+        var claveCache = _cache.GenerarClave("nadador", id);
+        var resultado = _cache.Obtener<NadadorResponseDto>(claveCache);
         if (resultado == null)
         {
             var nadador = await _repository.ObtenerPorIdAsync(id);
             resultado = nadador != null ? MapearAResponse(nadador) : null;
-
             if (resultado != null)
-                _cache.Guardar(claveCaché, resultado);
+                _cache.Guardar(claveCache, resultado);
         }
-
         return resultado;
     }
 
@@ -86,16 +83,14 @@ public class NadadorUseCase : INadadorUseCase
     /// </summary>
     public async Task<IEnumerable<NadadorResponseDto>> ObtenerTodosAsync()
     {
-        var claveCaché = _cache.GenerarClaveLista("nadador");
-        var resultado = _cache.Obtener<IEnumerable<NadadorResponseDto>>(claveCaché);
-
+        var claveCache = _cache.GenerarClaveLista("nadador");
+        var resultado = _cache.Obtener<IEnumerable<NadadorResponseDto>>(claveCache);
         if (resultado == null)
         {
             var nadadores = await _repository.ObtenerTodosAsync();
             resultado = nadadores.Select(MapearAResponse);
-            _cache.Guardar(claveCaché, resultado);
+            _cache.Guardar(claveCache, resultado);
         }
-
         return resultado;
     }
 
@@ -118,6 +113,7 @@ public class NadadorUseCase : INadadorUseCase
             Apellidos = dto.Apellidos,
             Email = dto.Email,
             PasswordHash = _encryption.HashPassword(dto.Password),
+            FotoPerfil = dto.FotoPerfil,
             IdEquipo = dto.IdEquipo,
         };
 
@@ -141,6 +137,7 @@ public class NadadorUseCase : INadadorUseCase
     /// <summary>
     /// Actualiza los datos de un nadador existente.
     /// Si la contraseña viene vacía, se conserva la actual sin tocarla.
+    /// Si FotoPerfil viene nula, se conserva la foto actual.
     /// </summary>
     public async Task<NadadorResponseDto> ActualizarAsync(int id, NadadorRequestDto dto)
     {
@@ -155,6 +152,10 @@ public class NadadorUseCase : INadadorUseCase
         // La contraseña solo se actualiza si llega informada (al editar perfil suele venir vacía).
         if (!string.IsNullOrWhiteSpace(dto.Password))
             nadador.PasswordHash = _encryption.HashPassword(dto.Password);
+
+        // La foto solo se actualiza si llega informada; si no, se conserva la actual.
+        if (dto.FotoPerfil != null)
+            nadador.FotoPerfil = dto.FotoPerfil;
 
         var nadadorActualizado = await _repository.ActualizarAsync(nadador);
 
@@ -177,7 +178,6 @@ public class NadadorUseCase : INadadorUseCase
             throw new KeyNotFoundException($"Nadador con ID {id} no encontrado.");
 
         var eliminado = await _repository.EliminarLogicoAsync(id);
-
         if (eliminado)
         {
             _cache.Eliminar(_cache.GenerarClave("nadador", id));
@@ -220,7 +220,6 @@ public class NadadorUseCase : INadadorUseCase
 
         // 6) Se limpia la caché del nadador para que la próxima lectura sea fresca.
         _cache.Eliminar(_cache.GenerarClave("nadador", nadador.Id));
-
         return MapearAResponse(actualizado);
     }
 
@@ -236,6 +235,7 @@ public class NadadorUseCase : INadadorUseCase
             Nombre = nadador.Nombre,
             Apellidos = nadador.Apellidos,
             Email = nadador.Email,
+            FotoPerfil = nadador.FotoPerfil,
             IdEquipo = nadador.IdEquipo,
             IdNadadorEquipo = nadador.IdNadadorEquipo,
             CreatedAt = nadador.CreatedAt,

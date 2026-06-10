@@ -29,9 +29,24 @@ public class EntrenadorController : ControllerBase
     [ProducesResponseType(typeof(ApiResponse<IEnumerable<EntrenadorResponseDto>>), 200)]
     public async Task<IActionResult> ObtenerTodos()
     {
-        var entrenadores = await _useCase.ObtenerTodosAsync();
-        var resultado = Ok(ApiResponse<IEnumerable<EntrenadorResponseDto>>.Ok(entrenadores));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var entrenadores = await _useCase.ObtenerTodosAsync();
+            if (!entrenadores.Any())
+            {
+                salida = NoContent();
+            }
+            else
+            {
+                salida = Ok(ApiResponse<IEnumerable<EntrenadorResponseDto>>.Ok(entrenadores));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -43,11 +58,24 @@ public class EntrenadorController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> ObtenerPorId(int id)
     {
-        var entrenador = await _useCase.ObtenerPorIdAsync(id);
-        IActionResult resultado = entrenador != null
-            ? Ok(ApiResponse<EntrenadorResponseDto>.Ok(entrenador))
-            : NotFound(ApiResponse<EntrenadorResponseDto>.Error($"Entrenador con ID {id} no encontrado."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var entrenador = await _useCase.ObtenerPorIdAsync(id);
+            if (entrenador == null)
+            {
+                salida = NotFound(ApiResponse<EntrenadorResponseDto>.Error($"Entrenador con ID {id} no encontrado."));
+            }
+            else
+            {
+                salida = Ok(ApiResponse<EntrenadorResponseDto>.Ok(entrenador));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -59,11 +87,24 @@ public class EntrenadorController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> ObtenerPorEmail(string email)
     {
-        var entrenador = await _useCase.ObtenerPorEmailAsync(email);
-        IActionResult resultado = entrenador != null
-            ? Ok(ApiResponse<EntrenadorResponseDto>.Ok(entrenador))
-            : NotFound(ApiResponse<EntrenadorResponseDto>.Error($"No se encontró ningún entrenador con email {email}."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var entrenador = await _useCase.ObtenerPorEmailAsync(email);
+            if (entrenador == null)
+            {
+                salida = NotFound(ApiResponse<EntrenadorResponseDto>.Error($"No se encontró ningún entrenador con email {email}."));
+            }
+            else
+            {
+                salida = Ok(ApiResponse<EntrenadorResponseDto>.Ok(entrenador));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -75,10 +116,18 @@ public class EntrenadorController : ControllerBase
     [ProducesResponseType(400)]
     public async Task<IActionResult> Crear([FromBody] EntrenadorRequestDto dto)
     {
-        var entrenador = await _useCase.CrearAsync(dto);
-        var resultado = CreatedAtAction(nameof(ObtenerPorId), new { id = entrenador.Id },
-            ApiResponse<EntrenadorResponseDto>.Ok(entrenador, "Entrenador creado con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var entrenador = await _useCase.CrearAsync(dto);
+            salida = CreatedAtAction(nameof(ObtenerPorId), new { id = entrenador.Id },
+                ApiResponse<EntrenadorResponseDto>.Ok(entrenador, "Entrenador creado con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -89,9 +138,17 @@ public class EntrenadorController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> Actualizar(int id, [FromBody] EntrenadorRequestDto dto)
     {
-        var entrenador = await _useCase.ActualizarAsync(id, dto);
-        var resultado = Ok(ApiResponse<EntrenadorResponseDto>.Ok(entrenador, "Entrenador actualizado con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var entrenador = await _useCase.ActualizarAsync(id, dto);
+            salida = Ok(ApiResponse<EntrenadorResponseDto>.Ok(entrenador, "Entrenador actualizado con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -103,8 +160,16 @@ public class EntrenadorController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> Eliminar(int id)
     {
-        var eliminado = await _useCase.EliminarAsync(id);
-        var resultado = Ok(ApiResponse<bool>.Ok(eliminado, "Entrenador eliminado con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var eliminado = await _useCase.EliminarAsync(id);
+            salida = Ok(ApiResponse<bool>.Ok(eliminado, "Entrenador eliminado con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 }

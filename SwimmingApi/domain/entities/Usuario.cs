@@ -2,8 +2,8 @@ namespace SwimmingApi.Domain.Entities;
 
 /// <summary>
 /// Entidad principal que representa a un usuario del sistema.
-/// Contiene los datos comunes a todos los usuarios (nombre, email, contraseña...)
-/// y actúa como clase base de Nadador y Entrenador, que añaden sus propias propiedades.
+/// Contiene los datos comunes a todos los usuarios (nombre, email, contraseña, foto...)
+/// y actúa como clase base de Nadador y Entrenador.
 /// </summary>
 public class Usuario : EntityBase
 {
@@ -21,6 +21,12 @@ public class Usuario : EntityBase
     /// Nunca se almacena en texto plano por seguridad.
     /// </summary>
     public string PasswordHash { get; set; } = string.Empty;
+
+    /// <summary>
+    /// URL de la foto de perfil del usuario, almacenada en Firebase Storage.
+    /// Nula si el usuario no ha subido ninguna foto.
+    /// </summary>
+    public string? FotoPerfil { get; set; }
 
     /// <summary>Clave foránea al equipo al que pertenece el usuario. Puede ser nula si todavía no pertenece a ninguno.</summary>
     public int? IdEquipo { get; set; }

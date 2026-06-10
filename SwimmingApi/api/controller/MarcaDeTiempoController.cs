@@ -33,9 +33,24 @@ public class MarcaDeTiempoController : ControllerBase
     [ProducesResponseType(typeof(ApiResponse<IEnumerable<MarcaDeTiempoResponseDto>>), 200)]
     public async Task<IActionResult> ObtenerPorNadadorEquipo(int idNadadorEquipo)
     {
-        var marcas = await _useCase.ObtenerPorNadadorEquipoAsync(idNadadorEquipo);
-        var resultado = Ok(ApiResponse<IEnumerable<MarcaDeTiempoResponseDto>>.Ok(marcas));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var marcas = await _useCase.ObtenerPorNadadorEquipoAsync(idNadadorEquipo);
+            if (!marcas.Any())
+            {
+                salida = NoContent();
+            }
+            else
+            {
+                salida = Ok(ApiResponse<IEnumerable<MarcaDeTiempoResponseDto>>.Ok(marcas));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -46,9 +61,24 @@ public class MarcaDeTiempoController : ControllerBase
     [ProducesResponseType(typeof(ApiResponse<IEnumerable<MarcaDeTiempoResponseDto>>), 200)]
     public async Task<IActionResult> ObtenerPorNadador(int idNadador)
     {
-        var marcas = await _useCase.ObtenerPorNadadorAsync(idNadador);
-        var resultado = Ok(ApiResponse<IEnumerable<MarcaDeTiempoResponseDto>>.Ok(marcas));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var marcas = await _useCase.ObtenerPorNadadorAsync(idNadador);
+            if (!marcas.Any())
+            {
+                salida = NoContent();
+            }
+            else
+            {
+                salida = Ok(ApiResponse<IEnumerable<MarcaDeTiempoResponseDto>>.Ok(marcas));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -60,11 +90,24 @@ public class MarcaDeTiempoController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> ObtenerPorId(int id)
     {
-        var marca = await _useCase.ObtenerPorIdAsync(id);
-        IActionResult resultado = marca != null
-            ? Ok(ApiResponse<MarcaDeTiempoResponseDto>.Ok(marca))
-            : NotFound(ApiResponse<MarcaDeTiempoResponseDto>.Error($"MarcaDeTiempo con ID {id} no encontrada."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var marca = await _useCase.ObtenerPorIdAsync(id);
+            if (marca == null)
+            {
+                salida = NotFound(ApiResponse<MarcaDeTiempoResponseDto>.Error($"MarcaDeTiempo con ID {id} no encontrada."));
+            }
+            else
+            {
+                salida = Ok(ApiResponse<MarcaDeTiempoResponseDto>.Ok(marca));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -77,10 +120,18 @@ public class MarcaDeTiempoController : ControllerBase
     [ProducesResponseType(400)]
     public async Task<IActionResult> Crear([FromBody] MarcaDeTiempoRequestDto dto)
     {
-        var marca = await _useCase.CrearAsync(dto);
-        var resultado = CreatedAtAction(nameof(ObtenerPorId), new { id = marca.Id },
-            ApiResponse<MarcaDeTiempoResponseDto>.Ok(marca, "Marca de tiempo registrada con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var marca = await _useCase.CrearAsync(dto);
+            salida = CreatedAtAction(nameof(ObtenerPorId), new { id = marca.Id },
+                ApiResponse<MarcaDeTiempoResponseDto>.Ok(marca, "Marca de tiempo registrada con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -91,9 +142,17 @@ public class MarcaDeTiempoController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> Actualizar(int id, [FromBody] MarcaDeTiempoRequestDto dto)
     {
-        var marca = await _useCase.ActualizarAsync(id, dto);
-        var resultado = Ok(ApiResponse<MarcaDeTiempoResponseDto>.Ok(marca, "Marca de tiempo actualizada con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var marca = await _useCase.ActualizarAsync(id, dto);
+            salida = Ok(ApiResponse<MarcaDeTiempoResponseDto>.Ok(marca, "Marca de tiempo actualizada con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -105,8 +164,16 @@ public class MarcaDeTiempoController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> Eliminar(int id)
     {
-        var eliminada = await _useCase.EliminarAsync(id);
-        var resultado = Ok(ApiResponse<bool>.Ok(eliminada, "Marca de tiempo eliminada con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var eliminada = await _useCase.EliminarAsync(id);
+            salida = Ok(ApiResponse<bool>.Ok(eliminada, "Marca de tiempo eliminada con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 }

@@ -55,18 +55,15 @@ public class RutinaUseCase : IRutinaUseCase
     /// </summary>
     public async Task<RutinaResponseDto?> ObtenerPorIdAsync(int id)
     {
-        var claveCaché = _cache.GenerarClave("rutina", id);
-        var resultado = _cache.Obtener<RutinaResponseDto>(claveCaché);
-
+        var claveCache = _cache.GenerarClave("rutina", id);
+        var resultado = _cache.Obtener<RutinaResponseDto>(claveCache);
         if (resultado == null)
         {
             var rutina = await _repository.ObtenerPorIdAsync(id);
             resultado = rutina != null ? MapearAResponse(rutina) : null;
-
             if (resultado != null)
-                _cache.Guardar(claveCaché, resultado);
+                _cache.Guardar(claveCache, resultado);
         }
-
         return resultado;
     }
 
@@ -76,16 +73,14 @@ public class RutinaUseCase : IRutinaUseCase
     /// </summary>
     public async Task<IEnumerable<RutinaResponseDto>> ObtenerPorUsuarioAsync(int idUsuario)
     {
-        var claveCaché = $"rutina:usuario:{idUsuario}";
-        var resultado = _cache.Obtener<IEnumerable<RutinaResponseDto>>(claveCaché);
-
+        var claveCache = $"rutina:usuario:{idUsuario}";
+        var resultado = _cache.Obtener<IEnumerable<RutinaResponseDto>>(claveCache);
         if (resultado == null)
         {
             var rutinas = await _repository.ObtenerPorUsuarioAsync(idUsuario);
             resultado = rutinas.Select(MapearAResponse);
-            _cache.Guardar(claveCaché, resultado);
+            _cache.Guardar(claveCache, resultado);
         }
-
         return resultado;
     }
 
@@ -93,14 +88,20 @@ public class RutinaUseCase : IRutinaUseCase
     /// Crea una nueva rutina. Si el usuario que la crea es un entrenador con equipo gestionado,
     /// la rutina se replica también para todos los nadadores del equipo,
     /// de forma que cada uno la vea en su propio listado.
+    /// El campo Contenido se rellena automáticamente con el Titulo para mantener
+    /// la compatibilidad con datos anteriores.
     /// </summary>
     public async Task<RutinaResponseDto> CrearAsync(RutinaRequestDto dto)
     {
+        // Contenido se sincroniza con el Titulo para compatibilidad con datos existentes.
+        var contenidoFinal = !string.IsNullOrWhiteSpace(dto.Titulo) ? dto.Titulo : dto.Contenido;
+
         // 1) Se crea la rutina para el propio creador (entrenador o nadador).
-        //    Siempre se genera una copia para él.
         var rutinaCreador = new Rutina
         {
-            Contenido = dto.Contenido,
+            Titulo = dto.Titulo,
+            Descripcion = dto.Descripcion,
+            Contenido = contenidoFinal,
             Fecha = dto.Fecha,
             Mostrar = dto.Mostrar,
             IdUsuario = dto.IdUsuario
@@ -123,7 +124,9 @@ public class RutinaUseCase : IRutinaUseCase
             {
                 var copia = new Rutina
                 {
-                    Contenido = dto.Contenido,
+                    Titulo = dto.Titulo,
+                    Descripcion = dto.Descripcion,
+                    Contenido = contenidoFinal,
                     Fecha = dto.Fecha,
                     Mostrar = dto.Mostrar,
                     IdUsuario = nadador.Id
@@ -139,14 +142,17 @@ public class RutinaUseCase : IRutinaUseCase
     }
 
     /// <summary>
-    /// Actualiza el contenido, la fecha o la visibilidad de una rutina existente.
+    /// Actualiza el título, la descripción, la fecha o la visibilidad de una rutina existente.
     /// </summary>
     public async Task<RutinaResponseDto> ActualizarAsync(int id, RutinaRequestDto dto)
     {
         var rutina = await _repository.ObtenerPorIdAsync(id)
             ?? throw new KeyNotFoundException($"Rutina con ID {id} no encontrada.");
 
-        rutina.Contenido = dto.Contenido;
+        rutina.Titulo = dto.Titulo;
+        rutina.Descripcion = dto.Descripcion;
+        // Contenido se sincroniza con el Titulo para compatibilidad.
+        rutina.Contenido = !string.IsNullOrWhiteSpace(dto.Titulo) ? dto.Titulo : dto.Contenido;
         rutina.Fecha = dto.Fecha;
         rutina.Mostrar = dto.Mostrar;
 
@@ -171,7 +177,6 @@ public class RutinaUseCase : IRutinaUseCase
             throw new KeyNotFoundException($"Rutina con ID {id} no encontrada.");
 
         var eliminada = await _repository.EliminarLogicoAsync(id);
-
         if (eliminada)
             _cache.Eliminar(_cache.GenerarClave("rutina", id));
 
@@ -188,6 +193,8 @@ public class RutinaUseCase : IRutinaUseCase
         {
             Id = rutina.Id,
             IdRutina = rutina.Id,
+            Titulo = rutina.Titulo,
+            Descripcion = rutina.Descripcion,
             Contenido = rutina.Contenido,
             Fecha = rutina.Fecha,
             Mostrar = rutina.Mostrar,

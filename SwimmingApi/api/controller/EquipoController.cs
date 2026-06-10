@@ -29,9 +29,24 @@ public class EquipoController : ControllerBase
     [ProducesResponseType(typeof(ApiResponse<IEnumerable<EquipoResponseDto>>), 200)]
     public async Task<IActionResult> ObtenerTodos()
     {
-        var equipos = await _useCase.ObtenerTodosAsync();
-        var resultado = Ok(ApiResponse<IEnumerable<EquipoResponseDto>>.Ok(equipos));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var equipos = await _useCase.ObtenerTodosAsync();
+            if (!equipos.Any())
+            {
+                salida = NoContent();
+            }
+            else
+            {
+                salida = Ok(ApiResponse<IEnumerable<EquipoResponseDto>>.Ok(equipos));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -43,11 +58,24 @@ public class EquipoController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> ObtenerPorId(int id)
     {
-        var equipo = await _useCase.ObtenerPorIdAsync(id);
-        IActionResult resultado = equipo != null
-            ? Ok(ApiResponse<EquipoResponseDto>.Ok(equipo))
-            : NotFound(ApiResponse<EquipoResponseDto>.Error($"Equipo con ID {id} no encontrado."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var equipo = await _useCase.ObtenerPorIdAsync(id);
+            if (equipo == null)
+            {
+                salida = NotFound(ApiResponse<EquipoResponseDto>.Error($"Equipo con ID {id} no encontrado."));
+            }
+            else
+            {
+                salida = Ok(ApiResponse<EquipoResponseDto>.Ok(equipo));
+            }
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -59,10 +87,18 @@ public class EquipoController : ControllerBase
     [ProducesResponseType(400)]
     public async Task<IActionResult> Crear([FromBody] EquipoRequestDto dto)
     {
-        var equipo = await _useCase.CrearAsync(dto);
-        var resultado = CreatedAtAction(nameof(ObtenerPorId), new { id = equipo.Id },
-            ApiResponse<EquipoResponseDto>.Ok(equipo, "Equipo creado con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var equipo = await _useCase.CrearAsync(dto);
+            salida = CreatedAtAction(nameof(ObtenerPorId), new { id = equipo.Id },
+                ApiResponse<EquipoResponseDto>.Ok(equipo, "Equipo creado con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -73,9 +109,17 @@ public class EquipoController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> Actualizar(int id, [FromBody] EquipoRequestDto dto)
     {
-        var equipo = await _useCase.ActualizarAsync(id, dto);
-        var resultado = Ok(ApiResponse<EquipoResponseDto>.Ok(equipo, "Equipo actualizado con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var equipo = await _useCase.ActualizarAsync(id, dto);
+            salida = Ok(ApiResponse<EquipoResponseDto>.Ok(equipo, "Equipo actualizado con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 
     /// <summary>
@@ -88,8 +132,16 @@ public class EquipoController : ControllerBase
     [ProducesResponseType(404)]
     public async Task<IActionResult> Eliminar(int id)
     {
-        var eliminado = await _useCase.EliminarAsync(id);
-        var resultado = Ok(ApiResponse<bool>.Ok(eliminado, "Equipo eliminado con éxito."));
-        return resultado;
+        IActionResult salida;
+        try
+        {
+            var eliminado = await _useCase.EliminarAsync(id);
+            salida = Ok(ApiResponse<bool>.Ok(eliminado, "Equipo eliminado con éxito."));
+        }
+        catch
+        {
+            salida = BadRequest();
+        }
+        return salida;
     }
 }

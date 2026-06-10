@@ -49,19 +49,17 @@ public class EntrenadorUseCase : IEntrenadorUseCase
     /// </summary>
     public async Task<EntrenadorResponseDto?> ObtenerPorIdAsync(int id)
     {
-        var claveCaché = _cache.GenerarClave("entrenador", id);
-        var resultado = _cache.Obtener<EntrenadorResponseDto>(claveCaché);
+        var claveCache = _cache.GenerarClave("entrenador", id);
+        var resultado = _cache.Obtener<EntrenadorResponseDto>(claveCache);
 
         // Si no está en caché, se consulta la BD y se guarda el resultado en caché.
         if (resultado == null)
         {
             var entrenador = await _repository.ObtenerPorIdAsync(id);
             resultado = entrenador != null ? MapearAResponse(entrenador) : null;
-
             if (resultado != null)
-                _cache.Guardar(claveCaché, resultado);
+                _cache.Guardar(claveCache, resultado);
         }
-
         return resultado;
     }
 
@@ -82,16 +80,14 @@ public class EntrenadorUseCase : IEntrenadorUseCase
     /// </summary>
     public async Task<IEnumerable<EntrenadorResponseDto>> ObtenerTodosAsync()
     {
-        var claveCaché = _cache.GenerarClaveLista("entrenador");
-        var resultado = _cache.Obtener<IEnumerable<EntrenadorResponseDto>>(claveCaché);
-
+        var claveCache = _cache.GenerarClaveLista("entrenador");
+        var resultado = _cache.Obtener<IEnumerable<EntrenadorResponseDto>>(claveCache);
         if (resultado == null)
         {
             var entrenadores = await _repository.ObtenerTodosAsync();
             resultado = entrenadores.Select(MapearAResponse);
-            _cache.Guardar(claveCaché, resultado);
+            _cache.Guardar(claveCache, resultado);
         }
-
         return resultado;
     }
 
@@ -113,6 +109,7 @@ public class EntrenadorUseCase : IEntrenadorUseCase
             Apellidos = dto.Apellidos,
             Email = dto.Email,
             PasswordHash = _encryption.HashPassword(dto.Password),
+            FotoPerfil = dto.FotoPerfil,
             IdEquipoGestionado = dto.IdEquipoGestionado
         };
 
@@ -135,6 +132,7 @@ public class EntrenadorUseCase : IEntrenadorUseCase
     /// <summary>
     /// Actualiza los datos de un entrenador existente.
     /// Si la contraseña viene vacía, se conserva la actual sin tocarla.
+    /// Si FotoPerfil viene nula, se conserva la foto actual.
     /// </summary>
     public async Task<EntrenadorResponseDto> ActualizarAsync(int id, EntrenadorRequestDto dto)
     {
@@ -149,6 +147,10 @@ public class EntrenadorUseCase : IEntrenadorUseCase
         // La contraseña solo se actualiza si llega informada (al editar perfil suele venir vacía).
         if (!string.IsNullOrWhiteSpace(dto.Password))
             entrenador.PasswordHash = _encryption.HashPassword(dto.Password);
+
+        // La foto solo se actualiza si llega informada; si no, se conserva la actual.
+        if (dto.FotoPerfil != null)
+            entrenador.FotoPerfil = dto.FotoPerfil;
 
         var actualizado = await _repository.ActualizarAsync(entrenador);
 
@@ -195,6 +197,7 @@ public class EntrenadorUseCase : IEntrenadorUseCase
             Nombre = entrenador.Nombre,
             Apellidos = entrenador.Apellidos,
             Email = entrenador.Email,
+            FotoPerfil = entrenador.FotoPerfil,
             IdEquipo = entrenador.IdEquipo,
             IdEquipoGestionado = entrenador.IdEquipoGestionado,
             CreatedAt = entrenador.CreatedAt,
