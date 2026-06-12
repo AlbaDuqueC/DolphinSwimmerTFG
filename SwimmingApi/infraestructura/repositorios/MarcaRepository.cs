@@ -3,9 +3,7 @@ using SwimmingApi.Application.Interfaces.Repository;
 using SwimmingApi.Domain.Entities;
 using SwimmingApi.Domain.Extensiones;
 using SwimmingApi.Infraestructura.Database;
-
 namespace SwimmingApi.Infraestructura.Repositorios;
-
 /// <summary>
 /// Implementación del repositorio de acceso a datos para MarcaDeTiempo.
 /// Encapsula las operaciones de lectura y escritura contra la base de datos
@@ -15,7 +13,6 @@ public class MarcaRepository : IMarcaRepository
 {
     // Contexto de Entity Framework que da acceso a la base de datos.
     private readonly AppDbContext _context;
-
     /// <summary>
     /// Constructor con inyección de dependencias del contexto de base de datos.
     /// </summary>
@@ -23,7 +20,6 @@ public class MarcaRepository : IMarcaRepository
     {
         _context = context;
     }
-
     /// <summary>
     /// Obtiene una marca de tiempo por su ID incluyendo sus relaciones
     /// (NadadorEquipo y Nadador) con eager loading.
@@ -36,33 +32,30 @@ public class MarcaRepository : IMarcaRepository
             .FirstOrDefaultAsync(m => m.Id == id);
         return resultado;
     }
-
     /// <summary>
-    /// Obtiene todas las marcas de tiempo asociadas a un NadadorEquipo concreto,
+    /// Obtiene todas las marcas de tiempo ACTIVAS asociadas a un NadadorEquipo concreto,
     /// ordenadas de la más reciente a la más antigua.
     /// </summary>
     public async Task<IEnumerable<MarcaDeTiempo>> ObtenerPorNadadorEquipoAsync(int idNadadorEquipo)
     {
         var resultado = await _context.MarcasDeTiempo
-            .Where(m => m.IdNadadorEquipo == idNadadorEquipo)
+            .Where(m => m.IdNadadorEquipo == idNadadorEquipo && m.DeleteAt == null)
             .OrderByDescending(m => m.CreatedAt)
             .ToListAsync();
         return resultado;
     }
-
     /// <summary>
-    /// Obtiene todas las marcas de tiempo registradas por un nadador concreto,
+    /// Obtiene todas las marcas de tiempo ACTIVAS registradas por un nadador concreto,
     /// ordenadas de la más reciente a la más antigua.
     /// </summary>
     public async Task<IEnumerable<MarcaDeTiempo>> ObtenerPorNadadorAsync(int idNadador)
     {
         var resultado = await _context.MarcasDeTiempo
-            .Where(m => m.IdNadador == idNadador)
+            .Where(m => m.IdNadador == idNadador && m.DeleteAt == null)
             .OrderByDescending(m => m.CreatedAt)
             .ToListAsync();
         return resultado;
     }
-
     /// <summary>
     /// Registra una nueva marca de tiempo en la base de datos.
     /// Aplica automáticamente la fecha de creación antes de guardarla.
@@ -75,7 +68,6 @@ public class MarcaRepository : IMarcaRepository
         var resultado = marca;
         return resultado;
     }
-
     /// <summary>
     /// Actualiza los datos de una marca de tiempo existente.
     /// Aplica automáticamente la fecha de modificación antes de guardar.
@@ -88,7 +80,6 @@ public class MarcaRepository : IMarcaRepository
         var resultado = marca;
         return resultado;
     }
-
     /// <summary>
     /// Aplica la eliminación lógica a una marca de tiempo.
     /// El registro permanece en la base de datos pero se marca como inactivo.
@@ -97,14 +88,12 @@ public class MarcaRepository : IMarcaRepository
     {
         var marca = await _context.MarcasDeTiempo.FindAsync(id);
         var resultado = false;
-
         if (marca != null)
         {
             marca.AplicarSlugEliminacion();
             await _context.SaveChangesAsync();
             resultado = true;
         }
-
         return resultado;
     }
 }
