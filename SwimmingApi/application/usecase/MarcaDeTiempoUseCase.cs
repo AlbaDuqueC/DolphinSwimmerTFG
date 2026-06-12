@@ -144,6 +144,8 @@ public class MarcaDeTiempoUseCase : IMarcaDeTiempoUseCase
         // Se invalidan las cachés afectadas por el cambio.
         _cache.Eliminar(_cache.GenerarClave("marca", id));
         _cache.Eliminar($"marca:nadadorequipo:{marca.IdNadadorEquipo}");
+        if (marca.IdNadador.HasValue)
+            _cache.Eliminar($"marca:nadador:{marca.IdNadador}");
 
         var resultado = MapearAResponse(actualizada);
         return resultado;
@@ -159,10 +161,27 @@ public class MarcaDeTiempoUseCase : IMarcaDeTiempoUseCase
         if (!existe)
             throw new KeyNotFoundException($"MarcaDeTiempo con ID {id} no encontrada.");
 
+        // Se obtiene la marca ANTES de eliminarla para saber qué cachés de lista invalidar
+        // (después de eliminarla, ObtenerPorIdAsync podría no devolverla).
+        var marca = await _repository.ObtenerPorIdAsync(id);
+
         var eliminada = await _repository.EliminarLogicoAsync(id);
 
         if (eliminada)
+        {
+            // Invalida la caché de la marca individual.
             _cache.Eliminar(_cache.GenerarClave("marca", id));
+
+            // Invalida también las cachés de LISTAS donde aparecía esta marca;
+            // sin esto, ObtenerPorNadadorEquipoAsync/ObtenerPorNadadorAsync seguían
+            // devolviendo la marca ya eliminada hasta que la caché expirase sola.
+            if (marca != null)
+            {
+                _cache.Eliminar($"marca:nadadorequipo:{marca.IdNadadorEquipo}");
+                if (marca.IdNadador.HasValue)
+                    _cache.Eliminar($"marca:nadador:{marca.IdNadador}");
+            }
+        }
 
         var resultado = eliminada;
         return resultado;
